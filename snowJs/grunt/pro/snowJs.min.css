@@ -1,0 +1,12 @@
+.snowJs-control-canvas {
+  position: relative;
+  width: 800px;
+  height: 300px;
+  margin: 20px;
+}
+.snowJs-control-canvas canvas {
+  width: 740px;
+  height: 248px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
