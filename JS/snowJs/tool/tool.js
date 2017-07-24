@@ -40,5 +40,3 @@ snowJs.tool.createElement = function (param) {
     }
     return tag;
 };
-
-

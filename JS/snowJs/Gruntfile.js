@@ -4,9 +4,10 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         concat: {
-            file:{
+            file: {
                 src: [
                     'snowJs.js',
+                    'ajax/ajax.js',
                     'tool/tool.js',
                     'control/chart/chart.js'
                 ],
@@ -14,15 +15,15 @@ module.exports = function (grunt) {
             }
         },
         uglify: {
-            file:{
+            file: {
                 src: 'grunt/dev/snowJs.dev.js',
                 dest: 'grunt/pro/snowJs.min.js'
             }
         },
-        less:{
-            file:{
-                src:['snowJs.less'],
-                dest:'grunt/pro/snowJs.min.css'
+        less: {
+            file: {
+                src: ['snowJs.less'],
+                dest: 'grunt/pro/snowJs.min.css'
             }
         }
     });
@@ -31,5 +32,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
 
-    grunt.registerTask('default',['concat','uglify','less']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less']);
 };

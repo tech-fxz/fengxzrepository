@@ -3,32 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="../snowJs/grunt/pro/snowJs.min.css">
+    <link rel="stylesheet" href="../JS/snowJs/grunt/pro/snowJs.min.css">
 
-    <script src="../snowJs/grunt/dev/snowJs.dev.js"></script>
+    <script src="../JS/snowJs/grunt/dev/snowJs.dev.js"></script>
+    <script src="web.config.js"></script>
+    <script src="main.js"></script>
 </head>
 <body>
 <div>
     this is test pager.
 
     <div id="chart" class="snowJs-control-canvas"></div>
-
-    <script>
-        (function () {
-            var data = [
-                {y: '100', x: '2016年6月'},
-                {y: '200', x: '2016年7月'},
-                {y: '300', x: '2016年8月'},
-                {y: '400', x: '2016年9月'},
-                {y: '500', x: '2016年10月'},
-                {y: '600', x: '2016年11月'}
-            ];
-            var chart = new snowJs.Chart({
-                type: 'bar',
-                data: data
-            });
-        })();
-    </script>
 </div>
+
 </body>
 </html>
