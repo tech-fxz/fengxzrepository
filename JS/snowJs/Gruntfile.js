@@ -7,7 +7,7 @@ module.exports = function (grunt) {
             file: {
                 src: [
                     'snowJs.js',
-                    'ajax/ajax.js',
+                    'ajaxs/ajax.js',
                     'tool/tool.js',
                     'control/chart/chart.js'
                 ],

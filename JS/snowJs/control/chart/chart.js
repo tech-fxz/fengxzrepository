@@ -48,9 +48,6 @@ snowJs.Chart = (function () {
                 chart.moveTo(x, 230);
                 chart.lineTo(x, 235);
                 chart.stroke();
-
-                chart.beginPath();
-                chart
             }
 
             var maxVal = Number(data[0].y), minVal = Number(data[0].y);

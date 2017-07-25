@@ -10,7 +10,7 @@ snowJs.Ajax = function (param) {
         if (typeof XMLHttpRequest != 'undefined') {
             return new XMLHttpRequest();
         } else if (typeof ActiveXObject != 'undefined') {
-            if (typeof arguments.call.activeXSting != 'string') {
+            if (typeof arguments.callee.activeXSting != 'string') {
                 var versions = [
                     "MSXML2.XMLHttp.6.0",
                     "MSXML2.XMLHttp.3.0",
@@ -19,14 +19,14 @@ snowJs.Ajax = function (param) {
                 for (var i = 0, len = versions.length; i < len; i++) {
                     try {
                         new ActiveXObject(versions[i]);
-                        arguments.call.activeXSting = versions[i];
+                        arguments.callee.activeXSting = versions[i];
                         break;
                     } catch (error) {
                     }
                 }
             }
 
-            return new ActiveXObject(argument.callee.activeXString);
+            return new ActiveXObject(arguments.callee.activeXString);
         } else {
             throw new Error('no XHR object available');
         }
@@ -96,6 +96,58 @@ snowJs.tool.createElement = function (param) {
     }
     return tag;
 };
+
+snowJs.tool.serialize = function (form) {
+    var parts = [],
+        filed = null,
+        i,
+        len,
+        j,
+        optlen,
+        option,
+        optValue;
+    for (i = 0, len = form.elements.length; i < len; i++) {
+        filed = form.elements[i];
+        switch (filed.type) {
+            case 'select-one':
+            case 'select-multiple':
+                if (filed.name.length) {
+                    for (j = 0, optlen = filed.options.length; j++;) {
+                        option = filed.options[j];
+                        if (option.selected) {
+                            optValue = '';
+                            if (option.hasAttribute) {
+                                optValue = (option.hasAttribute('value') ? option.value : option.text);
+                            } else {
+                                optValue = (option.attributes['value'].specified ? option.value : option.text);
+                            }
+                            parts.push(encodeURIComponent((filed.name)) + '=' + encodeURIComponent(filed.value));
+                        }
+                    }
+                }
+                break;
+            case  undefined:
+            case 'file':
+            case 'submit':
+            case  'reset':
+            case 'button':
+                break;
+            case 'radio':
+            case 'checkbox':
+                if (!filed.checked) {
+                    break;
+                }
+                break;
+            default :
+                //������û�����ֵı����ֶ�
+                if (filed.name.length) {
+                    parts.push(encodeURIComponent((filed.name)) + '=' + encodeURIComponent(filed.value));
+                }
+        }
+    }
+
+    return parts.join('&');
+};
 /**
  * Created by Administrator on 2017/7/18.
  */
@@ -146,9 +198,6 @@ snowJs.Chart = (function () {
                 chart.moveTo(x, 230);
                 chart.lineTo(x, 235);
                 chart.stroke();
-
-                chart.beginPath();
-                chart
             }
 
             var maxVal = Number(data[0].y), minVal = Number(data[0].y);
