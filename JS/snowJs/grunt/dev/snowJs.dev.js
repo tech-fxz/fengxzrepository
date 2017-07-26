@@ -31,28 +31,52 @@ snowJs.Ajax = function (param) {
             throw new Error('no XHR object available');
         }
     };
-    if (!param) {
-        return;
-    }
 
-    param.type = param.type || 'get';
-    param.async = param.async || true;
-    var xhr = createXHR(param.type, param.url, param.async);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
-                if (typeof(param.success ) === 'function') {
-                    param.success(xhr.responseText);
-                }
-            } else {
-                if (typeof (param.error) === 'function') {
-                    param.error(xhr.responseText);
-                }
+    var response = function () {
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+            if (typeof(param.success ) === 'function') {
+                param.success(xhr.responseText);
+            }
+        } else {
+            if (typeof (param.error) === 'function') {
+                param.error(xhr.responseText);
             }
         }
     };
-    xhr.open(param.type, param.url, param.async);
-    xhr.send(null);
+
+    var parameter = {};
+
+    parameter.method = param.method || 'get';
+    parameter.async = param.async || true;
+    parameter.url = param.url;
+
+    var formDate;
+    if (param.type === 'file') {
+        formDate = new FormData();
+
+        formDate.append('Filename', 'text.txt');
+        formDate.append('TypeDir', 'pluploadfile');
+        formDate.append('aaa', '111');
+        formDate.append('bbb', '222');
+        formDate.append('Upload', 'Submit Query');
+        formDate.append('Filedata', param.file);
+    } else {
+        formDate = param.data;
+    }
+
+    var xhr = createXHR(parameter.method, parameter.url, parameter.async);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            response();
+        }
+    };
+
+    xhr.open(param.method, param.url, param.async);
+    xhr.send(formDate);
+
+    if (param.async) {
+        response();
+    }
 };
 /**
  * Created by Administrator on 2017/7/18.

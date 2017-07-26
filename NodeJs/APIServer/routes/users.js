@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
     res.send('respond with a resource');
 });
 
-router.get('/getUserInfo', function (req, res, next) {
+router.post('/getUserInfo', function (req, res, next) {
     var user = new User();
     var params = Url.parse(req.url, true).query;
     if (params.id == '1') {

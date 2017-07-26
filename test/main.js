@@ -14,16 +14,44 @@ window.onload = function () {
         type: 'bar',
         data: data
     });
+};
 
-    var obj = {};
-    obj.type = 'get';
-    obj.url = web.config.apiHost + '/users/getUserInfo';
-    obj.async = true;
-    obj.success = function (data) {
-        console.log(data);
+var save_click = function () {
+    var uploadFile = function () {
+        var file = new File(['Temporary/text.txt'], 'text.txt');
+        file.type = 'text/plain';
+        var obj = {};
+        obj.method = 'post';
+        obj.type = 'file';
+        obj.url = 'http://localhost:37871/UploadHandler.ashx';
+        obj.async = true;
+        obj.file = file;
+        obj.success = function (data) {
+            console.log(data);
+        };
+        obj.error = function (error) {
+            console.log(error);
+        };
+        obj.data = {id: 1};
+        snowJs.Ajax(obj);
     };
-    obj.error = function (error) {
-        console.log(error);
+
+    var addFile = function () {
+        var queryParam = {};
+        queryParam.method = 'get';
+        queryParam.data = 'this is create file';
+        queryParam.url = web.config.apiHost + '/createfiles';
+        queryParam.success = function (data) {
+            debugger;
+            uploadFile();
+        };
+        queryParam.error = function () {
+        };
+        snowJs.Ajax(queryParam);
     };
-    snowJs.Ajax(obj);
+
+    var file = document.getElementById('fileid');
+
+    addFile();
+    debugger;
 };
