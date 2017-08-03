@@ -8,7 +8,9 @@ window.onload = function () {
         {y: '300', x: '2016年8月'},
         {y: '400', x: '2016年9月'},
         {y: '500', x: '2016年10月'},
-        {y: '600', x: '2016年11月'}
+        {y: '600', x: '2016年11月'},
+        {y: '700', x: '2016年12月'},
+        {y: '800', x: '2017年01月'}
     ];
     var chart = new snowJs.Chart({
         type: 'bar',
@@ -18,7 +20,7 @@ window.onload = function () {
 
 var save_click = function () {
     var uploadFile = function () {
-        var file = new File(['Temporary/text.txt'], 'text.txt');
+        var file = new File(['dffsdfsfsfsdfsd'], 'newFile.txt');
         file.type = 'text/plain';
         var obj = {};
         obj.method = 'post';
@@ -53,5 +55,4 @@ var save_click = function () {
     var file = document.getElementById('fileid');
 
     addFile();
-    debugger;
 };

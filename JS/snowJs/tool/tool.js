@@ -20,6 +20,10 @@ snowJs.tool.extend = function (destination, source, isReference) {
 };
 
 snowJs.tool.getRandom = function () {
+    //è·å–æ—¶é—´æˆ³çš„æ–¹å¼
+    // 1ã€Date.parse(new Date())è¿”å›ç§’
+    // 2ã€(new Date()).valueOf()è¿”å›æ¯«ç§’;
+    // 3ã€new Date().getTime()è¿”å›æ¯«ç§’
     var date = new Date();
     var val = date.valueOf();
     return val;
@@ -83,7 +87,7 @@ snowJs.tool.serialize = function (form) {
                 }
                 break;
             default :
-                //²»°üº¬Ã»ÓĞÃû×ÖµÄ±íµ¥×Ö¶Î
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÄ±ï¿½ï¿½Ö¶ï¿½
                 if (filed.name.length) {
                     parts.push(encodeURIComponent((filed.name)) + '=' + encodeURIComponent(filed.value));
                 }
