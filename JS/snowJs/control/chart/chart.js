@@ -49,10 +49,11 @@ snowJs.Chart = (function () {
             chart.lineTo(canvasWidth, intervalLineY);
             chart.stroke();
 
-            //绘制X轴上的内容：间隔线、矩形、文本
+            var len = data.length;
+            var intervalX = parseInt((canvasWidth - X - 40) / len);//X轴间隔的坐标数值值
+
+            //绘制X轴上的内容：间隔线、文本
             var canvasX = function () {
-                var len = data.length;
-                var intervalX = parseInt((canvasWidth - X - 40) / len);//X轴间隔的坐标数值值
                 for (var i = 1; i <= len; i++) {
                     var x = intervalX * i;
                     x += X;
@@ -82,19 +83,20 @@ snowJs.Chart = (function () {
                 }
             };
 
-            //绘制Y轴上的内容：间隔线、辅助线、文本
-            var canvasIntervalY = function () {
-                var maxVal = Number(data[0].y),//Y轴数据中的最大值
-                    minVal = Number(data[0].y);//Y轴数据中的最小值
-                snowJs.tool.each(data, function (en, index) {
-                    var val = Number(en.y);
-                    maxVal < val ? maxVal = val : maxVal;
-                    minVal > val ? minVal = val : minVal;
-                });
+            var maxVal = Number(data[0].y),//Y轴数据中的最大值
+                minVal = Number(data[0].y);//Y轴数据中的最小值
+            snowJs.tool.each(data, function (en, index) {
+                var val = Number(en.y);
+                maxVal < val ? maxVal = val : maxVal;
+                minVal > val ? minVal = val : minVal;
+            });
 
-                var firstVal = parseInt(maxVal.toString()[0]);//Y轴数据中最大值的第一位数值
-                var intervalVal = parseInt(maxVal / firstVal);//Y轴间隔的数据数值，比如5,10,100,1000
-                var intervalY = (Y - 30) / firstVal;//Y轴间隔的坐标数值值
+            var firstVal = parseInt(maxVal.toString()[0]);//Y轴数据中最大值的第一位数值
+            var intervalVal = parseInt(maxVal / firstVal);//Y轴间隔的数据数值，比如5,10,100,1000
+            var intervalY = (Y - 30) / firstVal;//Y轴间隔的坐标数值值
+
+            //绘制Y轴上的内容：间隔线、辅助线、文本
+            var canvasY = function () {
                 for (var i = 1; i <= firstVal; i++) {
                     //绘制Y轴上的间隔线
                     var y = intervalLineY - intervalY * i;//Y轴间隔线终点的Y轴坐标
@@ -130,8 +132,36 @@ snowJs.Chart = (function () {
                 }
             };
 
+            var canvasChart = function () {
+                for (var i = 0; i < data.length; i++) {
+                    var x = intervalX * (i + 1);
+                    x += X - intervalX / 2-10;
+
+                    var val = Number(data[i].y);
+                    var n = parseInt(val / intervalVal);
+                    var m = val % intervalVal;
+                    var y = intervalLineY - (n * intervalY + m * intervalY / intervalVal);
+                    var x1=x + 20;
+
+
+                    chart.fillStyle='#4bbfbf';
+                    chart.beginPath();
+                    chart.moveTo(x, intervalLineY);
+                    chart.lineTo(x, y);
+                    chart.lineTo(x1, y);
+                    chart.lineTo(x1, intervalLineY);
+                    chart.lineTo(x, intervalLineY);
+                    chart.fill();
+
+                    chart.textAlign='center';
+                    chart.fillStyle = "white";
+                    chart.fillText(val.toString(),x1-10,y+(Y-y)/2);
+                }
+            };
+
             canvasX();
-            canvasIntervalY();
+            canvasY();
+            canvasChart()
         };
         var createSectorChart = function () {
         };
