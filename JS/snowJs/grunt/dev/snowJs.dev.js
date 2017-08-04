@@ -311,7 +311,6 @@ snowJs.Chart = (function () {
             };
 
             var canvasChart = function () {
-                debugger;
                 for (var i = 0; i < data.length; i++) {
                     var x = intervalX * (i + 1);
                     x += X - intervalX / 2-10;

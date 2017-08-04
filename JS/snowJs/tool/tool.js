@@ -96,3 +96,23 @@ snowJs.tool.serialize = function (form) {
 
     return parts.join('&');
 };
+
+snowJs.tool.Binary = (function () {
+    var ctor=function(){
+        var encode = function (parameter) {
+            var initParameter={};
+            snowJs.tool.extend(initParameter,parameter);
+
+            var str=initParameter
+        };
+        var decode = function (parameter) {
+            var initParameter={};
+            snowJs.tool.extend(initParameter,parameter);
+
+        };
+        var o = {};
+        o.encode = encode;
+        o.decode = decode;
+    };
+    return ctor;
+})();
