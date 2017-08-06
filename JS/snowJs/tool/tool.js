@@ -87,7 +87,6 @@ snowJs.tool.serialize = function (form) {
                 }
                 break;
             default :
-                //������û�����ֵı��ֶ�
                 if (filed.name.length) {
                     parts.push(encodeURIComponent((filed.name)) + '=' + encodeURIComponent(filed.value));
                 }
@@ -98,21 +97,42 @@ snowJs.tool.serialize = function (form) {
 };
 
 snowJs.tool.Binary = (function () {
-    var ctor=function(){
-        var encode = function (parameter) {
-            var initParameter={};
-            snowJs.tool.extend(initParameter,parameter);
+    var encode = function (parameter) {
+        var initParameter = {};
+        snowJs.tool.extend(initParameter, parameter);
 
-            var str=initParameter
-        };
-        var decode = function (parameter) {
-            var initParameter={};
-            snowJs.tool.extend(initParameter,parameter);
+        var str = initParameter.char;
+        var strBinaries = '';
+        for (var i = 0; i < str.length; i++) {
+            var n = str[i];
+            var num = str.charCodeAt(i);
+            var binary = num.toString(2);
 
-        };
-        var o = {};
-        o.encode = encode;
-        o.decode = decode;
+            if (strBinaries === '') {
+                strBinaries = binary;
+            } else {
+                strBinaries = strBinaries + ' ' + binary;
+            }
+        }
+        return strBinaries;
     };
-    return ctor;
+    var decode = function (parameter) {
+        var initParameter = {};
+        snowJs.tool.extend(initParameter, parameter);
+
+        var char = '';
+        var binaryChar = initParameter.binaryChar;
+        var binaryCharList = binaryChar.split(' ');
+        for (var i = 0; i < binaryChar.length; i++) {
+            var str = binaryCharList[i];
+            str = parseInt(str, 2);
+            char += String.fromCharCode(str);
+        }
+        return char;
+    };
+
+    var o = {};
+    o.encode = encode;
+    o.decode = decode;
+    return o;
 })();
