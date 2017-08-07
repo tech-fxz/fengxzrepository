@@ -66,20 +66,6 @@ var save_click = function () {
 };
 
 var encodeBinary = function (event) {
-    this.f = 1;
-    var s = function (i) {
-        this.f = 2;
-        console.log(window.f);
-        return function () {
-            this.f = 3;
-            console.log(window.f);
-        };
-    };
-    var p = {};
-    p.s = s;
-    p.s();
-    console.log('=======================这是一条华丽丽的分界线==============================');
-    p.s()();
 };
 
 var setBuffer = function () {
