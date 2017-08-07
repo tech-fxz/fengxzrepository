@@ -65,25 +65,31 @@ var save_click = function () {
     uploadFile();
 };
 
+var encodeBinary = function (event) {
+    this.f = 1;
+    var s = function (i) {
+        this.f = 2;
+        console.log(window.f);
+        return function () {
+            this.f = 3;
+            console.log(window.f);
+        };
+    };
+    var p = {};
+    p.s = s;
+    p.s();
+    console.log('=======================这是一条华丽丽的分界线==============================');
+    p.s()();
+};
+
 var setBuffer = function () {
     var str = "支持中文吗? ying gai shi zhi chi de.";
     console.log('编码前:' + str);
-    var encodeBinary = snowJs.tool.Binary.encode({char:str});
+    var encodeBinary = snowJs.tool.Binary.encode({char: str});
     console.log('编码前:' + encodeBinary);
 
-    var decodeBinary = snowJs.tool.Binary.decode({binaryChar:encodeBinary});
+    var decodeBinary = snowJs.tool.Binary.decode({binaryChar: encodeBinary});
     console.log('编码前:' + decodeBinary);
-    //var decode=function(){
-    //    var goal = "";
-    //    var arr = total2str.split(' ');
-    //    for(var i=0; i < arr.length; i++){
-    //        var str2 = arr[i];
-    //        var num10 = parseInt(str2, 2); ///< 2进制字符串转换成 10进制的数字
-    //        goal += String.fromCharCode(num10); ///< 将10进制的unicode编码, 转换成对应的unicode字符
-    //    }
-    //
-    //    console.log('解码后:'+ goal );
-    //};
 };
 
 setBuffer();

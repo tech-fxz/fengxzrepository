@@ -37,7 +37,6 @@ snowJs.tool.createElement = function (param) {
 
         var tag = document.createElement(tag);
 
-
         tag.setAttribute('class', cssClass);
         tag.setAttribute('id', id);
     } catch (error) {
@@ -96,6 +95,10 @@ snowJs.tool.serialize = function (form) {
     return parts.join('&');
 };
 
+/**
+ * @class snowJs.tool.Binary
+ * @desc
+ */
 snowJs.tool.Binary = (function () {
     var encode = function (parameter) {
         var initParameter = {};

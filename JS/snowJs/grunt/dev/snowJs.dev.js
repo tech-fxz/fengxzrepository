@@ -117,7 +117,6 @@ snowJs.tool.createElement = function (param) {
 
         var tag = document.createElement(tag);
 
-
         tag.setAttribute('class', cssClass);
         tag.setAttribute('id', id);
     } catch (error) {
@@ -176,6 +175,10 @@ snowJs.tool.serialize = function (form) {
     return parts.join('&');
 };
 
+/**
+ * @class snowJs.tool.Binary
+ * @desc
+ */
 snowJs.tool.Binary = (function () {
     var encode = function (parameter) {
         var initParameter = {};
@@ -232,6 +235,8 @@ snowJs.Chart = (function () {
         initParameter.type = 'bar';
         snowJs.tool.extend(initParameter, Parameter);
 
+        var container=initParameter.container;
+
         var chartTag = document.getElementById('chart');
         var canvasId = snowJs.tool.getRandom();
         var canvas = snowJs.tool.createElement({
@@ -245,6 +250,7 @@ snowJs.Chart = (function () {
         canvas.setAttribute('height', canvasHeight.toString());
         chartTag.appendChild(canvas);
 
+        //矩形统计图
         var createBarChart = function () {
             var data = initParameter.data;
             var canvas = document.getElementById(canvasId);
@@ -353,16 +359,16 @@ snowJs.Chart = (function () {
             var canvasChart = function () {
                 for (var i = 0; i < data.length; i++) {
                     var x = intervalX * (i + 1);
-                    x += X - intervalX / 2-10;
+                    x += X - intervalX / 2 - 10;
 
                     var val = Number(data[i].y);
                     var n = parseInt(val / intervalVal);
                     var m = val % intervalVal;
                     var y = intervalLineY - (n * intervalY + m * intervalY / intervalVal);
-                    var x1=x + 20;
+                    var x1 = x + 20;
 
 
-                    chart.fillStyle='#4bbfbf';
+                    chart.fillStyle = '#4bbfbf';
                     chart.beginPath();
                     chart.moveTo(x, intervalLineY);
                     chart.lineTo(x, y);
@@ -371,9 +377,9 @@ snowJs.Chart = (function () {
                     chart.lineTo(x, intervalLineY);
                     chart.fill();
 
-                    chart.textAlign='center';
+                    chart.textAlign = 'center';
                     chart.fillStyle = "white";
-                    chart.fillText(val.toString(),x1-10,y+(Y-y)/2);
+                    chart.fillText(val.toString(), x1 - 10, y + (Y - y) / 2);
                 }
             };
 
@@ -381,8 +387,17 @@ snowJs.Chart = (function () {
             canvasY();
             canvasChart()
         };
+
+        //原型统计图
         var createSectorChart = function () {
+            var chartTag = document.getElementById('chart');
+            var chart = chartTag.getContext('2d');
+
+            chart.beginPath();
+            chart.arc(75, 75, 50, 0, Math.PI * 2, true);
+            chart.stroke();
         };
+        //线形统计图
         var createLineChart = function () {
         };
 
