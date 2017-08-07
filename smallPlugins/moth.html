@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script type="text/javascript" charset="utf-8"
+            src="http://lib.jxt189.com/otherlib/jquery/1.11.3/jquery-1.11.3.min.js"></script>
+
+    <style>
+        .datetime {
+            width: 155px;
+            margin: 20px 30px;
+        }
+
+        input {
+            width: 155px;
+            height: 25px;
+            line-height: 25px;
+            text-indent: 20px;
+            border-radius: 5px;
+            background: url(v1/images/yeb/icon_calendar.png) no-repeat 95% center;
+        }
+
+        .datetime-box {
+            display: none;
+            width: 155px;
+            margin-top: 3px;
+        }
+
+        .datetime-box .header {
+            height: 30px;
+            line-height: 20px;
+        }
+
+        .datetime-box .header > div {
+            float: left;
+            margin-right: 6px;
+        }
+
+        .datetime-box .header button {
+            border: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        .datetime-box .header .next-month {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="datetime">
+    <input type="text" id="datetime1">
+
+    <div class="datetime-box">
+        <div class="header">
+            <div class="pre-month">
+                <button><</button>
+            </div>
+            <div class="month-select">
+                <select>
+                    <option value="1">一月</option>
+                    <option value="2">二月</option>
+                    <option value="3">三月</option>
+                    <option value="4">四月</option>
+                    <option value="5">五月</option>
+                    <option value="6">六月</option>
+                    <option value="7">七月</option>
+                    <option value="8">八月</option>
+                    <option value="9">九月</option>
+                    <option value="10">十月</option>
+                    <option value="11">十一月</option>
+                    <option value="12">十二月</option>
+                </select>
+            </div>
+            <div class="year-select">
+                <select></select>
+            </div>
+            <div class="next-month">
+                <button>></button>
+            </div>
+        </div>
+
+        <div class="date-box">
+            <table></table>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var $monthSelect = $('.month-select select');
+    var $yearSelect = $('.year-select select');
+
+    var initDate = function () {
+        var nowDate = new Date();
+        var year = nowDate.getFullYear();
+        var month = nowDate.getMonth() + 1;
+//        var date = nowDate.getDate();
+
+        var $monthSelect = $('.month-select select');
+        var $yearSelect = $('.year-select select');
+
+        var start = year - 50;
+        for (var i = 0; i <= 100; i++) {
+            var optionHtml = '<option value=' + start + '>' + start + '</option>';
+            $yearSelect.append(optionHtml);
+            start++;
+        }
+
+
+        $yearSelect.val(year);
+        $monthSelect.val(month);
+
+        var localDate = year + '-' + month;
+        return localDate;
+    };
+
+    var setDate = function () {
+        var year = $yearSelect.val();
+        var month = $monthSelect.val();
+
+        var year_month = year + '-' + month;
+        $('#datetime1').val(year_month);
+        $('.datetime-box').hide();
+    };
+    $(document).ready(function () {
+        var nowDate = initDate();
+        $('#datetime1').val(nowDate);
+    });
+
+    $(document).on('click', '#datetime1', function () {
+        $('.datetime-box').show();
+    });
+
+    $(document).on('click', '.pre-month button', function (event) {
+        var year = Number($yearSelect.val());
+        var month = Number($monthSelect.val());
+
+        if (month === 1) {
+            month = 12;
+            year = year - 1;
+        } else {
+            month = month - 1;
+        }
+        $yearSelect.val(year);
+        $monthSelect.val(month);
+
+        setDate();
+    });
+
+    $(document).on('click', '.next-month button', function () {
+        var year = Number($yearSelect.val());
+        var month = Number($monthSelect.val());
+
+        if (month === 12) {
+            month = 1;
+            year = year + 1;
+        } else {
+            month = month + 1;
+        }
+        $yearSelect.val(year);
+        $monthSelect.val(month);
+
+        setDate();
+    });
+
+    $(document).on('change', 'select', function (event) {
+        setDate();
+    });
+
+    $(document).click(function (event) {
+        var $target = $(event.target);
+        if (!$target.hasClass('datetime')) {
+            var $parent = $target.parents('.datetime');
+            if ($parent.length === 0) {
+                setDate();
+            }
+        }
+    });
+</script>
+</body>
+</html>

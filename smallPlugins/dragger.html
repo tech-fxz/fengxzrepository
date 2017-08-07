@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI 拖动（Draggable） - 默认功能</title>
+    <script type="text/javascript" charset="utf-8"
+            src="http://lib.jxt189.com/otherlib/jquery/1.11.3/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8"
+            src="http://lib.jxt189.com/otherlib/jquery-ui/1.12.0/jquery-ui.min.js"></script>
+
+    <style>
+        table {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+        }
+    </style>
+
+</head>
+<body>
+
+<table onmouseup="mouseUp(event);">
+    <tr onmousedown="mouseDown(this ,event)" onmousemove="mouseMove(event);">
+        <td>a</td>
+        <td>b</td>
+        <td>c</td>
+    </tr>
+
+    <tr onmousedown="mouseDown(this,event)" onmousemove="mouseMove(event);">
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr onmousedown="mouseDown(this,event)" onmousemove="mouseMove(event);">
+        <td>q</td>
+        <td>w</td>
+        <td>e</td>
+    </tr>
+</table>
+
+<script language="javascript">
+    var Node, index, direct, oy, ny;
+    var isDown;
+    document.onselectstart = function () {
+        return false;
+    };
+
+    function mouseDown(obj, event) {
+        isDown = true;
+        Node = $(obj).clone();
+        index = $(obj).index();
+        oy = event.clientY
+    }
+    function mouseMove(event) {
+        if (isDown) {
+            direct = event.movementY;
+        }
+    }
+    function mouseUp(obj) {
+        var i;
+        if (isDown) {
+            isDown = false;
+            if (!obj.path) {
+                i = $(obj.target).parents('tr').index();
+            } else {
+                i = $(obj.path[1]).index();
+            }
+
+            ny = obj.clientY;
+            var direct = ny - oy;
+            if (!!direct) {
+                if (direct < 0) {
+                    index += 1;
+                    $('table tr:eq(' + i + ')').before(Node);
+                } else if (direct > 0) {
+                    $('table tr:eq(' + i + ')').after(Node);
+                }
+                $('table tr:eq(' + index + ')').remove();
+            }
+        }
+    }
+</script>
+</body>
+</html>
