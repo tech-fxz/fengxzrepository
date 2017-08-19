@@ -3,6 +3,15 @@
  */
 var gruntHelp = require('./initTask.js');
 module.exports = function (grunt) {
+    grunt.initConfig({
+        less: {
+            base: {
+                src: 'Css/base.less',
+                dest: 'Css/base.min.css'
+            }
+        }
+    });
+
     gruntHelp.initTask(require('./JS/snowJs/grunt-config-file.js'));
     gruntHelp.initTask(require('./test/grunt-config-file.js'));
 

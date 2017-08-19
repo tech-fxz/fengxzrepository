@@ -3,11 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="../Css/base.min.css">
 
+    <style>
+        .header {
+            width: auto;
+            height: 60px;
+            line-height: 60px;
+            background-color: #0088cc;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .header .logo {
+            float: left;
+            width: 200px;
+            height: 60px;
+            font-size: 16px;
+        }
+
+        .header .nav {
+            width: 350px;
+            margin: 0 auto;
+        }
+
+        .header .nav ul {
+            overflow: hidden;
+        }
+
+        .header .nav ul li {
+            float: left;
+            font-size: 16px;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 10px;
+        }
+
+        .header .nav ul li .hr {
+            height: 20px;
+            line-height: 20px;
+            margin-left: 20px;
+            border: 1px solid #cce2c1;
+        }
+
+        .content {
+            width: 70%;
+            margin: 10px auto 0;
+        }
+
+        .content .row {
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .row_1 .personal, .news {
+            float: left;
+        }
+
+        .content .personal {
+            float: left;
+            width: 180px;
+            height: 200px;
+            border: 1px solid #d3d3d3;
+            margin-right: 20px;
+        }
+
+        .content .personal .face {
+            width: 110px;
+            margin: 15px auto;
+            padding: 46px 0;
+            border: 1px solid #d3e4ed;
+            border-radius: 50%;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .content .personal .info{
+            text-align: center;
+            margin-top: 25px;
+        }
+        .content .personal .info .name{
+            font-size: 14px;
+            padding-right: 5px;
+            margin-right: 5px;
+            border-right: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
 <div class="webPaper">
+    <div class="header">
+        <div class="logo">
+            logo
+        </div>
+        <div class="nav">
+            <ul>
+                <li>FaceBook<i class="hr"></i></li>
+                <li>QQ<i class="hr"></i></li>
+                <li>朋友圈<i class="hr"></i></li>
+                <li>微博</li>
+            </ul>
+        </div>
+    </div>
 
+    <div class="content">
+        <div class="row row_1">
+            <div class="personal">
+                <div class="face">头像</div>
+                <div class="info">
+                    <span class="name">姓名</span>
+                    <a href="#">个人设置</a>
+                </div>
+            </div>
+            <div class="news">
+                <div>最新动态</div>
+
+                <ul>
+                    <li>好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩</li>
+                    <li>好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩</li>
+                    <li>好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩</li>
+                    <li>好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩</li>
+                    <li>好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩</li>
+                    <li>好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩</li>
+                    <li>好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩</li>
+                    <li>好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩好玩</li>
+                    <li>好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃</li>
+                </ul>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="row">
+            <div class="weicat"></div>
+            <div></div>
+        </div>
+        <div class="row">
+            <div class="weibo"></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="footer"></div>
 </div>
 </body>
 </html>
