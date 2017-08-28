@@ -8,12 +8,13 @@ p,
 div,
 ul,
 li,
-ol {
+ol,
+button {
   margin: 0;
   padding: 0;
+  font-size: 12px;
 }
-li,
-ol {
+ul {
   list-style: none;
 }
 .clearfix {
@@ -21,4 +22,7 @@ ol {
 }
 a {
   text-decoration: none;
+}
+a:hover {
+  color: red;
 }
