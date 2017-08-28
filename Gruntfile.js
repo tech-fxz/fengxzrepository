@@ -6,8 +6,8 @@ module.exports = function (grunt) {
     grunt.initConfig({
         less: {
             base: {
-                src: 'Css/base.less',
-                dest: 'Css/base.min.css'
+                src: 'snowCss/base.less',
+                dest: 'snowCss/base.min.css'
             }
         }
     });

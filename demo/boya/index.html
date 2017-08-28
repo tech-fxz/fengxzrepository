@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>博雅互动</title>
-    <link rel="stylesheet" href="../../Css/base.min.css">
+    <link rel="stylesheet" href="../../snowCss/base.min.css">
 
     <style>
         .dots ul li {
@@ -104,15 +104,15 @@
             margin: 20px auto;
         }
 
-        .middle-content .middle-content-trailer {
+        .middle-content .trailer {
             overflow: hidden;
         }
 
-        .middle-content .middle-content-trailer .content {
+        .middle-content .trailer .content {
             overflow: hidden;
         }
 
-        .middle-content .middle-content-trailer .content li {
+        .middle-content .trailer .content li {
             float: left;
             width: 232px;
             height: 185px;
@@ -120,73 +120,64 @@
             text-align: center;
         }
 
-        .middle-content .middle-content-trailer .content li:first-child {
+        .middle-content .trailer .content li:first-child {
             margin-left: 0;
         }
 
-        .middle-content .middle-content-trailer .content li:last-child {
+        .middle-content .trailer .content li:last-child {
             margin-right: 0;
         }
 
-        .middle-content .middle-content-trailer .content li p {
+        .middle-content .trailer .content li p {
             margin: 5px 0;
             font-size: 14px;
             font-weight: bold;
             color: #454967;
         }
 
-        .middle-content .middle-content-trailer .content li a {
+        .middle-content .trailer .content li a {
             padding-right: 10px;
             background: url('images/sanjiaoxing.png') no-repeat right;
             color: #39B775;
         }
 
-        .middle-content-trailer-line {
+        .middle-content .trailer .trailer-line {
             margin: 30px 0;
         }
 
-        .middle-content-trailer-line .row {
+        .middle-content .trailer .trailer-line .row {
             float: left;
         }
 
-        .middle-content-trailer-line .line {
+        .middle-content .trailer .trailer-line .line {
             margin: 10px 0;
             width: 46%;
             border: 1px solid #DBE1E7;
         }
 
-        .middle-content-trailer-line .dots ul li {
+        .middle-content .trailer .trailer-line .dots ul li {
             background-color: #B5C0CB;
         }
 
-        .middle-content-trailer-line .dots ul .active {
+        .middle-content .trailer .trailer-line .dots ul .active {
             background-color: #31BC72;
         }
 
-        .news {
+        .middle-content .news {
             margin-top: 20px;
             overflow: hidden;
         }
 
-        .news .column {
+        .middle-content .news .column {
             float: left;
             width: 48%;
         }
 
-        .news .recruit {
-            float: right;
-            background: url("images/byhrbg3.jpg") no-repeat;
-        }
-
-        .news .boya-news {
-            background: url('images/bynewsbg.jpg') no-repeat;
-        }
-
-        .news .column .news-header {
+        .middle-content .news .column .news-header {
             height: 113px;
         }
 
-        .news .column .news-header .title {
+        .middle-content .news .column .news-header .title {
             width: 120px;
             height: 40px;
             margin-left: 80px;
@@ -194,16 +185,16 @@
             color: #FFFFFF;
         }
 
-        .news .column .news-header .title p {
+        .middle-content .news .column .news-header .title p {
             font-size: 30px;
             font-weight: bold;
         }
 
-        .news .column .news-header {
+        .middle-content .news .column .news-header {
             position: relative;
         }
 
-        .news .column .news-header .more {
+        .middle-content .news .column .news-header .more {
             position: absolute;
             top: 40px;
             left: 220px;
@@ -213,57 +204,62 @@
             border-radius: 5px;
         }
 
-        .news .boya-news .news-header .more {
-            border-color: #34B973;
-            color: #34B973;
-        }
-
-        .news .recruit .news-header .more {
-            border-color: #ffffff;
-            color: #ffffff;
-        }
-
-        .news .column .news-header .more label {
+        .middle-content .news .column .news-header .more label {
             position: absolute;
             right: 10px;
             top: 0;
         }
 
-        .news .news-content {
+        .middle-content .news .column  .news-content {
             margin-left: 15px;
         }
 
-        .news .recruit .news-content {
+        .middle-content .news .recruit {
+            float: right;
+            background: url("images/byhrbg3.jpg") no-repeat;
+        }
+
+        .middle-content .news .recruit .news-header .more {
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
+        .middle-content .news .recruit .news-content {
             width: 300px;
         }
 
-        .news .recruit .news-content p {
+        .middle-content .news .recruit .news-content p {
             color: #ffffff;
             font-size: 12px;
             font-weight: bold;
         }
 
-        .news .column li {
-
+        .middle-content .news .boya-news {
+            background: url('images/bynewsbg.jpg') no-repeat;
         }
 
-        .news .boya-news li {
+        .middle-content .news .boya-news .news-header .more {
+            border-color: #34B973;
+            color: #34B973;
+        }
+
+        .middle-content .news .boya-news li {
             height: 48px;
             line-height: 48px;
             font-size: 14px;
             border-bottom: 1px solid #DFE0E4;
         }
 
-        .news .boya-news li .data {
+        .middle-content .news .boya-news li .data {
             margin-right: 20px;
             color: #AFBECF;
         }
 
-        .news .boya-news li .data span {
+        .middle-content .news .boya-news li .data span {
             margin: 0 5px;
         }
 
-        .news .recruit li {
+        .middle-content .news .recruit li {
             height: 34px;
             line-height: 34px;
             color: #FFFFFF;
@@ -344,7 +340,7 @@
     </div>
 </div>
 <div class="middle-content">
-    <div class="middle-content-trailer">
+    <div class="trailer">
         <div class="content">
             <ul>
                 <li>
@@ -373,7 +369,7 @@
                 </li>
             </ul>
         </div>
-        <div class="middle-content-trailer-line">
+        <div class="trailer-line">
             <div class="row line"></div>
             <div class="row dots">
                 <ul>
