@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animation</title>
+
+
+    <style>
+        label {
+            display: block;
+            width: 50px;
+            height: 22px;
+            border: 1px solid #E2E2E2;
+            border-radius: 20px;
+        }
+
+        label em {
+            position: relative;
+            float: left;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #E2E2E2;
+            border-radius: 100%;
+            background-color: #EDEEF0;
+            cursor: pointer;
+        }
+
+        .running-left {
+            animation: sliders-left 1s;
+        }
+
+        .running-right {
+            animation: sliders-right 1s;
+        }
+
+        .active-right {
+            float: right;
+            background-color: #50CA43;
+        }
+
+        .active-left {
+            float: left;
+        }
+
+        @keyframes sliders-left {
+            0% {
+                background: #50CA43;
+                left: 28px;
+                top: 0;
+            }
+            100% {
+                background: #EDEEF0;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        @keyframes sliders-right {
+            0% {
+                background: #EDEEF0;
+                left: 0;
+                top: 0;
+            }
+            100% {
+                background: #50CA43;
+                left: 28px;
+                top: 0
+            }
+        }
+    </style>
+
+    <script>
+        function clickEm(event) {
+            var className = event.getAttribute('class') || '';
+            var animationName, activeMame;
+            if (className.indexOf('active-right') > -1) {
+                animationName = 'running-left';
+                activeMame = 'active-left';
+            } else {
+                animationName = 'running-right';
+                activeMame = 'active-right'
+            }
+            event.setAttribute('class', '');
+
+            event.setAttribute('class', animationName);
+            setTimeout(function () {
+                event.setAttribute('class', activeMame);
+            }, 1 * 1000);
+        }
+    </script>
+</head>
+<body>
+<div>
+    <label><em onclick="clickEm(this)"></em></label>
+</div>
+</body>
+</html>
