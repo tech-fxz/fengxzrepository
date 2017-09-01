@@ -2,6 +2,7 @@
  * Created by zhen on 2017/8/19.
  */
 var Js_config = {
+    rootDirectory:'test/',
     Name: 'test',
     Config: {
         concat: {

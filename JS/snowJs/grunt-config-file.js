@@ -2,10 +2,11 @@
  * Created by zhen on 2017/8/19.
  */
 var Js_config = {
-    Name: 'JS',
+    rootDirectory: 'JS/snowJs/',
+    Name: 'snowJs',
     Config: {
         concat: {
-            JS: {
+            snowJs: {
                 src: [
                     'JS/snowJs/snowJs.js',
                     'JS/snowJs/ajaxs/ajax.js',
@@ -17,13 +18,13 @@ var Js_config = {
 
         },
         uglify: {
-            JS: {
+            snowJs: {
                 src: 'JS/snowJs/grunt/dev/snowJs.dev.js',
                 dest: 'JS/snowJs/grunt/pro/snowJs.min.js'
             }
         },
         less: {
-            JS: {
+            snowJs: {
                 src: ['JS/snowJs/snowJs.less'],
                 dest: 'JS/snowJs/grunt/pro/snowJs.min.css'
             }
