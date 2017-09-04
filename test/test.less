@@ -1,4 +1,104 @@
-* {
-  padding: 0;
-  margin: 0;
+.jingleCat {
+  width: 390px;
+  height: 480px;
+
+  @eyesPWidth: 48px;
+  @elseBlackSpot: 10px;
+
+  &-header {
+    position: relative;
+    width: 312px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: #0AB9E4;
+    border: 2px solid #343434;
+    border-radius: 47%;
+
+    &-face {
+      position: absolute;
+      bottom: 14px;
+      left: 28px;
+      width: 250px;
+      height: 200px;
+      border: 2px solid #343434;
+      background-color: #ffffff;
+      border-radius: 50%;
+      z-index: 1;
+
+      &-eye {
+        position: absolute;
+        top: -40px;
+        width: 74px;
+        height: 90px;
+        border: 2px solid #343434;
+        background-color: #ffffff;
+        border-radius: 44%;
+        z-index: 2;
+
+        &-spot {
+          position: absolute;
+          bottom: 20px;
+          width: 0;
+          height: 0;
+          border: 10px solid #343434;
+          border-radius: 100%;
+        }
+        &-spot-right {
+          right: @elseBlackSpot;
+        }
+        &-spot-left {
+          left: @elseBlackSpot;
+        }
+      }
+      &-eye-left {
+        left: @eyesPWidth;
+      }
+      &-eye-right {
+        right: @eyesPWidth;
+      }
+
+      &-nose {
+        position: absolute;
+        top: 37px;
+        left: 50%;
+        margin-left: -18px;
+        width: 32px;
+        height: 32px;
+        border: 2px solid #343434;
+        border-radius: 100%;
+        background-color: #C93F02;
+        z-index: 2;
+      }
+      &-lines {
+        position: absolute;
+        top: 43px;
+        left: 25px;
+        width: 200px;
+        height: 85px;
+        background-color: #FFFFFF;
+        z-index: 1;
+
+        &-line {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          margin-left: -2px;
+          width: 0;
+          height: 108px;
+          border: 2px solid #343434;
+        }
+      }
+
+      &-smile {
+        position: absolute;
+        bottom: 43px;
+        left: 35px;
+        width: 177px;
+        height: 114px;
+        border: 3px solid #343434;
+        border-radius: 50%;
+        border-top: 0;
+      }
+    }
+  }
 }
