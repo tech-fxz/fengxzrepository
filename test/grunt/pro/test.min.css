@@ -131,12 +131,12 @@
   right: -2px;
 }
 .jingleCat-header-face-lines-slash-bottom:before {
-  border-bottom-color: #333333;
-  top: -5px;
+  border-top-color: #333333;
+  bottom: -16px;
 }
 .jingleCat-header-face-lines-slash-bottom:after {
-  border-bottom-color: #ffffff;
-  top: -2px;
+  border-top-color: #ffffff;
+  bottom: -13px;
 }
 .jingleCat-header-face-smile {
   position: absolute;
