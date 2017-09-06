@@ -2,13 +2,15 @@
   width: 390px;
   height: 480px;
 
-  @eyesPWidth: 48px;
+  @eyesPWidth: 59px;
   @elseBlackSpot: 10px;
+
+  @middle-line-lw:-24px;
 
   &-header {
     position: relative;
-    width: 312px;
-    height: 300px;
+    width: 335px;
+    height: 310px;
     margin: 0 auto;
     background-color: #0AB9E4;
     border: 2px solid #343434;
@@ -18,8 +20,8 @@
       position: absolute;
       bottom: 14px;
       left: 28px;
-      width: 250px;
-      height: 200px;
+      width: 274px;
+      height: 206px;
       border: 2px solid #343434;
       background-color: #ffffff;
       border-radius: 50%;
@@ -72,7 +74,8 @@
       &-lines {
         position: absolute;
         top: 43px;
-        left: 25px;
+        left: 50%;
+        margin-left: -100px;
         width: 200px;
         height: 85px;
         background-color: #FFFFFF;
@@ -84,17 +87,78 @@
           left: 50%;
           margin-left: -2px;
           width: 0;
-          height: 108px;
+          height: 126px;
           border: 2px solid #343434;
+        }
+
+        &-middle {
+          width: 66px;
+          position: absolute;
+          border: 1px solid #333;
+          top: 46px;
+          z-index: 1;
+        }
+        &-middle-left {
+          left: @middle-line-lw;
+        }
+        &-middle-right {
+          right: @middle-line-lw;
+        }
+
+        &-slash {
+          width: 0;
+          height: 0;
+        }
+
+        &-slash:before,&-slash:after{
+          border: 24px solid transparent;
+          content: '';
+          position: absolute;
+        }
+
+        &-slash-top:before{
+          border-bottom-color: #333333;
+          top: -5px;
+        }
+        &-slash-top:after{
+          border-bottom-color: #ffffff;
+          top: -2px;
+        }
+
+        &-slash-left:before {
+          border-left-color: #333333;
+          left: -2px;
+        }
+        &-slash-left:after {
+          border-left-color: #ffffff;
+          left: -2px;
+        }
+        &-slash-right:before {
+          border-right-color: #333333;
+          right: -2px;
+        }
+        &-slash-right:after {
+          border-right-color: #ffffff;
+          right: -2px;
+        }
+
+        &-slash-bottom:before{
+          border-bottom-color: #333333;
+          top: -5px;
+        }
+        &-slash-bottom:after{
+          border-bottom-color: #ffffff;
+          top: -2px;
         }
       }
 
       &-smile {
         position: absolute;
-        bottom: 43px;
-        left: 35px;
+        bottom: 30px;
+        left: 50%;
+        margin-left: -91px;
         width: 177px;
-        height: 114px;
+        height: 150px;
         border: 3px solid #343434;
         border-radius: 50%;
         border-top: 0;

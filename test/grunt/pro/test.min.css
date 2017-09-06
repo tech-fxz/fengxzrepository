@@ -4,8 +4,8 @@
 }
 .jingleCat-header {
   position: relative;
-  width: 312px;
-  height: 300px;
+  width: 335px;
+  height: 310px;
   margin: 0 auto;
   background-color: #0AB9E4;
   border: 2px solid #343434;
@@ -15,8 +15,8 @@
   position: absolute;
   bottom: 14px;
   left: 28px;
-  width: 250px;
-  height: 200px;
+  width: 274px;
+  height: 206px;
   border: 2px solid #343434;
   background-color: #ffffff;
   border-radius: 50%;
@@ -47,10 +47,10 @@
   left: 10px;
 }
 .jingleCat-header-face-eye-left {
-  left: 48px;
+  left: 59px;
 }
 .jingleCat-header-face-eye-right {
-  right: 48px;
+  right: 59px;
 }
 .jingleCat-header-face-nose {
   position: absolute;
@@ -67,7 +67,8 @@
 .jingleCat-header-face-lines {
   position: absolute;
   top: 43px;
-  left: 25px;
+  left: 50%;
+  margin-left: -100px;
   width: 200px;
   height: 85px;
   background-color: #FFFFFF;
@@ -79,15 +80,71 @@
   left: 50%;
   margin-left: -2px;
   width: 0;
-  height: 108px;
+  height: 126px;
   border: 2px solid #343434;
+}
+.jingleCat-header-face-lines-middle {
+  width: 66px;
+  position: absolute;
+  border: 1px solid #333;
+  top: 46px;
+  z-index: 1;
+}
+.jingleCat-header-face-lines-middle-left {
+  left: -24px;
+}
+.jingleCat-header-face-lines-middle-right {
+  right: -24px;
+}
+.jingleCat-header-face-lines-slash {
+  width: 0;
+  height: 0;
+}
+.jingleCat-header-face-lines-slash:before,
+.jingleCat-header-face-lines-slash:after {
+  border: 24px solid transparent;
+  content: '';
+  position: absolute;
+}
+.jingleCat-header-face-lines-slash-top:before {
+  border-bottom-color: #333333;
+  top: -5px;
+}
+.jingleCat-header-face-lines-slash-top:after {
+  border-bottom-color: #ffffff;
+  top: -2px;
+}
+.jingleCat-header-face-lines-slash-left:before {
+  border-left-color: #333333;
+  left: -2px;
+}
+.jingleCat-header-face-lines-slash-left:after {
+  border-left-color: #ffffff;
+  left: -2px;
+}
+.jingleCat-header-face-lines-slash-right:before {
+  border-right-color: #333333;
+  right: -2px;
+}
+.jingleCat-header-face-lines-slash-right:after {
+  border-right-color: #ffffff;
+  right: -2px;
+}
+.jingleCat-header-face-lines-slash-bottom:before {
+  border-bottom-color: #333333;
+  top: -5px;
+}
+.jingleCat-header-face-lines-slash-bottom:after {
+  border-bottom-color: #ffffff;
+  top: -2px;
 }
 .jingleCat-header-face-smile {
   position: absolute;
-  bottom: 43px;
-  left: 35px;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -91px;
   width: 177px;
-  height: 114px;
+  height: 150px;
   border: 3px solid #343434;
   border-radius: 50%;
   border-top: 0;
