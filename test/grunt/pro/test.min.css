@@ -4,8 +4,8 @@
 }
 .jingleCat-header {
   position: relative;
-  width: 335px;
-  height: 310px;
+  width: 324px;
+  height: 300px;
   margin: 0 auto;
   background-color: #0AB9E4;
   border: 2px solid #343434;
@@ -13,8 +13,8 @@
 }
 .jingleCat-header-face {
   position: absolute;
-  bottom: 14px;
-  left: 28px;
+  bottom: 9px;
+  left: 23px;
   width: 274px;
   height: 206px;
   border: 2px solid #343434;
@@ -80,8 +80,8 @@
   left: 50%;
   margin-left: -2px;
   width: 0;
-  height: 126px;
-  border: 2px solid #343434;
+  height: 129px;
+  border: 1px solid #343434;
 }
 .jingleCat-header-face-lines-middle {
   width: 66px;
@@ -91,10 +91,10 @@
   z-index: 1;
 }
 .jingleCat-header-face-lines-middle-left {
-  left: -24px;
+  left: -14px;
 }
 .jingleCat-header-face-lines-middle-right {
-  right: -24px;
+  right: -14px;
 }
 .jingleCat-header-face-lines-slash {
   width: 0;
@@ -102,50 +102,52 @@
 }
 .jingleCat-header-face-lines-slash:before,
 .jingleCat-header-face-lines-slash:after {
-  border: 24px solid transparent;
+  border: 15px solid transparent;
+  border-left-width: 30px;
+  border-right-width: 30px;
   content: '';
   position: absolute;
 }
 .jingleCat-header-face-lines-slash-top:before {
   border-bottom-color: #333333;
-  top: -5px;
+  top: 1px;
 }
 .jingleCat-header-face-lines-slash-top:after {
   border-bottom-color: #ffffff;
-  top: -2px;
+  top: 3px;
 }
 .jingleCat-header-face-lines-slash-left:before {
   border-left-color: #333333;
-  left: -2px;
+  left: -6px;
 }
 .jingleCat-header-face-lines-slash-left:after {
   border-left-color: #ffffff;
-  left: -2px;
+  left: -6px;
 }
 .jingleCat-header-face-lines-slash-right:before {
   border-right-color: #333333;
-  right: -2px;
+  right: -8px;
 }
 .jingleCat-header-face-lines-slash-right:after {
   border-right-color: #ffffff;
-  right: -2px;
+  right: -8px;
 }
 .jingleCat-header-face-lines-slash-bottom:before {
   border-top-color: #333333;
-  bottom: -16px;
+  bottom: -6px;
 }
 .jingleCat-header-face-lines-slash-bottom:after {
   border-top-color: #ffffff;
-  bottom: -13px;
+  bottom: -4px;
 }
 .jingleCat-header-face-smile {
   position: absolute;
   bottom: 30px;
   left: 50%;
-  margin-left: -91px;
-  width: 177px;
-  height: 150px;
-  border: 3px solid #343434;
+  margin-left: -70px;
+  width: 140px;
+  height: 140px;
+  border: 2px solid #343434;
   border-radius: 50%;
   border-top: 0;
 }
