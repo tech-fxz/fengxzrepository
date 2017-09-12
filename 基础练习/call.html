@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>this的指向</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+</head>
+<body>
+<script>
+    (function () {
+        function add(a, b) {
+            if (!a) {
+                a = this.a;
+            }
+
+            if (!b) {
+                b = this.b;
+            }
+debugger;
+            console.log(this === fn);
+            console.log(a + b);
+        }
+
+        function sub(a, b) {
+//	    console.log(this);
+//	    console.log(a-b);
+            this.b = 10;
+            this.a = 2;
+            add.call(this);
+        }
+
+        function app(a, b) {
+            console.log(a + b);
+        };
+
+        var fn=new sub(1, 2);
+        add.call(sub, 3, 1);//this===sub\
+        sub.apply(app, [6, 5]);//this===app
+
+
+        var f = function () {
+            console.log(this);
+            this.f1 = function () {
+                console.log(this);
+            };
+        }
+        f();//this===window
+        var n = new f();//this===f{}，注this!=f
+        n.f1();//this=n
+        f1();//this===window
+
+    })();
+</script>
+</body>
+</html>
