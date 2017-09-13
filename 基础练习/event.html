@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: palegreen;
+            border: 1px dashed pink;
+        }
+    </style>
+
+    <script src="../Js/snowJs/grunt/dev/snowJs.dev.js"></script>
+</head>
+<body>
+<div></div>
+<script>
+    (function () {
+        var browser = snowJs.tool.getBrowser();
+        var div = document.getElementsByTagName('div')[0];
+        if(browser==='IE8'||browser==='IE7'||browser==='IE6'){
+            div.onclick = function (event) {
+                alert('div');
+            };
+            document.body.onclick = function (event) {
+                alert('body');
+            };
+        }else{
+            div.addEventListener('click', function (event) {
+                alert('div');
+            }, true);
+
+            document.body.addEventListener('click', function (event) {
+                alert('body');
+            }, true);
+        }
+    })();
+</script>
+</body>
+</html>

@@ -219,6 +219,39 @@ snowJs.tool.Binary = (function () {
     o.decode = decode;
     return o;
 })();
+
+snowJs.tool.getBrowser = function () {
+    var appName = navigator.appName;
+    var appVersion = navigator.appVersion;
+    var name = '';
+
+    if (appName === 'Netscape') {
+        if (appVersion.indexOf('Safari') > -1) {
+            name = 'Safari';
+        } else if (appVersion.indexOf('Chrome') > -1) {
+            name = 'Chrome';
+        } else {
+            name = 'otherBrowser';
+        }
+    } else if (appName === 'Microsoft Internet Explorer') {
+        if (appVersion.indexOf('MSIE') < 0) {
+            name = 'IE11';
+        } else if (appVersion.indexOf('MSIE 10.0') > -1) {
+            name = 'IE10';
+        } else if (appVersion.indexOf('MSIE 9.0') > -1) {
+            name = 'IE9';
+        } else if (appVersion.indexOf('MSIE 8.0') > -1) {
+            name = 'IE8';
+        } else if (appVersion.indexOf('MSIE 7.0') > -1) {
+            name = 'IE7'
+        } else if (appVersion.indexOf('MSIE 6.0') > -1) {
+            name = 'IE6';
+        }
+    }
+
+    return name;
+};
+
 /**
  * Created by Administrator on 2017/7/18.
  */

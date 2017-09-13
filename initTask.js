@@ -21,12 +21,11 @@ var initTask = function (gruntObject) {
     var concatName = 'concat:' + projectName;
     var uglifyName = 'uglify:' + projectName;
     var lessName = 'less:' + projectName;
-    var jshintName = 'jshint:' + projectName;
 
     jshintCreate();
 
     grunt.config.merge(projectConfig);
-    grunt.registerTask(projectName, [concatName, uglifyName, lessName, jshintName]);
+    grunt.registerTask(projectName, [concatName, uglifyName, lessName]);
 };
 
 module.exports = {initTask: initTask};
