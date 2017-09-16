@@ -1,0 +1,406 @@
+@boya-preImgUrl: '../../images';
+@trailer-li: 232px;
+@nav-height: 60px;
+
+@keyframes go {
+  0% {
+    transform: scale(1);
+  }
+  10%, 20% {
+    transform: scale(0.9) rotate(-3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale(1.1) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+.dots ul li {
+  float: left;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  margin: 5px;
+}
+
+.header {
+  position: relative;
+  height: 60px;
+  background-color: #1B1F3B;
+
+  &-content {
+    width: 80%;
+    margin: 0 auto;
+
+    &-logo {
+      float: left;
+      margin-top: 10px;
+      padding-left: 10px;
+      cursor: pointer;
+      position: relative;
+      &-content {
+        &-img {
+          float: left;
+          width: 40px;
+          height: 40px;
+          border-radius: 100%;
+        }
+        &-title {
+          width: 96px;
+          height: 36px;
+          line-height: 36px;
+        }
+        animation: 1s ease;
+      }
+      &-content:hover {
+        animation-name: go;
+      }
+      &-tips {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        width: 240px;
+        height: 150px;
+        top: 38px;
+        left: 20px;
+        background: url("@{boya-preImgUrl}/tips.png");
+        background-size: 100% 100%;
+        text-align: center;
+        line-height: 194px;
+        color: orange;
+        font-size: 16px;
+        font-weight: bold;
+        text-shadow: 0 0 40px;
+      }
+    }
+
+    &-nav {
+      float: left;
+      margin: 0 30px;
+
+      &-first {
+        > li {
+          position: relative;
+          float: left;
+          height: @nav-height;
+          line-height: @nav-height;
+          text-align: center;
+          margin: 0 10px;
+
+          > a {
+            display: block;
+            width: 100px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 14px;
+            color: #828597;
+          }
+
+          &.active {
+            a {
+              background-color: #272B48;
+              color: #FFFFFF;
+            }
+          }
+        }
+        li:hover {
+          .header-content-nav-second {
+            display: block;
+          }
+        }
+      }
+
+      &-second {
+        display: none;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        z-index: 1;
+        border: 1px solid #dbdbdb;
+
+        li {
+          height: 40px;
+          line-height: 40px;
+          border-bottom: 1px solid #ffffff;
+          background-color: crimson;
+          a {
+            color: #FFFFFF;
+          }
+          &:hover {
+            padding: 3px;
+            a {
+              font-size: 16px;
+              font-weight: bold;
+            }
+
+          }
+        }
+        li:nth-child(2n) {
+          background-color: darkturquoise;
+        }
+      }
+      &-call {
+        width: 200px;
+        background: url("@{boya-preImgUrl}/call.png") no-repeat;
+        background-size: 100% 100%;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        border: 0;
+        p {
+          height: 30px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    &-join {
+      margin-left: 26px;
+      height: 60px;
+      line-height: 60px;
+
+      button {
+        background-color: #39B775;
+        border: 0;
+        padding: 8px 22px;
+        font-size: 14px;
+        color: #FFFFFF;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.banner {
+  position: relative;
+
+  &-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 100px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: -50px;
+
+    ul {
+      overflow: hidden;
+
+      li {
+        background-color: #FDDE91;
+
+        &.active {
+          background-color: #FFFFFF;
+        }
+      }
+    }
+  }
+}
+
+.middle-content {
+  width: 80%;
+  margin: 20px auto;
+
+  &-trailer {
+    overflow: hidden;
+
+    &-content {
+      overflow: hidden;
+
+      li {
+        float: left;
+        width: @trailer-li;
+        height: 185px;
+        margin: 0 25px;
+        text-align: center;
+
+        .mark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: @trailer-li;
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        p {
+          margin: 5px 0;
+          font-size: 14px;
+          font-weight: bold;
+          color: #454967;
+        }
+
+        a {
+          padding-right: 10px;
+          background: url('@{boya-preImgUrl}/sanjiaoxing.png') no-repeat right;
+          color: #39B775;
+        }
+      }
+    }
+
+    &-line {
+      margin: 30px 0;
+
+      &-row {
+        float: left;
+      }
+
+      &-line {
+        margin: 10px 0;
+        width: 46%;
+        border: 1px solid #DBE1E7;
+      }
+
+      &-dots {
+        li {
+          background-color: #B5C0CB;
+
+          &.active {
+            background-color: #31BC72;
+          }
+        }
+      }
+    }
+  }
+
+  &-news {
+    margin-top: 20px;
+    overflow: hidden;
+
+    &-column {
+      position: relative;
+      float: left;
+      width: 48%;
+      &-header {
+        height: 113px;
+
+        &-title {
+          width: 120px;
+          height: 40px;
+          margin-left: 80px;
+          padding-top: 40px;
+          color: #FFFFFF;
+
+          p {
+            font-size: 30px;
+            font-weight: bold;
+          }
+        }
+
+        &-more {
+          position: absolute;
+          top: 40px;
+          left: 220px;
+          width: 55px;
+          padding: 6px 5px;
+          border: 1px solid #000000;
+          border-radius: 5px;
+
+          label {
+            position: absolute;
+            right: 10px;
+            top: 0;
+          }
+        }
+      }
+
+      &-content {
+        margin-left: 15px;
+      }
+    }
+
+    &-recruit {
+      float: right;
+      background: url("@{boya-preImgUrl}/byhrbg3.jpg") no-repeat;
+
+      &-header {
+        &-more {
+          border-color: #ffffff;
+          color: #ffffff;
+        }
+      }
+
+      &-content {
+        width: 300px;
+
+        p {
+          color: #ffffff;
+          font-size: 12px;
+          font-weight: bold;
+        }
+        li {
+          height: 34px;
+          line-height: 34px;
+          color: #FFFFFF;
+          border-bottom: 1px solid #70DEA4;
+        }
+      }
+    }
+
+    &-ns {
+      background: url('@{boya-preImgUrl}/bynewsbg.jpg') no-repeat;
+
+      &-header {
+        &-more {
+          border-color: #34B973;
+          color: #34B973;
+        }
+      }
+
+      &-content {
+        li {
+          height: 48px;
+          line-height: 48px;
+          font-size: 14px;
+          border-bottom: 1px solid #DFE0E4;
+
+          .data {
+            margin-right: 20px;
+            color: #AFBECF;
+            span {
+              margin: 0 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  height: 90px;
+  line-height: 90px;
+  background-color: #1B1F3B;
+
+  &-content {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+
+    div {
+      color: #6D6F7F;
+    }
+
+    &-left {
+      float: left;
+
+      span {
+        margin: 0 5px;
+      }
+    }
+
+    &-right {
+      float: right;
+    }
+  }
+}

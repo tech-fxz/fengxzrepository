@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>curriculum vitae</title>
+    <link rel="stylesheet" href="../snowCss/base.min.css">
+    <style>
+        .container {
+            margin: 30px;
+        }
+
+        .container h1 {
+            padding-left: 20px;
+            border-left: 6px solid #09f;
+            height: 40px;
+            line-height: 40px;
+            color: #09f;
+        }
+
+        .container .content {
+            margin: 20px;
+
+        }
+
+        .container .content > div {
+            border: 1px solid #a7d700;
+            box-shadow: 0 0 10px #5c5c5c;
+        }
+
+        .container .content h2 {
+            padding-left: 10px;
+            height: 40px;
+            line-height: 40px;
+            background-color: #a7d700;
+            color: #FFFFFF;
+            font-size: 18px;
+        }
+
+        .container .content .technical {
+            margin-bottom: 20px;
+        }
+
+        .container .content .technical ul {
+            margin-left: 10px;
+        }
+
+        .container .content .technical li {
+            height: 28px;
+            line-height: 28px;
+            font-size: 14px;
+        }
+
+        .container .content .experience {
+            border-color: #f0ea0f;
+        }
+
+        .container .content .experience h2 {
+            background-color: #f0ea0f;
+        }
+
+        .container .content .experience h3 {
+            font-size: 14px;
+            height: 30px;
+            line-height: 30px;
+            margin: 5px;
+        }
+
+        .container .content .experience > ul {
+            margin: 0 10px;
+        }
+
+        .container .content .experience .detail {
+            margin-left: 15px;
+        }
+
+        .container .content .experience .detail h4 {
+            margin: 5px 0;
+        }
+
+        .container .content .experience .detail li {
+            line-height: 24px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>技能与经验</h1>
+
+    <div class="content">
+        <div class="technical">
+            <h2>个人技能</h2>
+            <ul>
+                <li>1.精通javascript下web前端程序设计；</li>
+                <li>2.熟练掌握javascript BOM 、DOM 操作；</li>
+                <li>3.善用HTML+CSS进行网页布局，了解HTML5与CSS3；</li>
+                <li>4.善用JQuery库和JQueryUI，实现网页特效和用户体验；</li>
+                <li>5.熟练使用less编写CSS代码；</li>
+                <li>6.熟练使用underscore工具库；</li>
+                <li>7.熟练使用juicer模板引擎</li>
+                <li>8.熟悉页面架构和性能优化、善于解决浏览器的兼容性问题；</li>
+                <li>9.有AngularJS开发移动端应用的经验；</li>
+                <li>10.善于使用grunt,git等</li>
+            </ul>
+        </div>
+
+        <div class="experience">
+            <h2>项目经验</h2>
+            <ul>
+                <li>
+                    <h3>PC端开发：兼容性IE8</h3>
+                    <ul class="detail">
+                        <li>
+                            <h4>项目一：负责翼校通平台部分功能页面的开发（如：成绩，作业，公告，短信等功能页面）；</h4>
+
+                            <p>
+                                这几个功能都是用div+css布局，用JavaScript来实现页面的动态，通过jQuery.ajax请求获取相关数据。该平台是没用使用第三方框架，用的是公司老前辈自己写的一套框架，在这套框架下，页面是模块化加载的。模块化加载可以按需加载，减少请求数量，加快页面渲染。</p>
+                        </li>
+                        <li>
+                            <h4>项目二：负责教育云教研空间及学习空间的前端开发； </h4>
+
+                            <p>
+                                根据需求实现UI页面以及数据请求渲染，在该项目中有上传文档和播放文档的操作，上传文档采用的是第三方插件Uploadify，播放文档是统一转为flv格式采用flowerplayer播放，这两个第三方插件均需要用户浏览器安装有flash。该功能模块除了使用html+css布局外，还使用到了一些HTML5+CSS3的特性。如：CSS3的background-size，border-radius，display：table等，HTML5的placeholder属性，maxlength属性，input、textarea的input事件等；</p>
+                        </li>
+                        <li>
+                            <h4>项目三：负责幼儿宝网页版PC端的开发；（包括首页、考勤机、课程表、主题教学、食谱等）</h4>
+
+                            <p>
+                                作为该项目PC端的主要负责人，贯穿了项目整个开发周期，从项目的搭建，到页面的开发、以及最后项目的部署。该项目的是引用了director.js前端route框架，在不刷新的情况下，利用“#”号组织不同的URL路径，并根据不同的URL路径进行不同的方法调用，项目有相当多的动态效果，比如鼠标拖拽修改课程的顺序、头像的剪切、视频播放框的位置变换等等，拖拽效果的实现是用了JQueryUI的draggable，视频播放框的位置变换则是通过css的position根据鼠标落下的坐标推算出top、left的值去实现的，头像剪切则是运用了兼容性较好的第三方框架cropper。</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>手机端开发：协助开发</h3>
+                    <ul class="detail">
+                        <li>
+                            <h4>项目一：翼校通微信公众号的话题广场</h4>
+
+                            <p>该功能开发使用的是html5+css3++angularJS 1.x，由于这是一个小功能，并未涉及到较为复杂的交互处理，仅仅是几个简单的列表页和详情页。</p>
+                        </li>
+                        <li>
+                            <h4>项目二：口语通微信公众号“一鸣惊人”小活动</h4>
+
+                            <p>
+                                该功能是用div+css布局，javascript实现动态，这个小活动项目还需要做分享朋友圈及发送给好友的操作，需调用微信JS-SDK的相关接口，比如分享朋友圈onMenuShareTimeLine,发送给好友onMenuShareAppMessage,使用这两个接口前需要做权限注入</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

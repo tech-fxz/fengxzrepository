@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        input {
+            height: 20px;
+            line-height: 20px;
+        }
+
+        button {
+            width: 78px;
+            height: 38px;
+            background-color: #009ceb;
+            border: 1px solid #ffffff;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    {{message}}
+
+    <input type="text" v-model="message">
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello vue'
+            }
+        });
+    </script>
+</div>
+
+<div id="app-2">
+    <span v-bind:title="message">
+        鼠标悬停几秒钟查看此处动态绑定的提示信息！
+    </span>
+
+    <script>
+        var app2 = new Vue({
+            el: '#app-2',
+            data: {
+                message: '页面加载于' + new Date().toLocaleString()
+            }
+        })
+    </script>
+</div>
+
+<div id="app-3">
+    <p v-if="seen">现在你看到我了</p>
+    <script>
+        var app3 = new Vue({
+            el: '#app-3',
+            data: {
+                seen: true
+            }
+        });
+    </script>
+</div>
+
+<div id="app-4">
+    <ul>
+        <li v-for="item in list">
+            <!--<input type="text" v-model="{{item.id}}">-->
+            <p>{{item.text}}</p>
+        </li>
+    </ul>
+
+    <script>
+        var app4 = new Vue({
+            el: '#app-4',
+            data: {
+                list: [
+                    {id: 1, text: 'js'},
+                    {id: 2, text: 'jq'},
+                    {id: 3, text: 'vue'},
+                    {id: 4, text: 'node'},
+                    {id: 5, text: 'angular'}
+                ]
+            }
+        });
+    </script>
+</div>
+
+<div id="app-5">
+    <p>{{message}}</p>
+    <button v-on:click="clickMe">click me</button>
+
+    <script>
+        var app5 = new Vue({
+            el: '#app-5',
+            data: {
+                message: 'hello vue'
+            },
+            methods: {
+                clickMe: function () {
+                    this.message = 'you clicked me';
+                }
+            }
+        })
+    </script>
+</div>
+
+<div id="app-6">
+    <input v-model="newTodo" v-on:keyup.enter="addTodo">
+    <ul>
+        <li v-for="todo in todos">
+            <span>{{ todo.text }}</span>
+            <button v-on:click="removeTodo($index)">X</button>
+        </li>
+    </ul>
+    <div>
+        {{i}}
+    </div>
+
+    <script>
+        var app6 = new Vue({
+            el: '#app-6',
+            data: {
+                i:0,
+                newTodo: '',
+                todos: [
+                    {text: 'add some todo'}
+                ]
+            },
+            methods: {
+                addTodo: function () {
+                    var text = this.newTodo.trim();
+                    if (text) {
+                        this.todos.push({text: text});
+                        this.newTodo = '';
+                    }
+                },
+                removeTodo: function (index) {
+                    this.i=typeof index;
+                    this.todos.splice(index, 1);
+                }
+            }
+        });
+    </script>
+</div>
+
+
+</body>
+</html>
