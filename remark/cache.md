@@ -61,3 +61,7 @@ PS：cookie功能需要浏览器的支持。如果浏览器不支持cookie（如
         }
     }
     ```
+    
+# Web Storage
+
+

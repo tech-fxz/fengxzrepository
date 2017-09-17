@@ -12,13 +12,13 @@ snowJs.Chart = (function () {
     var constructor = function (Parameter) {
         var initParameter = {};
         initParameter.type = 'bar';
-        snowJs.tool.extend(initParameter, Parameter);
+        _s.extend(initParameter, Parameter);
 
         var container=initParameter.container;
 
         var chartTag = document.getElementById('chart');
-        var canvasId = snowJs.tool.getRandom();
-        var canvas = snowJs.tool.createElement({
+        var canvasId = _s.getRandom();
+        var canvas = _s.createElement({
             tag: 'canvas',
             id: canvasId
         });
@@ -88,7 +88,7 @@ snowJs.Chart = (function () {
 
             var maxVal = Number(data[0].y),//Y轴数据中的最大值
                 minVal = Number(data[0].y);//Y轴数据中的最小值
-            snowJs.tool.each(data, function (en, index) {
+            _s.each(data, function (en, index) {
                 var val = Number(en.y);
                 maxVal < val ? maxVal = val : maxVal;
                 minVal > val ? minVal = val : minVal;

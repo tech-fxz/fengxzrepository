@@ -1,15 +1,39 @@
 /**
  * Created by Administrator on 2017/7/18.
  */
-snowJs.tool = {};
+var _s = {};
 
-snowJs.tool.each = function (list, fn) {
+_s.each = function (list, fn) {
     for (var i = 0; i < list.length; i++) {
         fn(list[i], i);
     }
 };
 
-snowJs.tool.extend = function (destination, source, isReference) {
+_s.find = function (list, fn) {
+    var rObject;
+    for (var i = 0; i < list.length; i++) {
+        var isMatch = fn(list[i], i);
+        if (isMatch) {
+            rObject = list[i];
+            //break;
+            return rObject;
+        }
+    }
+    //return rObject;
+};
+
+_s.filter = function (list, fn) {
+    var rList = [];
+    for (var i = 0; i < list.length; i++) {
+        var isMatch = fn(list[i], i);
+        if (isMatch) {
+            rList.push(list[i]);
+        }
+    }
+    return rList;
+};
+
+_s.extend = function (destination, source, isReference) {
     if (!destination) {
         destination = {};
     }
@@ -19,7 +43,7 @@ snowJs.tool.extend = function (destination, source, isReference) {
     }
 };
 
-snowJs.tool.getRandom = function () {
+_s.getRandom = function () {
     //获取时间戳的方式
     // 1、Date.parse(new Date())返回秒
     // 2、(new Date()).valueOf()返回毫秒;
@@ -29,22 +53,7 @@ snowJs.tool.getRandom = function () {
     return val;
 };
 
-snowJs.tool.createElement = function (param) {
-    try {
-        var id = param.id || '';
-        var tag = param.tag || 'div';
-        var cssClass = param.cssClass || '';
-
-        var tag = document.createElement(tag);
-
-        tag.setAttribute('class', cssClass);
-        tag.setAttribute('id', id);
-    } catch (error) {
-    }
-    return tag;
-};
-
-snowJs.tool.serialize = function (form) {
+_s.serialize = function (form) {
     var parts = [],
         filed = null,
         i,
@@ -95,52 +104,7 @@ snowJs.tool.serialize = function (form) {
     return parts.join('&');
 };
 
-/**
- * @class snowJs.tool.Binary
- * @desc
- */
-snowJs.tool.Binary = (function () {
-    var encode = function (parameter) {
-        var initParameter = {};
-        snowJs.tool.extend(initParameter, parameter);
-
-        var str = initParameter.char;
-        var strBinaries = '';
-        for (var i = 0; i < str.length; i++) {
-            var n = str[i];
-            var num = str.charCodeAt(i);
-            var binary = num.toString(2);
-
-            if (strBinaries === '') {
-                strBinaries = binary;
-            } else {
-                strBinaries = strBinaries + ' ' + binary;
-            }
-        }
-        return strBinaries;
-    };
-    var decode = function (parameter) {
-        var initParameter = {};
-        snowJs.tool.extend(initParameter, parameter);
-
-        var char = '';
-        var binaryChar = initParameter.binaryChar;
-        var binaryCharList = binaryChar.split(' ');
-        for (var i = 0; i < binaryChar.length; i++) {
-            var str = binaryCharList[i];
-            str = parseInt(str, 2);
-            char += String.fromCharCode(str);
-        }
-        return char;
-    };
-
-    var o = {};
-    o.encode = encode;
-    o.decode = decode;
-    return o;
-})();
-
-snowJs.tool.getBrowser = function () {
+_s.getBrowser = function () {
     var appName = navigator.appName;
     var appVersion = navigator.appVersion;
     var name = '';
@@ -171,3 +135,120 @@ snowJs.tool.getBrowser = function () {
 
     return name;
 };
+
+_s.Binary ={
+    encode:function (parameter) {
+        var initParameter = {};
+        _s.extend(initParameter, parameter);
+
+        var str = initParameter.char;
+        var strBinaries = '';
+        for (var i = 0; i < str.length; i++) {
+            var n = str[i];
+            var num = str.charCodeAt(i);
+            var binary = num.toString(2);
+
+            if (strBinaries === '') {
+                strBinaries = binary;
+            } else {
+                strBinaries = strBinaries + ' ' + binary;
+            }
+        }
+        return strBinaries;
+    },
+    decode:function (parameter) {
+        var initParameter = {};
+        _s.extend(initParameter, parameter);
+
+        var char = '';
+        var binaryChar = initParameter.binaryChar;
+        var binaryCharList = binaryChar.split(' ');
+        for (var i = 0; i < binaryChar.length; i++) {
+            var str = binaryCharList[i];
+            str = parseInt(str, 2);
+            char += String.fromCharCode(str);
+        }
+        return char;
+    }
+};
+
+_s.cache = {
+    _getType: function (pParameter, methodType) {
+        if (!pParameter) {
+            pParameter = {};
+        }
+        var type = pParameter.type || 'cookie';
+        var value = pParameter.value || '';
+        var key = pParameter.key || '';
+
+        var cookieToCache = function () {
+            var time = pParameter.time || 30;//设置多少天之后到期，如设定则默认30天
+            switch (methodType) {
+                case 'set':
+                    if (value === '') {
+                        console.error('value =" "');
+                        return;
+                    }
+
+                    var date = new Date();
+                    date.setTime(date.getTime() + time * 24 * 60 * 60);//time*24*60*60将time转化成秒，获取到期的具体日期
+
+                    document.cookie = key + '=' + value + ';expire=' + date.toGMTString();
+                    break;
+                case 'get':
+                    var cookies = document.cookie;
+                    var cookieList = cookies.split(',');
+                    _s.find(cookieList, function (en) {
+                        return en.indexOf(key) > -1;
+                    });
+                    break;
+                case 'delete':
+                    var date = new Date();
+                    date.setTime(date.getTime() -  24 * 60 * 60);//time*24*60*60将time转化成秒，获取到期的具体日期
+
+                    document.cookie = key + '=' + value + ';expire=' + date.toGMTString();
+                    break;
+            }
+        };
+
+        var sessionToCache = function () {
+
+        };
+
+        var storageToCache = function () {
+
+        };
+
+        var globalStorageToCache = function () {
+
+        };
+
+        var databaseToCache = function () {
+        };
+
+        switch (type) {
+            case 'cookie':
+                break;
+            case'session':
+                break;
+            case 'localStorage':
+                break;
+            case 'sessionStorage':
+                break;
+            case 'globalStorage':
+                break;
+            case 'dataBase':
+                break;
+        }
+    },
+    get: function () {
+
+    },
+    set: function () {
+    },
+
+    delete: function () {
+    }
+};
+
+

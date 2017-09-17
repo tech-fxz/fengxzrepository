@@ -16,6 +16,7 @@ window.onload = function () {
         type: 'bar',
         data: data
     });
+
 };
 
 var save_click = function () {
@@ -71,10 +72,10 @@ var encodeBinary = function (event) {
 var setBuffer = function () {
     var str = "支持中文吗? ying gai shi zhi chi de.";
     console.log('编码前:' + str);
-    var encodeBinary = snowJs.tool.Binary.encode({char: str});
+    var encodeBinary = _s.Binary.encode({char: str});
     console.log('编码前:' + encodeBinary);
 
-    var decodeBinary = snowJs.tool.Binary.decode({binaryChar: encodeBinary});
+    var decodeBinary = _s.Binary.decode({binaryChar: encodeBinary});
     console.log('编码前:' + decodeBinary);
 };
 
