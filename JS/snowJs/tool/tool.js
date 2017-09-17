@@ -110,10 +110,10 @@ _s.getBrowser = function () {
     var name = '';
 
     if (appName === 'Netscape') {
-        if (appVersion.indexOf('Safari') > -1) {
-            name = 'Safari';
-        } else if (appVersion.indexOf('Chrome') > -1) {
+        if (appVersion.indexOf('Chrome') > -1) {
             name = 'Chrome';
+        } else if (appVersion.indexOf('Safari') > -1) {
+            name = 'Safari';
         } else {
             name = 'otherBrowser';
         }
@@ -136,8 +136,20 @@ _s.getBrowser = function () {
     return name;
 };
 
-_s.Binary ={
-    encode:function (parameter) {
+_s.isArray = function (arg) {
+    //判断是否是数组的方法有几种 instanceof、ary.constructor（原型链法）、判断是否拥有Array的相关默认方法（push,pop,shift,unshift)
+    //instanceof和 ary.constructor缺点：需要在当前页面声明的，比如在子页面声明，并将其赋值给父页面的一个变量，这是判断改变量 返回false
+    return Object.prototype.toString.call(arg) === '[object Array]';
+};
+
+_s.isHtml = function (arg) {
+    //判断是否是数组的方法有几种 instanceof、ary.constructor（原型链法）、判断是否拥有Array的相关默认方法（push,pop,shift,unshift)
+    //instanceof和 ary.constructor缺点：需要在当前页面声明的，比如在子页面声明，并将其赋值给父页面的一个变量，这是判断改变量 返回false
+    return Object.prototype.toString.call(arg) === '[object HTMLCollection]';
+};
+
+_s.Binary = {
+    encode: function (parameter) {
         var initParameter = {};
         _s.extend(initParameter, parameter);
 
@@ -156,7 +168,7 @@ _s.Binary ={
         }
         return strBinaries;
     },
-    decode:function (parameter) {
+    decode: function (parameter) {
         var initParameter = {};
         _s.extend(initParameter, parameter);
 
@@ -191,22 +203,24 @@ _s.cache = {
                     }
 
                     var date = new Date();
-                    date.setTime(date.getTime() + time * 24 * 60 * 60);//time*24*60*60将time转化成秒，获取到期的具体日期
+                    date.setTime(date.getTime() + time * 24 * 60 * 60*1000);//time*24*60*60将time转化成秒，获取到期的具体日期
 
-                    document.cookie = key + '=' + value + ';expire=' + date.toGMTString();
+                    document.cookie = key + '=' + value + ';expires=' + date;
                     break;
                 case 'get':
                     var cookies = document.cookie;
                     var cookieList = cookies.split(',');
-                    _s.find(cookieList, function (en) {
+                    var keyValue = _s.find(cookieList, function (en) {
                         return en.indexOf(key) > -1;
                     });
+                    var val = keyValue.split('=')[1];
+                    return val;
                     break;
                 case 'delete':
                     var date = new Date();
-                    date.setTime(date.getTime() -  24 * 60 * 60);//time*24*60*60将time转化成秒，获取到期的具体日期
+                    date.setTime(date.getTime() - 24 * 60 * 60*1000);//time*24*60*60将time转化成秒，获取到期的具体日期
 
-                    document.cookie = key + '=' + value + ';expire=' + date.toGMTString();
+                    document.cookie = key + '=' + value + ';expires=' + date.toGMTString();
                     break;
             }
         };
@@ -228,6 +242,7 @@ _s.cache = {
 
         switch (type) {
             case 'cookie':
+                return cookieToCache();
                 break;
             case'session':
                 break;
@@ -241,13 +256,14 @@ _s.cache = {
                 break;
         }
     },
-    get: function () {
-
+    get: function (argP) {
+        return this._getType(argP, 'get');
     },
-    set: function () {
+    set: function (argP) {
+        this._getType(argP, 'set');
     },
-
-    delete: function () {
+    delete: function (argP) {
+        this._getType(argP, 'delete');
     }
 };
 

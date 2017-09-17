@@ -2,89 +2,86 @@
  * Created by zhen on 2017/9/17.
  */
 var getSelector = function () {
-    debugger;
     if (!arguments[0]) {
         console.error('selector=" "');
         return;
     }
 
-    var i = arguments[1];
-    if (!i) {
-        i = 0;
-    }
     var selectorList = arguments[0].split(' ');
-    var selector = selectorList[i];
+    var selector = selectorList.splice(0, 1)[0];
     var charAtFirst = selector[0];
 
     var nodes = [];
-    debugger;
+    var parentTags;
+    if (_s.isHtml(this)) {
+        parentTags = this[0];
+    } else {
+        parentTags = document;
+    }
+
     switch (charAtFirst) {
         case '#':
             selector = selector.replace('#', '');
-            nodes.push(document.getElementById(selector));
+            nodes.push(parentTags.getElementById(selector));
             break;
         case '.':
             selector = selector.replace('.', '');
-            nodes = document.getElementsByClassName(selector);
+            nodes = parentTags.getElementsByClassName(selector);
             break;
         default :
-            nodes = document.getElementsByTagName(selector);
+            nodes = parentTags.getElementsByTagName(selector);
     }
-    if (selectorList.length > 1) {
-        arguments.callee(selector, i++);
+    if (selectorList.length > 0) {
+        return arguments.callee.call(nodes, selectorList.join(' '));
+
     } else {
         return nodes;
     }
 };
 var $s = function (selector) {
-    var nodes = getSelector(selector);
+    var nodes = getSelector.call(this, selector);
+
     nodes.find = function (selector) {
-        debugger;
-        var nodes = getSelector(selector);
-        return nodes;
+        return $s.call(this, selector);
     };
 
     nodes.createElement = function (param) {
-        try {
-            var id = param.id || '';
-            var html = param.tag || '';
-            var cssClass = param.cssClass || '';
-            var tag;
-            _s.each(this, function (en) {
-                tag = en.createElement(html);
-                tag.setAttribute('class', cssClass);
-                tag.setAttribute('id', id);
-            });
-        } catch (error) {
-        }
+        var html = param.tag || '';
+        _s.each(this, function (en) {
+            var tag = document.createElement(html);
+            en.appendChild(tag);
+        });
+
+        var tag = $s(html)[0];
+        return tag;
     };
 
     nodes.val = function (value) {
+        var _this = this;
         var getValue = function () {
-            debugger;
+            return _this[0].value;
         };
         var setValue = function () {
+            _this.value = value;
         };
         if (!value) {
-            var value = getValue();
-
-            return value;
+            return getValue();
         } else {
             setValue();
         }
     };
 
     nodes.on = function (method, fn) {
+        debugger;
         var browser = _s.getBrowser();
-        if (!!this.push) {
-            _s.each(this, function (en) {
-                if (browser.indexOf('IE') > -1 && Number(browser[2]) < 9) {
-                    en['on' + method] = fn;
-                } else {
-                    en.addEventListener(method, fn);
-                }
-            });
-        }
+
+        _s.each(this, function (en) {
+            if (browser.indexOf('IE') > -1 && Number(browser[2]) < 9) {
+                en['on' + method] = fn;
+            } else {
+                en.addEventListener(method, fn, true);
+            }
+        });
     };
 
     return nodes;

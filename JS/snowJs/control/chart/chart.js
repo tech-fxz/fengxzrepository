@@ -14,20 +14,21 @@ snowJs.Chart = (function () {
         initParameter.type = 'bar';
         _s.extend(initParameter, Parameter);
 
-        var container=initParameter.container;
+        var container = initParameter.container;
 
-        var chartTag = document.getElementById('chart');
+        var chartTag = initParameter.$e;
         var canvasId = _s.getRandom();
-        var canvas = _s.createElement({
-            tag: 'canvas',
-            id: canvasId
+        var canvas = chartTag.createElement({
+            tag: 'canvas'
         });
 
         var canvasWidth = 740;
         var canvasHeight = 248;
+        var cssClass=initParameter.cssClass||'';
+        canvas.setAttribute('class', cssClass);
+        canvas.setAttribute('id', canvasId);
         canvas.setAttribute('width', canvasWidth.toString());
         canvas.setAttribute('height', canvasHeight.toString());
-        chartTag.appendChild(canvas);
 
         //矩形统计图
         var createBarChart = function () {

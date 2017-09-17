@@ -89,8 +89,35 @@
 
     <script>
         //cache 练习
-        var $form=$s('.register');
-        $form.find('.submit button').on()
+        var $form = $s('.register');
+        $form.find('.register-form-submit button').on('click', function (event) {
+            debugger;
+            var form = {};
+            var account = $form.find('.register-form-account input').val();
+            var password = $form.find('.register-form-password input').val();
+            var path = $form.find('.register-form-face input').val();
+
+            _s.cache.set({
+                type:'cookie',
+                key:'account',
+                value:account
+            });
+           var accounts= _s.cache.get({
+                type:'cookie',
+                key:'account'
+            });
+            console.log(accounts);
+
+            _s.cache.delete({
+                type:'cookie',
+                key:'account'
+            });
+//            _s.cache.set({
+//                type:'cookie',
+//                key:'account',
+//                value:password
+//            });
+        });
     </script>
 </div>
 

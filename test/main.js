@@ -13,6 +13,7 @@ window.onload = function () {
         {y: '400', x: '2017年01月'}
     ];
     var chart = new snowJs.Chart({
+        $e:$s('#chart'),
         type: 'bar',
         data: data
     });

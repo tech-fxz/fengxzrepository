@@ -190,10 +190,10 @@ _s.getBrowser = function () {
     var name = '';
 
     if (appName === 'Netscape') {
-        if (appVersion.indexOf('Safari') > -1) {
-            name = 'Safari';
-        } else if (appVersion.indexOf('Chrome') > -1) {
+        if (appVersion.indexOf('Chrome') > -1) {
             name = 'Chrome';
+        } else if (appVersion.indexOf('Safari') > -1) {
+            name = 'Safari';
         } else {
             name = 'otherBrowser';
         }
@@ -216,8 +216,20 @@ _s.getBrowser = function () {
     return name;
 };
 
-_s.Binary ={
-    encode:function (parameter) {
+_s.isArray = function (arg) {
+    //判断是否是数组的方法有几种 instanceof、ary.constructor（原型链法）、判断是否拥有Array的相关默认方法（push,pop,shift,unshift)
+    //instanceof和 ary.constructor缺点：需要在当前页面声明的，比如在子页面声明，并将其赋值给父页面的一个变量，这是判断改变量 返回false
+    return Object.prototype.toString.call(arg) === '[object Array]';
+};
+
+_s.isHtml = function (arg) {
+    //判断是否是数组的方法有几种 instanceof、ary.constructor（原型链法）、判断是否拥有Array的相关默认方法（push,pop,shift,unshift)
+    //instanceof和 ary.constructor缺点：需要在当前页面声明的，比如在子页面声明，并将其赋值给父页面的一个变量，这是判断改变量 返回false
+    return Object.prototype.toString.call(arg) === '[object HTMLCollection]';
+};
+
+_s.Binary = {
+    encode: function (parameter) {
         var initParameter = {};
         _s.extend(initParameter, parameter);
 
@@ -236,7 +248,7 @@ _s.Binary ={
         }
         return strBinaries;
     },
-    decode:function (parameter) {
+    decode: function (parameter) {
         var initParameter = {};
         _s.extend(initParameter, parameter);
 
@@ -271,22 +283,24 @@ _s.cache = {
                     }
 
                     var date = new Date();
-                    date.setTime(date.getTime() + time * 24 * 60 * 60);//time*24*60*60将time转化成秒，获取到期的具体日期
+                    date.setTime(date.getTime() + time * 24 * 60 * 60*1000);//time*24*60*60将time转化成秒，获取到期的具体日期
 
-                    document.cookie = key + '=' + value + ';expire=' + date.toGMTString();
+                    document.cookie = key + '=' + value + ';expires=' + date;
                     break;
                 case 'get':
                     var cookies = document.cookie;
                     var cookieList = cookies.split(',');
-                    _s.find(cookieList, function (en) {
+                    var keyValue = _s.find(cookieList, function (en) {
                         return en.indexOf(key) > -1;
                     });
+                    var val = keyValue.split('=')[1];
+                    return val;
                     break;
                 case 'delete':
                     var date = new Date();
-                    date.setTime(date.getTime() -  24 * 60 * 60);//time*24*60*60将time转化成秒，获取到期的具体日期
+                    date.setTime(date.getTime() - 24 * 60 * 60*1000);//time*24*60*60将time转化成秒，获取到期的具体日期
 
-                    document.cookie = key + '=' + value + ';expire=' + date.toGMTString();
+                    document.cookie = key + '=' + value + ';expires=' + date.toGMTString();
                     break;
             }
         };
@@ -308,6 +322,7 @@ _s.cache = {
 
         switch (type) {
             case 'cookie':
+                return cookieToCache();
                 break;
             case'session':
                 break;
@@ -321,13 +336,14 @@ _s.cache = {
                 break;
         }
     },
-    get: function () {
-
+    get: function (argP) {
+        return this._getType(argP, 'get');
     },
-    set: function () {
+    set: function (argP) {
+        this._getType(argP, 'set');
     },
-
-    delete: function () {
+    delete: function (argP) {
+        this._getType(argP, 'delete');
     }
 };
 
@@ -337,89 +353,87 @@ _s.cache = {
  * Created by zhen on 2017/9/17.
  */
 var getSelector = function () {
-    debugger;
     if (!arguments[0]) {
         console.error('selector=" "');
         return;
     }
 
-    var i = arguments[1];
-    if (!i) {
-        i = 0;
-    }
     var selectorList = arguments[0].split(' ');
-    var selector = selectorList[i];
+    var selector = selectorList.splice(0, 1)[0];
     var charAtFirst = selector[0];
 
     var nodes = [];
-    debugger;
+    var parentTags;
+    if (_s.isHtml(this)) {
+        parentTags = this[0];
+    } else {
+        parentTags = document;
+    }
+
     switch (charAtFirst) {
         case '#':
             selector = selector.replace('#', '');
-            nodes.push(document.getElementById(selector));
+            nodes.push(parentTags.getElementById(selector));
+
             break;
         case '.':
             selector = selector.replace('.', '');
-            nodes = document.getElementsByClassName(selector);
+            nodes = parentTags.getElementsByClassName(selector);
             break;
         default :
-            nodes = document.getElementsByTagName(selector);
+            nodes = parentTags.getElementsByTagName(selector);
     }
-    if (selectorList.length > 1) {
-        arguments.callee(selector, i++);
+    if (selectorList.length > 0) {
+        return arguments.callee.call(nodes, selectorList.join(' '));
+
     } else {
         return nodes;
     }
 };
 var $s = function (selector) {
-    var nodes = getSelector(selector);
+    var nodes = getSelector.call(this, selector);
+
     nodes.find = function (selector) {
-        debugger;
-        var nodes = getSelector(selector);
-        return nodes;
+        return $s.call(this, selector);
     };
 
     nodes.createElement = function (param) {
-        try {
-            var id = param.id || '';
-            var html = param.tag || '';
-            var cssClass = param.cssClass || '';
-            var tag;
-            _s.each(this, function (en) {
-                tag = en.createElement(html);
-                tag.setAttribute('class', cssClass);
-                tag.setAttribute('id', id);
-            });
-        } catch (error) {
-        }
+        var html = param.tag || '';
+        _s.each(this, function (en) {
+            var tag = document.createElement(html);
+            en.appendChild(tag);
+        });
+
+        var tag = $s(html)[0];
+        return tag;
     };
 
     nodes.val = function (value) {
+        var _this = this;
         var getValue = function () {
-            debugger;
+            return _this[0].value;
         };
         var setValue = function () {
+            _this.value = value;
         };
         if (!value) {
-            var value = getValue();
-
-            return value;
+            return getValue();
         } else {
             setValue();
         }
     };
 
     nodes.on = function (method, fn) {
+        debugger;
         var browser = _s.getBrowser();
-        if (!!this.push) {
-            _s.each(this, function (en) {
-                if (browser.indexOf('IE') > -1 && Number(browser[2]) < 9) {
-                    en['on' + method] = fn;
-                } else {
-                    en.addEventListener(method, fn);
-                }
-            });
-        }
+
+        _s.each(this, function (en) {
+            if (browser.indexOf('IE') > -1 && Number(browser[2]) < 9) {
+                en['on' + method] = fn;
+            } else {
+                en.addEventListener(method, fn, true);
+            }
+        });
     };
 
     return nodes;
@@ -441,20 +455,21 @@ snowJs.Chart = (function () {
         initParameter.type = 'bar';
         _s.extend(initParameter, Parameter);
 
-        var container=initParameter.container;
+        var container = initParameter.container;
 
-        var chartTag = document.getElementById('chart');
+        var chartTag = initParameter.$e;
         var canvasId = _s.getRandom();
-        var canvas = _s.createElement({
-            tag: 'canvas',
-            id: canvasId
+        var canvas = chartTag.createElement({
+            tag: 'canvas'
         });
 
         var canvasWidth = 740;
         var canvasHeight = 248;
+        var cssClass=initParameter.cssClass||'';
+        canvas.setAttribute('class', cssClass);
+        canvas.setAttribute('id', canvasId);
         canvas.setAttribute('width', canvasWidth.toString());
         canvas.setAttribute('height', canvasHeight.toString());
-        chartTag.appendChild(canvas);
 
         //矩形统计图
         var createBarChart = function () {
