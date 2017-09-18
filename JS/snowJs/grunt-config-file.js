@@ -11,6 +11,7 @@ var Js_config = {
                     'JS/snowJs/snowJs.js',
                     'JS/snowJs/ajaxs/ajax.js',
                     'JS/snowJs/tool/tool.js',
+                    'JS/snowJs/dom/$s.js',
                     'JS/snowJs/control/chart/chart.js'
                 ],
                 dest: 'JS/snowJs/grunt/dev/snowJs.dev.js'

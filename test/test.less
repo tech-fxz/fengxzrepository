@@ -5,18 +5,17 @@
   @eyesPWidth: 59px;
   @elseBlackSpot: 10px;
 
-  @middle-line-lw:-14px;
+  @middle-line-lw: -14px;
 
-  @middle-line-slash-left:-6px;
+  @middle-line-slash-left: -6px;
 
-  @middle-line-slash-right:-8px;
+  @middle-line-slash-right: -8px;
 
-  @middle-line-slash-top-before:1px;
-  @middle-line-slash-top-after:3px;
+  @middle-line-slash-top-before: 1px;
+  @middle-line-slash-top-after: 3px;
 
-  @middle-line-slash-bottom-before:-6px;
-  @middle-line-slash-bottom-after:-4px;
-
+  @middle-line-slash-bottom-before: -6px;
+  @middle-line-slash-bottom-after: -4px;
 
   &-header {
     position: relative;
@@ -121,7 +120,7 @@
           height: 0;
         }
 
-        &-slash:before,&-slash:after{
+        &-slash:before, &-slash:after {
           border: 15px solid transparent;
           border-left-width: 30px;
           border-right-width: 30px;
@@ -129,11 +128,11 @@
           position: absolute;
         }
 
-        &-slash-top:before{
+        &-slash-top:before {
           border-bottom-color: #333333;
           top: @middle-line-slash-top-before;
         }
-        &-slash-top:after{
+        &-slash-top:after {
           border-bottom-color: #ffffff;
           top: @middle-line-slash-top-after;
         }
@@ -148,20 +147,20 @@
         }
         &-slash-right:before {
           border-right-color: #333333;
-          right:@middle-line-slash-right;
+          right: @middle-line-slash-right;
         }
         &-slash-right:after {
           border-right-color: #ffffff;
           right: @middle-line-slash-right;
         }
 
-        &-slash-bottom:before{
+        &-slash-bottom:before {
           border-top-color: #333333;
           bottom: @middle-line-slash-bottom-before;
         }
-        &-slash-bottom:after{
+        &-slash-bottom:after {
           border-top-color: #ffffff;
-          bottom:@middle-line-slash-bottom-after;
+          bottom: @middle-line-slash-bottom-after;
         }
       }
 
@@ -179,7 +178,54 @@
     }
   }
 
-  &-neck{
+  &-neck {
 
+  }
+}
+
+.register {
+  width: 400px;
+  margin-left: 20px;
+  border: 1px solid #e0e8eb;
+
+  > div {
+    margin: 10px;
+  }
+  input {
+    padding: 3px;
+    width: 380px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #009ceb;
+  }
+
+  .register-form {
+    &-account {
+      input {
+        background: url('image/account_bg.png') no-repeat left;
+      }
+    }
+    &-password {
+      input {
+        background: url("image/password_bg.png") no-repeat left;
+      }
+    }
+
+    &-file {
+      text-align: center;
+      img {
+        width: 180px;
+        height: 180px;
+      }
+    }
+    &-submit {
+      button {
+        width: 80px;
+        height: 36px;
+        border: 0;
+        background-color: #0092ef;
+        color: #FFFFFF;
+      }
+    }
   }
 }

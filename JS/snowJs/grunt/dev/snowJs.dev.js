@@ -81,15 +81,39 @@ snowJs.Ajax = function (param) {
 /**
  * Created by Administrator on 2017/7/18.
  */
-snowJs.tool = {};
+var _s = {};
 
-snowJs.tool.each = function (list, fn) {
+_s.each = function (list, fn) {
     for (var i = 0; i < list.length; i++) {
         fn(list[i], i);
     }
 };
 
-snowJs.tool.extend = function (destination, source, isReference) {
+_s.find = function (list, fn) {
+    var rObject;
+    for (var i = 0; i < list.length; i++) {
+        var isMatch = fn(list[i], i);
+        if (isMatch) {
+            rObject = list[i];
+            //break;
+            return rObject;
+        }
+    }
+    //return rObject;
+};
+
+_s.filter = function (list, fn) {
+    var rList = [];
+    for (var i = 0; i < list.length; i++) {
+        var isMatch = fn(list[i], i);
+        if (isMatch) {
+            rList.push(list[i]);
+        }
+    }
+    return rList;
+};
+
+_s.extend = function (destination, source, isReference) {
     if (!destination) {
         destination = {};
     }
@@ -99,7 +123,7 @@ snowJs.tool.extend = function (destination, source, isReference) {
     }
 };
 
-snowJs.tool.getRandom = function () {
+_s.getRandom = function () {
     //获取时间戳的方式
     // 1、Date.parse(new Date())返回秒
     // 2、(new Date()).valueOf()返回毫秒;
@@ -109,22 +133,7 @@ snowJs.tool.getRandom = function () {
     return val;
 };
 
-snowJs.tool.createElement = function (param) {
-    try {
-        var id = param.id || '';
-        var tag = param.tag || 'div';
-        var cssClass = param.cssClass || '';
-
-        var tag = document.createElement(tag);
-
-        tag.setAttribute('class', cssClass);
-        tag.setAttribute('id', id);
-    } catch (error) {
-    }
-    return tag;
-};
-
-snowJs.tool.serialize = function (form) {
+_s.serialize = function (form) {
     var parts = [],
         filed = null,
         i,
@@ -175,61 +184,16 @@ snowJs.tool.serialize = function (form) {
     return parts.join('&');
 };
 
-/**
- * @class snowJs.tool.Binary
- * @desc
- */
-snowJs.tool.Binary = (function () {
-    var encode = function (parameter) {
-        var initParameter = {};
-        snowJs.tool.extend(initParameter, parameter);
-
-        var str = initParameter.char;
-        var strBinaries = '';
-        for (var i = 0; i < str.length; i++) {
-            var n = str[i];
-            var num = str.charCodeAt(i);
-            var binary = num.toString(2);
-
-            if (strBinaries === '') {
-                strBinaries = binary;
-            } else {
-                strBinaries = strBinaries + ' ' + binary;
-            }
-        }
-        return strBinaries;
-    };
-    var decode = function (parameter) {
-        var initParameter = {};
-        snowJs.tool.extend(initParameter, parameter);
-
-        var char = '';
-        var binaryChar = initParameter.binaryChar;
-        var binaryCharList = binaryChar.split(' ');
-        for (var i = 0; i < binaryChar.length; i++) {
-            var str = binaryCharList[i];
-            str = parseInt(str, 2);
-            char += String.fromCharCode(str);
-        }
-        return char;
-    };
-
-    var o = {};
-    o.encode = encode;
-    o.decode = decode;
-    return o;
-})();
-
-snowJs.tool.getBrowser = function () {
+_s.getBrowser = function () {
     var appName = navigator.appName;
     var appVersion = navigator.appVersion;
     var name = '';
 
     if (appName === 'Netscape') {
-        if (appVersion.indexOf('Safari') > -1) {
-            name = 'Safari';
-        } else if (appVersion.indexOf('Chrome') > -1) {
+        if (appVersion.indexOf('Chrome') > -1) {
             name = 'Chrome';
+        } else if (appVersion.indexOf('Safari') > -1) {
+            name = 'Safari';
         } else {
             name = 'otherBrowser';
         }
@@ -252,6 +216,229 @@ snowJs.tool.getBrowser = function () {
     return name;
 };
 
+_s.isArray = function (arg) {
+    //判断是否是数组的方法有几种 instanceof、ary.constructor（原型链法）、判断是否拥有Array的相关默认方法（push,pop,shift,unshift)
+    //instanceof和 ary.constructor缺点：需要在当前页面声明的，比如在子页面声明，并将其赋值给父页面的一个变量，这是判断改变量 返回false
+    return Object.prototype.toString.call(arg) === '[object Array]';
+};
+
+_s.isHtml = function (arg) {
+    //判断是否是数组的方法有几种 instanceof、ary.constructor（原型链法）、判断是否拥有Array的相关默认方法（push,pop,shift,unshift)
+    //instanceof和 ary.constructor缺点：需要在当前页面声明的，比如在子页面声明，并将其赋值给父页面的一个变量，这是判断改变量 返回false
+    return Object.prototype.toString.call(arg) === '[object HTMLCollection]';
+};
+
+_s.Binary = {
+    encode: function (parameter) {
+        var initParameter = {};
+        _s.extend(initParameter, parameter);
+
+        var str = initParameter.char;
+        var strBinaries = '';
+        for (var i = 0; i < str.length; i++) {
+            var n = str[i];
+            var num = str.charCodeAt(i);
+            var binary = num.toString(2);
+
+            if (strBinaries === '') {
+                strBinaries = binary;
+            } else {
+                strBinaries = strBinaries + ' ' + binary;
+            }
+        }
+        return strBinaries;
+    },
+    decode: function (parameter) {
+        var initParameter = {};
+        _s.extend(initParameter, parameter);
+
+        var char = '';
+        var binaryChar = initParameter.binaryChar;
+        var binaryCharList = binaryChar.split(' ');
+        for (var i = 0; i < binaryChar.length; i++) {
+            var str = binaryCharList[i];
+            str = parseInt(str, 2);
+            char += String.fromCharCode(str);
+        }
+        return char;
+    }
+};
+
+_s.cache = {
+    _getType: function (pParameter, methodType) {
+        if (!pParameter) {
+            pParameter = {};
+        }
+        var type = pParameter.type || 'cookie';
+        var value = pParameter.value || '';
+        var key = pParameter.key || '';
+
+        var cookieToCache = function () {
+            var time = pParameter.time || 30;//设置多少天之后到期，如设定则默认30天
+            switch (methodType) {
+                case 'set':
+                    if (value === '') {
+                        console.error('value =" "');
+                        return;
+                    }
+
+                    var date = new Date();
+                    date.setTime(date.getTime() + time * 24 * 60 * 60*1000);//time*24*60*60将time转化成秒，获取到期的具体日期
+
+                    document.cookie = key + '=' + value + ';expires=' + date;
+                    break;
+                case 'get':
+                    var cookies = document.cookie;
+                    var cookieList = cookies.split(',');
+                    var keyValue = _s.find(cookieList, function (en) {
+                        return en.indexOf(key) > -1;
+                    });
+                    var val = keyValue.split('=')[1];
+                    return val;
+                    break;
+                case 'delete':
+                    var date = new Date();
+                    date.setTime(date.getTime() - 24 * 60 * 60*1000);//time*24*60*60将time转化成秒，获取到期的具体日期
+
+                    document.cookie = key + '=' + value + ';expires=' + date.toGMTString();
+                    break;
+            }
+        };
+
+        var sessionToCache = function () {
+
+        };
+
+        var storageToCache = function () {
+
+        };
+
+        var globalStorageToCache = function () {
+
+        };
+
+        var databaseToCache = function () {
+        };
+
+        switch (type) {
+            case 'cookie':
+                return cookieToCache();
+                break;
+            case'session':
+                break;
+            case 'localStorage':
+                break;
+            case 'sessionStorage':
+                break;
+            case 'globalStorage':
+                break;
+            case 'dataBase':
+                break;
+        }
+    },
+    get: function (argP) {
+        return this._getType(argP, 'get');
+    },
+    set: function (argP) {
+        this._getType(argP, 'set');
+    },
+    delete: function (argP) {
+        this._getType(argP, 'delete');
+    }
+};
+
+
+
+/**
+ * Created by zhen on 2017/9/17.
+ */
+var getSelector = function () {
+    if (!arguments[0]) {
+        console.error('selector=" "');
+        return;
+    }
+
+    var selectorList = arguments[0].split(' ');
+    var selector = selectorList.splice(0, 1)[0];
+    var charAtFirst = selector[0];
+
+    var nodes = [];
+    var parentTags;
+    if (_s.isHtml(this)) {
+        parentTags = this[0];
+    } else {
+        parentTags = document;
+    }
+
+    switch (charAtFirst) {
+        case '#':
+            selector = selector.replace('#', '');
+            nodes.push(parentTags.getElementById(selector));
+
+            break;
+        case '.':
+            selector = selector.replace('.', '');
+            nodes = parentTags.getElementsByClassName(selector);
+            break;
+        default :
+            nodes = parentTags.getElementsByTagName(selector);
+    }
+    if (selectorList.length > 0) {
+        return arguments.callee.call(nodes, selectorList.join(' '));
+
+    } else {
+        return nodes;
+    }
+};
+var $s = function (selector) {
+    var nodes = getSelector.call(this, selector);
+
+    nodes.find = function (selector) {
+        return $s.call(this, selector);
+    };
+
+    nodes.createElement = function (param) {
+        var html = param.tag || '';
+        _s.each(this, function (en) {
+            var tag = document.createElement(html);
+            en.appendChild(tag);
+        });
+
+        var tag = $s(html)[0];
+        return tag;
+    };
+
+    nodes.val = function (value) {
+        var _this = this;
+        var getValue = function () {
+            return _this[0].value;
+        };
+        var setValue = function () {
+            _this.value = value;
+        };
+        if (!value) {
+            return getValue();
+        } else {
+            setValue();
+        }
+    };
+
+    nodes.on = function (method, fn) {
+        debugger;
+        var browser = _s.getBrowser();
+
+        _s.each(this, function (en) {
+            if (browser.indexOf('IE') > -1 && Number(browser[2]) < 9) {
+                en['on' + method] = fn;
+            } else {
+                en.addEventListener(method, fn, true);
+            }
+        });
+    };
+
+    return nodes;
+};
+
 /**
  * Created by Administrator on 2017/7/18.
  */
@@ -266,22 +453,23 @@ snowJs.Chart = (function () {
     var constructor = function (Parameter) {
         var initParameter = {};
         initParameter.type = 'bar';
-        snowJs.tool.extend(initParameter, Parameter);
+        _s.extend(initParameter, Parameter);
 
-        var container=initParameter.container;
+        var container = initParameter.container;
 
-        var chartTag = document.getElementById('chart');
-        var canvasId = snowJs.tool.getRandom();
-        var canvas = snowJs.tool.createElement({
-            tag: 'canvas',
-            id: canvasId
+        var chartTag = initParameter.$e;
+        var canvasId = _s.getRandom();
+        var canvas = chartTag.createElement({
+            tag: 'canvas'
         });
 
         var canvasWidth = 740;
         var canvasHeight = 248;
+        var cssClass=initParameter.cssClass||'';
+        canvas.setAttribute('class', cssClass);
+        canvas.setAttribute('id', canvasId);
         canvas.setAttribute('width', canvasWidth.toString());
         canvas.setAttribute('height', canvasHeight.toString());
-        chartTag.appendChild(canvas);
 
         //矩形统计图
         var createBarChart = function () {
@@ -342,7 +530,7 @@ snowJs.Chart = (function () {
 
             var maxVal = Number(data[0].y),//Y轴数据中的最大值
                 minVal = Number(data[0].y);//Y轴数据中的最小值
-            snowJs.tool.each(data, function (en, index) {
+            _s.each(data, function (en, index) {
                 var val = Number(en.y);
                 maxVal < val ? maxVal = val : maxVal;
                 minVal > val ? minVal = val : minVal;

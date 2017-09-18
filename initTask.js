@@ -25,7 +25,7 @@ var initTask = function (gruntObject) {
     jshintCreate();
 
     grunt.config.merge(projectConfig);
-    grunt.registerTask(projectName, [concatName, uglifyName, lessName]);
+    grunt.registerTask(projectName, [concatName, lessName, uglifyName]);
 };
 
 module.exports = {initTask: initTask};
