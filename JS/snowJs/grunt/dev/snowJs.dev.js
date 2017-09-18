@@ -274,7 +274,13 @@ _s.cache = {
         var key = pParameter.key || '';
 
         var cookieToCache = function () {
+            //cookie在浏览器和服务器中来回传递，主要应用场景：
+            //1、保持登录；2、保持上次查看的页面；3、浏览次数统计；4、购物车的状态保持
             var time = pParameter.time || 30;//设置多少天之后到期，如设定则默认30天
+
+            var date = new Date();
+            date.setTime(date.getTime() + time * 24 * 60 * 60 * 1000);//time*24*60*60将time转化成秒，获取到期的具体日期
+
             switch (methodType) {
                 case 'set':
                     if (value === '') {
@@ -282,10 +288,7 @@ _s.cache = {
                         return;
                     }
 
-                    var date = new Date();
-                    date.setTime(date.getTime() + time * 24 * 60 * 60*1000);//time*24*60*60将time转化成秒，获取到期的具体日期
-
-                    document.cookie = key + '=' + value + ';expires=' + date;
+                    document.cookie = key + '=' + value + ';expires=' + date.toGMTString();
                     break;
                 case 'get':
                     var cookies = document.cookie;
@@ -297,20 +300,55 @@ _s.cache = {
                     return val;
                     break;
                 case 'delete':
-                    var date = new Date();
-                    date.setTime(date.getTime() - 24 * 60 * 60*1000);//time*24*60*60将time转化成秒，获取到期的具体日期
-
                     document.cookie = key + '=' + value + ';expires=' + date.toGMTString();
                     break;
             }
         };
 
         var sessionToCache = function () {
-
         };
 
-        var storageToCache = function () {
+        var localStorageToCache = function () {
+            //1、存储在本地，不会发送到服务器（除非故意为之）
+            //2、在同域下localStorage共享（数据可跨越多个窗口、无视当前会话，被共同访问、使用）
+            //3、localStorage用于持久化的本地存储，除非主动删除数据，否则不会过期
+            //4、可存储更大的数据（相比cookie）
 
+            switch (methodType) {
+                case 'get':
+                    return localStorage.getItem(key);
+                    break;
+                case 'set':
+                    localStorage.setItem(key, value);
+                    break;
+                case 'delete':
+                    localStorage.removeItem(key);
+                    break;
+                case 'clear':
+                    localStorage.clear();
+            }
+        };
+
+        var sessionStorageToCache = function () {
+            //1、sessionStorage 的存储空间大小，参照浏览器厂商具体实现
+            //2、通过sessionStorage所存储数据的生命周期，和session类似，关闭浏览器（或标签）后数据就不存在了。但刷新页面或使用“前进”、“后退”按钮后，sessionStorage仍然存在
+            //3、sessionStorage每个窗口的值都是独立的（每个窗口都有自己的数据），它的数据会随浏览器的关闭而消失，窗口间的不可以共享
+            //4、setItem中的key 和 value使用的都是字符的形式存储，如sessionStorage.setItem('a','1');
+            //5、再次使用setItem设置已存在的key的value时，新的值将替代旧的值（可实现修改存在key的value的操作）
+            //6、当存储的数据发生变化时，会触发window.onStorage事件，但目前各个浏览器对此事件的支持并不完善。
+            switch (methodType) {
+                case 'get':
+                    return sessionStorage.getItem(key);
+                    break;
+                case 'set':
+                    sessionStorage.setItem(key, value);
+                    break;
+                case 'delete':
+                    sessionStorage.removeItem(key);
+                    break;
+                case 'clear':
+                    sessionStorage.clear();
+            }
         };
 
         var globalStorageToCache = function () {
@@ -327,8 +365,10 @@ _s.cache = {
             case'session':
                 break;
             case 'localStorage':
+                return localStorageToCache();
                 break;
             case 'sessionStorage':
+                return sessionStorageToCache();
                 break;
             case 'globalStorage':
                 break;
@@ -343,7 +383,13 @@ _s.cache = {
         this._getType(argP, 'set');
     },
     delete: function (argP) {
+        if (!argP) {
+            argP.time = '-1';
+        }
         this._getType(argP, 'delete');
+    },
+    clear: function () {
+        this._getType(argP, 'clear');
     }
 };
 
@@ -374,7 +420,6 @@ var getSelector = function () {
         case '#':
             selector = selector.replace('#', '');
             nodes.push(parentTags.getElementById(selector));
-
             break;
         case '.':
             selector = selector.replace('.', '');

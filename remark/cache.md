@@ -64,4 +64,40 @@ PS：cookie功能需要浏览器的支持。如果浏览器不支持cookie（如
     
 # Web Storage
 
+## 缺陷：
+```
+* 数据以简单字符串存储；
+* 默认5MB的存储限制；如果需要时可由用户允许获取更大存储
+* 可被用户或者系统管理禁用
+* 复杂数据集合存储可能很慢
+```
+
+## 长处：
+```
+* APP可以在在线或离线的情况下使用
+* 用简单好用易学的API
+* 能够对浏览器使用事件钩子，如offline、online、storage change
+* 提供更大的空间已存贮日益剧增的复杂数据
+```
+
+## 带来的好处：
+```
+减少网络流量：一旦数据保存本地后，就可以避免再向服务器请求数据
+快速显示数据：性能好，从本地读取数据比通过网络从服务器获取数据快得多，本地数据可以立即获得，加上网页本身也可以缓存，因此整个页面和数据都在本地的话，可以立即显示
+临时存储：很多时候数据只需要在用户浏览一组页面期间使用，关闭窗口后数据可以丢弃，这种情况使用sessionStorage非常方面
+```
+
+> method                                   description
+localStorage.clear()              clear all records out of storage
+localStorage.getItem(key)         retrieve an item form storage
+localStorage.setItem(key,value)   add an item to storage
+localStorage.removeItem(key)      removes an item from storage
+
+
+## 事件
+### storage：
+```
+在localStorage和sessionStorage具有相同的方法storage事件，在存储事件的处理函数中是不能取消存储动作的。storage事件只是浏览器在数据发生变化后给你的通知,
+当setItem(),removeItem(),clear()方法被调用，并且数据真的发生了改变时，storage就会被触发，如果存储区域是空的，再去调clear是不会发生触发事件的
+```
 
