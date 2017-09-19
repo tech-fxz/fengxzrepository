@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+  {{message}}
+  <view id="item-{{id}}"></view>
+  <view wx:if="{{condition}}">
+    <checkbox checked="{{true}}"></checkbox>
+    <!--checked="{{0}}"===checked="{{false}}"-->
+  </view>
+  <view hidden="{{flag?true:false}}">{{welcome}}</view>
+
+  <view>
+    {{a+b}}+{{c}}={{a+b+c}}
+  </view>
+  <view>
+  {{object.key}}{{array[0]}}
+  </view>
+  <view wx:for="{{[0,a,b,c]}}">{{item}}</view>
+  <template is="objectCombine" data="{{for:a,bar:b}}"></template>
+ <view class="btn-area">
+ <navigator url="../list/list" open-type='navigate'>列表渲染</navigator>
+ </view>
+</view>

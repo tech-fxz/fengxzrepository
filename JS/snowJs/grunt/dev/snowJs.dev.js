@@ -374,7 +374,6 @@ var getSelector = function () {
         case '#':
             selector = selector.replace('#', '');
             nodes.push(parentTags.getElementById(selector));
-
             break;
         case '.':
             selector = selector.replace('.', '');
