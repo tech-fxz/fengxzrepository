@@ -36,10 +36,6 @@ Page({
         },
         { url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg',             name: '西餐' 
         },
-        { url: 'http://recipe.nlyeb.com/Upload/Files/2016/08/17/bac465fc177043c9b8377ce1afdfcd07.jpg',            name: '麻辣烫' 
-        },
-        { url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg',            name: '蛋糕' 
-        },
         { url: 'http://recipe.nlyeb.com/Upload/Files/2016/08/17/bac465fc177043c9b8377ce1afdfcd07.jpg',            name: '海鲜'
          }
       ]}

@@ -39,7 +39,6 @@ page{
 swiper{
   width: 100%;
   background-color: #fff;
-  padding:0 1em;
   height: 11em;
   box-shadow: 0 0 .1em #ccc
 }
@@ -51,7 +50,7 @@ swiper swiper-item navigator {
   float: left;
   width: 4em;
   height: 5em;
-  margin: 1em 1.2em;
+  margin: 1em 1.5em;
   color: #888;
   font-size: .7em;
   text-align: center;
