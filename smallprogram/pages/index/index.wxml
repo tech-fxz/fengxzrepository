@@ -1,22 +1,42 @@
-<!--index.wxml-->
-<view class="container">
-  {{message}}
-  <view id="item-{{id}}"></view>
-  <view wx:if="{{condition}}">
-    <checkbox checked="{{true}}"></checkbox>
-    <!--checked="{{0}}"===checked="{{false}}"-->
+<!--pages/index/index.wxml-->
+<view class="section">
+  <input type="text" confirm-type="search" placeholder="搜索菜名、搜索餐时"          placeholder-class="search-placeholder" class="search"></input>
+  <view class="quick-view">
+    <navigator class="quick-search">水果</navigator>
+    <navigator class="quick-search">面包</navigator>
+    <navigator class="quick-search">蛋糕</navigator>
+    <navigator class="quick-search">牛奶</navigator>
+    <navigator class="quick-search">米饭</navigator>
+    <navigator class="quick-search">湘菜</navigator>
+    <navigator class="quick-search">川菜</navigator>
+    <navigator class="quick-search">粤菜</navigator>
   </view>
-  <view hidden="{{flag?true:false}}">{{welcome}}</view>
+</view>
 
-  <view>
-    {{a+b}}+{{c}}={{a+b+c}}
+<swiper indicator-dots="{{true}}" indicator-color="#ccc" indicator-active-color="#777" autoplay="{{true}}" interval="{{interval}}" 
+duration="{{duration}}" >
+  <block wx:for="{{classsifys}}" wx:for-item="i">
+    <swiper-item>
+      <block wx:for="{{i.list}}" wx:for-item="j">
+        <navigator>
+        <image src="{{j.url}}"></image>
+        {{j.name}}
+        </navigator>
+      </block>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="recommend">
+  <view class="title">推荐菜式</view>
+
+<block wx:for="{{dashList}}">
+  <view class="dash">
+    <image src="{{item.url}}"></image>
+    <view class="fr">
+      <view class="dash-name">{{item.name}}</view>
+      <view class="description">{{item.desc}}</view>
+    </view>
   </view>
-  <view>
-  {{object.key}}{{array[0]}}
-  </view>
-  <view wx:for="{{[0,a,b,c]}}">{{item}}</view>
-  <template is="objectCombine" data="{{for:a,bar:b}}"></template>
- <view class="btn-area">
- <navigator url="../list/list" open-type='navigate'>列表渲染</navigator>
- </view>
+</block>
 </view>

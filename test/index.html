@@ -90,6 +90,7 @@
     <script>
         //cache 练习
         var $form = $s('.register');
+        debugger;
         $form.find('.register-form-submit button').on('click', function (event) {
             debugger;
             var form = {};
@@ -98,19 +99,19 @@
             var path = $form.find('.register-form-face input').val();
 
             _s.cache.set({
-                type:'cookie',
-                key:'account',
-                value:account
+                type: 'cookie',
+                key: 'account',
+                value: account
             });
-           var accounts= _s.cache.get({
-                type:'cookie',
-                key:'account'
+            var accounts = _s.cache.get({
+                type: 'cookie',
+                key: 'account'
             });
             console.log(accounts);
 
             _s.cache.delete({
-                type:'cookie',
-                key:'account'
+                type: 'cookie',
+                key: 'account'
             });
 //            _s.cache.set({
 //                type:'cookie',

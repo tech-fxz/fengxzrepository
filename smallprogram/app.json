@@ -1,14 +1,33 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
+    "pages/list/list",
     "pages/logs/logs",
-
-    "pages/list/list"
+    "pages/my/my"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0099ff",
+    "navigationBarTitleText": "点餐",
+    "navigationBarTextStyle": "#ffffff",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "外卖"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "订单"
+      }
+      ,
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
   }
 }

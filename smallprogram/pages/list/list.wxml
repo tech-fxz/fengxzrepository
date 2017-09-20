@@ -1,21 +1,4 @@
-<view class="list">
-  <view  wx:for="{{array}}" wx:for-index="i" wx:for-item="ms">
-  {{i+1}}: {{ms.message}}
-  </view>
-
-  <view wx:for="{{[1,2]}}" wx:for-item="i">
-    <view wx:for="{{[1,2]}}" wx:for-item="j">
-    {{i}}*{{j}}={{i*j}}
-    </view>
-  </view>
-
-  <block wx:for="{{[1,2,3]}}">
-    <view>
-      {{index}}
-      {{item}}
-    </view>
-  </block>
-
- <switch wx:for="{{objectArray}}" wx:key="id" style="block">{{item.name}}</switch>
+<view class="tip">
+  <icon></icon>
+  这是您的吃过菜式列表
 </view>
-

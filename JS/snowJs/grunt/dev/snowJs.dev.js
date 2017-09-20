@@ -389,6 +389,7 @@ var getSelector = function () {
         return nodes;
     }
 };
+
 var $s = function (selector) {
     var nodes = getSelector.call(this, selector);
 
@@ -423,7 +424,6 @@ var $s = function (selector) {
     };
 
     nodes.on = function (method, fn) {
-        debugger;
         var browser = _s.getBrowser();
 
         _s.each(this, function (en) {
