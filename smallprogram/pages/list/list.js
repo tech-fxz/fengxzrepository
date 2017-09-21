@@ -1,6 +1,8 @@
 Page({
   onLoad:function(option){
-    console.log(option)
+    wx.setNavigationBarTitle({
+      title: '订单',
+    })
   },
   data:{
     array:[

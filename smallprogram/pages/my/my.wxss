@@ -1,1 +1,49 @@
 /* pages/my/my.wxss */
+page{  
+  display: flex;  
+  flex-direction: column;  
+  height: 100%;  
+}  
+
+.header{
+  padding:.5em 2em;
+  background-color: #0099ff;
+  color: #fff;
+}
+
+.header .h1{
+  font-size: 1.2em;
+}
+.header .h3{
+  padding: .5em 0;
+  font-size: .6em;
+}
+
+.navbar{  
+  flex: none;  
+  display: flex;  
+  background: #fff;  
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;   
+  height: 5em;
+  line-height: 5em;
+  font-size: .75em;
+  border-right:.2em solid #F7F7F7 ;
+  border-bottom:.2em solid #F7F7F7 ;
+}  
+.navbar .item:last-child{
+   border-right:0;
+}
+.navbar .item.active{  
+  color: #FFCC00;  
+
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;   
+  height: 4rpx;  
+  background: #FFCC00;  
+}  

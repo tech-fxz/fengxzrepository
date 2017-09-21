@@ -5,14 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    navbar: ['我的余额', '我的红包', '我的特权'], 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+  wx.setNavigationBarTitle({
+    title: '我的',
+  })
   },
 
   /**

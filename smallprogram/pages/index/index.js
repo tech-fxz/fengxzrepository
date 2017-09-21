@@ -37,7 +37,13 @@ Page({
         { url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg',             name: '西餐' 
         },
         { url: 'http://recipe.nlyeb.com/Upload/Files/2016/08/17/bac465fc177043c9b8377ce1afdfcd07.jpg',            name: '海鲜'
-         }
+        },
+        {
+          url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg',           name: '西餐'
+        },
+        {
+          url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg',           name: '披萨'
+        }
       ]}
     ],
     dashList:[

@@ -43,14 +43,16 @@ swiper{
   box-shadow: 0 0 .1em #ccc
 }
 
-swiper swiper-item{
-    width: 100%;
+.swiper-navigator{
+  width: 84%;
+  margin: 0 auto;
+  overflow: hidden;
 }
-swiper swiper-item navigator {
+swiper swiper-item .swiper-navigator navigator {
   float: left;
   width: 4em;
   height: 5em;
-  margin: 1em 1.5em;
+  margin:1em;
   color: #888;
   font-size: .7em;
   text-align: center;

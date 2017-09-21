@@ -17,12 +17,14 @@
 duration="{{duration}}" >
   <block wx:for="{{classsifys}}" wx:for-item="i">
     <swiper-item>
+    <view class="swiper-navigator">
       <block wx:for="{{i.list}}" wx:for-item="j">
         <navigator>
         <image src="{{j.url}}"></image>
         {{j.name}}
         </navigator>
       </block>
+      </view>
     </swiper-item>
   </block>
 </swiper>
