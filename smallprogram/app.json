@@ -9,11 +9,15 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#0099ff",
     "navigationBarTitleText": "点餐",
-    "navigationBarTextStyle": "#ffffff",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh":true
   },
   "tabBar": {
     "backgroundColor": "#fff",
+    "color": "#777777",
+    "selectedColor": "#0099ff",
+    "borderStyle":"black",
+    "position":"bottom",
     "list": [
       {
         "pagePath": "pages/index/index",
