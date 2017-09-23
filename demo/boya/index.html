@@ -4,180 +4,145 @@
     <meta charset="UTF-8">
     <title>博雅互动</title>
     <link rel="stylesheet" href="../../snowCss/base.min.css">
-    <link rel="stylesheet" href="grunt/pro/boya.min.css">
-
-    <script
-            src="lib/angular/1.2.13/angular.js"></script>
-    <script src="src/main.js"></script>
 </head>
 <body>
-<div ng-app="my-app">
-    <div class="header">
-        <div class="header-content">
-            <div class="header-content-logo">
-                <div class="header-content-logo-content">
-                    <img class="header-content-logo-content-img" src="images/f3.png">
-                    <img class="header-content-logo-content-title" src="images/t.png">
-                </div>
-
-                <div id="tips" class="header-content-logo-tips">
-                    点击我看看，有惊喜哦！
-                </div>
-            </div>
-            <div class="header-content-nav">
-                <ul class="header-content-nav-first">
-                    <li class="active">
-                        <a href="javascript:;">首页</a>
-
-                        <div class="header-content-nav-second"></div>
-                    </li>
-                    <li>
-                        <a href="javascript:;">博雅游戏</a>
-
-                        <div class="header-content-nav-second">
-                            <ul>
-                                <li><a href="javascript:;">欢乐斗地主</a></li>
-                                <li><a href="javascript:;">开心麻将</a></li>
-                                <li><a href="javascript:;">德州纸牌屋</a></li>
-                                <li><a href="javascript:;">摇色子</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="javascript:;">博雅新闻</a>
-
-                        <div class="header-content-nav-second">
-                            <ul>
-                                <li><a href="javascript:;">博雅新活动</a></li>
-                                <li><a href="javascript:;">博雅新招聘</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="javascript:;">关于我们</a>
-
-                        <div class="header-content-nav-second"></div>
-                    </li>
-                    <li>
-                        <a href="javascript:;">客服中心</a>
-
-                        <div class="header-content-nav-second header-content-nav-call">
-                            <p>有问题的请联系客服</p>
-
-                            <p>客服热线：400-222-888</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="javascript:;">投资关系</a>
-
-                        <div class="header-content-nav-second"></div>
-                    </li>
-                </ul>
-            </div>
-            <div class="header-content-join">
-                <button>加入我们</button>
-            </div>
+<div class="header">
+    <div class="header-content">
+        <div class="logo-container">
+            <img class="logo" src="images/f3.png">
+            <img class="title" src="images/t.png">
+        </div>
+        <div class="nav">
+            <ul>
+                <li class="active"><a href="javascript:;">首页</a></li>
+                <li><a href="javascript:;">博雅游戏</a></li>
+                <li><a href="javascript:;">博雅新闻</a></li>
+                <li><a href="javascript:;">关于我们</a></li>
+                <li><a href="javascript:;">客服中心</a></li>
+                <li><a href="javascript:;">投资关系</a></li>
+            </ul>
+        </div>
+        <div class="join">
+            <button>加入我们</button>
         </div>
     </div>
-    <div class="banner">
-        <img src="images/banner.jpg" width="100%">
+</div>
+<div class="banner">
+    <img src="images/banner.jpg" width="100%">
+
+    <div class="dots">
+        <ul>
+            <li class="active">
+                <i></i>
+            </li>
+            <li>
+                <i></i>
+            </li>
+            <li>
+                <i></i>
+            </li>
+            <li>
+                <i></i>
+            </li>
+            <li>
+                <i></i>
+            </li>
+        </ul>
     </div>
-    <div class="middle-content" ng-controller="Content">
-        <div class="middle-content-trailer">
-            <div class="middle-content-trailer-content">
+</div>
+<div class="middle-content">
+    <div class="trailer">
+        <div class="content">
+            <ul>
+                <li>
+                    <img src="images/pro1.jpg" width="100%">
+
+                    <p>BPT宣传片</p>
+                    <a href="javascript:;">点击播放</a>
+                </li>
+                <li>
+                    <img src="images/pro2.jpg" width="100%">
+
+                    <p>博雅互动宣传视频</p>
+                    <a href="javascript:;">点击播放</a>
+                </li>
+                <li>
+                    <img src="images/pro3.jpg" width="100%">
+
+                    <p>斗地主</p>
+                    <a href="javascript:;">LANDLORDS</a>
+                </li>
+                <li>
+                    <img src="images/pro4.jpg" width="100%">
+
+                    <p>德州扑克</p>
+                    <a href="javascript:;">TEXAS HOLD'EM POKER</a>
+                </li>
+            </ul>
+        </div>
+        <div class="trailer-line">
+            <div class="row line"></div>
+            <div class="row dots">
                 <ul>
-                    <li>
-                        <img src="images/pro1.jpg" width="100%">
-
-                        <p>BPT宣传片</p>
-                        <a href="javascript:;">点击播放</a>
-                    </li>
-                    <li>
-                        <img src="images/pro2.jpg" width="100%">
-
-                        <p>博雅互动宣传视频</p>
-                        <a href="javascript:;">点击播放</a>
-                    </li>
-                    <li>
-                        <img src="images/pro3.jpg" width="100%">
-
-                        <p>斗地主</p>
-                        <a href="javascript:;">LANDLORDS</a>
-                    </li>
-                    <li>
-                        <img src="images/pro4.jpg" width="100%">
-
-                        <p>德州扑克</p>
-                        <a href="javascript:;">TEXAS HOLD'EM POKER</a>
-                    </li>
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul>
             </div>
-            <div class="middle-content-trailer-line">
-                <div class="middle-content-trailer-line-row middle-content-trailer-line-line"></div>
-                <div class="middle-content-trailer-line-row middle-content-trailer-line-dots dots">
-                    <ul>
-                        <li class="active"></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <div class="middle-content-trailer-line-row middle-content-trailer-line-line"></div>
-            </div>
-        </div>
-        <div class="middle-content-news">
-            <div class="middle-content-news-column middle-content-news-ns">
-                <div class="middle-content-news-column-header middle-content-news-ns-header">
-                    <div class="middle-content-news-column-header-more middle-content-news-ns-header-more">
-                        <span>MORE</span>
-                        <label>+</label>
-                    </div>
-                </div>
-                <div class="middle-content-news-ns-content">
-                    <ul>
-                        <li ng-repeat="i in news"><span class="data">{{i.month}}<span>/</span>{{i.day}}</span>{{i.text}}
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="middle-content-news-column middle-content-news-recruit">
-                <div class="middle-content-news-column-header middle-content-news-recruit-header">
-                    <div class="middle-content-news-column-header-title">
-                        <p>专场招聘</p>
-                        <span>BOYAA JOBS</span>
-                    </div>
-                    <div class="middle-content-news-column-header-more middle-content-news-recruit-header-more">
-                        <span>MORE</span>
-                        <label>+</label>
-                    </div>
-                </div>
-                <div class="middle-content-news-column-content middle-content-news-recruit-content">
-                    <p>专场招聘岗位：</p>
-                    <ul>
-                        <li ng-repeat="it in recruitList">{{it.jopName}}</li>
-                    </ul>
-                </div>
-            </div>
+            <div class="row line"></div>
         </div>
     </div>
-    <div class="footer">
-        <div class="footer-content">
-            <div class="footer-content-left">网站地图<span>|</span>免责声明</div>
-            <div class="footer-content-right">
-                Copyright &copy; 2004-2014博雅互动（boyaa interativie）粤ICP备0828888777号 增值电信营业许可证 ：粤B2-6666666666
-                <img src="images/govIcon.gif" width="40px" height="50px">
+    <div class="news">
+        <div class="column boya-news">
+            <div class="news-header">
+                <div class="more">
+                    <span>MORE</span>
+                    <label>+</label>
+                </div>
+            </div>
+            <div class="news-content">
+                <ul>
+                    <li><span class="data">09<span>/</span>28</span>2015博雅国际扑克大赛（BPT）在澳门落幕</li>
+                    <li><span class="data">09<span>/</span>28</span>2015博雅国际扑克大赛（BPT）在澳门落幕</li>
+                    <li><span class="data">09<span>/</span>28</span>2015博雅国际扑克大赛（BPT）在澳门落幕</li>
+                    <li><span class="data">09<span>/</span>28</span>2015博雅国际扑克大赛（BPT）在澳门落幕</li>
+                </ul>
+            </div>
+        </div>
+        <div class="column recruit">
+            <div class="news-header">
+                <div class="title">
+                    <p>专场招聘</p>
+                    <span>BOYAA JOBS</span>
+                </div>
+                <div class="more">
+                    <span>MORE</span>
+                    <label>+</label>
+                </div>
+
+            </div>
+            <div class="news-content">
+                <p>专场招聘岗位：</p>
+                <ul>
+                    <li>PHP开发工程师</li>
+                    <li>PHP开发工程师</li>
+                    <li>PHP开发工程师</li>
+                    <li>PHP开发工程师</li>
+                    <li></li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
-<script>
-    (function () {
-        var $tips = document.getElementById('tips');
-        $tips.style.display = 'block';
-        document.body.addEventListener('click', function () {
-            $tips.style.display = 'none';
-        });
-    })();
-</script>
+<div class="footer">
+    <div class="footer-content">
+        <div class="footer-left">网站地图<span>|</span>免责声明</div>
+        <div class="footer-right">
+            Copyright &copy; 2004-2014博雅互动（boyaa interativie）粤ICP备0828888777号 增值电信营业许可证 ：粤B2-6666666666
+            <img src="images/govIcon.gif" width="40px" height="50px">
+        </div>
+    </div>
+</div>
 </body>
 </html>

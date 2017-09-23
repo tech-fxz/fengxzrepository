@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/list",
+    "pages/logs/logs",
+    "pages/my/my"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0099ff",
+    "navigationBarTitleText": "点餐",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh":true
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "color": "#777777",
+    "selectedColor": "#0099ff",
+    "borderStyle":"black",
+    "position":"bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "外卖"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "订单"
+      }
+      ,
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  }
+}

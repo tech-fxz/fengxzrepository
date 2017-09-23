@@ -1,0 +1,105 @@
+/* pages/index/index.wxss */
+page{
+  background-color: #efefef;
+}
+.section{
+  height: 3.8em;
+  flex: none;
+  background-color: #0099ff;
+}
+.search{
+  background: url("http://test.nlyeb.com/yeb/images/yeb/icon_search.png")no-repeat 80%;
+  background-size: 1.3em 1.3em;
+  background-color: #fff;
+  border: .1em solid #0099ff;
+  border-radius: 1em;
+  height: 1.1em;
+  margin:0 1em;
+  padding: .2em;
+  color:#fff;
+}
+
+.input-placeholder{
+  color:#999;
+  font-size:.75em;
+  padding-left:1.5em;
+}
+
+.quick-view{
+  margin: 0 1em;
+}
+
+.quick-search{
+  display: inline-block;
+  padding:.7em .6em;
+  color: #fff;
+  font-size:.6em;
+}
+
+swiper{
+  width: 100%;
+  background-color: #fff;
+  height: 11em;
+  box-shadow: 0 0 .1em #ccc
+}
+
+.swiper-navigator{
+  width: 84%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+swiper swiper-item .swiper-navigator navigator {
+  float: left;
+  width: 4em;
+  height: 5em;
+  margin:1em;
+  color: #888;
+  font-size: .7em;
+  text-align: center;
+}
+
+swiper swiper-item navigator image{
+  width: 4em;
+  height: 4em;
+}
+
+.recommend{
+  background-color: #fff;
+  margin-top: .5em;
+}
+
+.recommend .title{
+  font-size: .75em;
+  padding:.5em;
+  color: #777;
+}
+
+.recommend .dash{
+  border-top: 1px solid #efefef;
+  padding: .6em .4em;
+  overflow: hidden;
+}
+.recommend .dash image{
+  float: left;
+  width: 3em;
+  height: 3em;
+}
+
+.recommend .dash .fr{
+  float: left;
+  margin-left: .6em;
+  width: 15.6em;
+
+}
+.recommend .dash .fr .dash-name{
+  padding-bottom: .5em;
+  font-size: .8em;
+  font-weight: bold;
+}
+
+.recommend .dash .fr .description{
+  padding: .5em 0;
+  border-top: .1em dashed #ddd;
+  color: #777;
+  font-size: .75em;
+}

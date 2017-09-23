@@ -1,0 +1,9 @@
+<!--pages/my/my.wxml-->
+<view class="header">
+  <view class="h1">登录/注册</view>
+  <view class="h3">登录后可享受更多特权</view>
+</view>
+
+<view class="navbar">  
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+</view>  
