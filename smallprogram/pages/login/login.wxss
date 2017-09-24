@@ -1,0 +1,51 @@
+/* login.wxss */
+page{
+  background-color: #F7F7F7;
+}
+.login{
+  margin-top:.9em;
+  background-color: #ffffff;
+}
+.login .mobile,.login .identifyingCode{
+  line-height: 2.3;
+  padding: .1em 0;
+  margin-left: 1em;
+  font-size: 13px;
+}
+.login .mobile{
+  overflow: hidden;
+  border-bottom:1px solid #dbdbdb;
+}
+
+.login .mobile input{
+  float: left;
+  font-size:13px;
+  line-height:2.3;
+  padding: .1em 0;
+}
+.login .mobile button{
+  float: right;
+  line-height: 2;
+  background-color: #0099ff;
+  color: #ffffff;
+  border: 0;
+  margin-right: 1em;
+  margin-top: .16em;
+  padding: 0 .23em;
+}
+
+.warningTip{
+  padding: .3em 1em;
+  font-size: 11px;
+  color:#999;
+}
+.warningTip span{
+color: #0099ff;
+}
+
+.btn-area{
+  padding: .4em 1em;
+}
+.btn-area button{
+  line-height: 2.2;
+}

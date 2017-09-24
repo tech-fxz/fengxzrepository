@@ -74,5 +74,5 @@ alert('p1:'+p1.f);//s:3
     p.s();//1
     console.log('==========================这是一条华丽丽的分界线===========================');
     p.s()();// 1、3
-    解析：p.s()()；即：var p1=p.s()（this指向p）; p1()；（p1()===window.p1()this指向window）
+    解析：p.s()();即：var p1=p.s()（this指向p）; p1()；（p1()===window.p1()this指向window）
 ```

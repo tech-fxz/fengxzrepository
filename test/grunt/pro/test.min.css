@@ -161,16 +161,17 @@
 }
 .register input {
   padding: 3px;
-  width: 380px;
+  padding-left: 24px;
+  width: 356px;
   height: 30px;
   line-height: 30px;
   border: 1px solid #009ceb;
 }
 .register .register-form-account input {
-  background: url('image/account_bg.png') no-repeat left;
+  background: url('../../image/account_bg.png') no-repeat left;
 }
 .register .register-form-password input {
-  background: url("image/password_bg.png") no-repeat left;
+  background: url("../../image/password_bg.png") no-repeat left;
 }
 .register .register-form-file {
   text-align: center;

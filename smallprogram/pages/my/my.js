@@ -1,20 +1,50 @@
 // pages/my/my.js
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    navbar: ['我的余额', '我的红包', '我的特权'], 
+    navbar: [
+      { name: '我的余额'},
+      { name: '我的红包'},
+      { name: '我的特权'}
+    ], 
+    islogin:false,
+    islogout:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  wx.setNavigationBarTitle({
-    title: '我的',
-  })
+    wx.setNavigationBarTitle({
+      title: '我的',
+    });
+
+    let app = getApp();
+    app.islogin=true;
+    if(app.islogin){
+      let userInfo = app.globalData.userInfo;
+      userInfo.mobile='159****5705';
+      this.setData({
+        islogin: true,
+        islogout: false,
+        userInfo: userInfo,
+        navbar: [
+          { name: '余额', value: '0元'},
+          { name: '红包', value: '0个'},
+          { name: '积分' ,value: '293分'}
+        ], 
+      });
+      console.log(userInfo);
+    }else{
+      this.setData({
+        islogin: false,
+        islogout: true
+      });
+    }
   },
 
   /**

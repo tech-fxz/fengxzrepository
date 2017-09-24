@@ -14,6 +14,13 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const checkPhoneNumber= n =>{
+  let t=new RegExp(/^1([3-5]|[7-9])\d{9}/);
+  var isPhoneNumber=t.test(n);
+  return isPhoneNumber;
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  checkPhoneNumber: checkPhoneNumber
 }

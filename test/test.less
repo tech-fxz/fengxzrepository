@@ -184,6 +184,8 @@
 }
 
 .register {
+  @test-url-pre: '../../image';
+
   width: 400px;
   margin-left: 20px;
   border: 1px solid #e0e8eb;
@@ -193,7 +195,8 @@
   }
   input {
     padding: 3px;
-    width: 380px;
+    padding-left: 24px;
+    width: 356px;
     height: 30px;
     line-height: 30px;
     border: 1px solid #009ceb;
@@ -202,12 +205,12 @@
   .register-form {
     &-account {
       input {
-        background: url('image/account_bg.png') no-repeat left;
+        background: url('@{test-url-pre}/account_bg.png') no-repeat left;
       }
     }
     &-password {
       input {
-        background: url("image/password_bg.png") no-repeat left;
+        background: url("@{test-url-pre}/password_bg.png") no-repeat left;
       }
     }
 

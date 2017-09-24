@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象程序设计</title>
+</head>
+<body>
+<div class="factory">
+    工厂模式
+    <script>
+        (function () {
+            function createPerson(parameter) {
+                var o = new Object();
+                o.name = parameter.name;
+                o.age = parameter.age;
+                o.job = parameter.job;
+                o.sayName = function () {
+                    console.log(this.name);
+                };
+                return o;
+            }
+
+            var person1 = createPerson({name: 'jacky', age: 29, job: 'web program'});
+            var person2 = createPerson({name: 'jam', age: 30, job: 'shellMen'});
+
+            person1.sayName();
+            person2.sayName();
+        })();
+    </script>
+</div>
+
+<div class="constructor">
+    构造函数
+    <script>
+        (function () {
+            function Person(parameter) {
+                this.name = parameter.name;
+                this.age = parameter.age;
+                this.job = parameter.job;
+
+                this.sayName = function () {
+                    console.log(this.name);
+                }
+            }
+
+            var p1 = new Person({name: 'a', age: 20, job: 'designer'});
+            var p2 = new Person({name: 's', age: 22, job: 'teacher'});
+
+            p1.sayName();
+            p2.sayName();
+        })();
+    </script>
+</div>
+
+<div class="prototype">
+    原型
+    <script></script>
+</div>
+
+</body>
+</html>

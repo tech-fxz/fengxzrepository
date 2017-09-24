@@ -1,0 +1,18 @@
+<!--login.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="login">
+    <view class="mobile">
+      <input type="number" bindinput="bindKeyInput"/>
+      <button size="mini" bindtap="sendIdentifyingCode">{{buttonText}}</button>
+   </view>
+   <view class="identifyingCode">
+     <input type="text" bindinput="getIdentifyingCode" placeholder="验证码" />
+    </view>
+  </view>
+  <view class="warningTip">
+    温馨提示：未注册点餐账号的手机号，登录时将自动注册，且地表您已同意<span>《用户注册协议》</span>
+  </view>
+  <view class="btn-area">
+    <button form-type="submit" type="primary">登录</button>
+  </view>
+</form>
