@@ -57,7 +57,6 @@ swiper swiper-item .swiper-navigator navigator {
   font-size: .7em;
   text-align: center;
 }
-
 swiper swiper-item navigator image{
   width: 4em;
   height: 4em;
@@ -75,31 +74,113 @@ swiper swiper-item navigator image{
 }
 
 .recommend .dash{
+  flex: none;
+  display: flex;
   border-top: 1px solid #efefef;
   padding: .6em .4em;
   overflow: hidden;
 }
-.recommend .dash image{
+
+.recommend .dash .restaurant{
   float: left;
-  width: 3em;
-  height: 3em;
+  width: 100rpx;
+  height: 100rpx;
 }
 
-.recommend .dash .fr{
-  float: left;
-  margin-left: .6em;
-  width: 15.6em;
-
+.recommend .dash .content{
+  flex: auto;
+  margin-left:20rpx;
+  font-size: 11px;
+  color: #666;
 }
-.recommend .dash .fr .dash-name{
-  padding-bottom: .5em;
-  font-size: .8em;
+
+.recommend .dash .content .dash-name{
+  color: #444;
+  font-size: 14px;
   font-weight: bold;
 }
 
-.recommend .dash .fr .description{
-  padding: .5em 0;
-  border-top: 1px dashed #ddd;
-  color: #777;
-  font-size: .75em;
+.recommend .dash .feedBack{
+  flex: none;
+  display: flex;
+ 
+  line-height: 50rpx;
+}
+
+.recommend .dash .feedBack .float-left{
+  flex:3 1 auto;
+}
+
+.recommend .dash .feedBack .float-left .mark{
+  color: orange;
+  margin: 0 10rpx;
+}
+
+.recommend .dash .feedBack .hasOnTimeTag {
+  flex:1 1 auto;
+  text-align:right;
+  margin-right:8rpx;
+}
+
+.recommend .dash .feedBack .hasOnTimeTag label{
+  font-size: 11px;
+  padding:3rpx 10rpx;
+  padding-bottom:4rpx;
+  border: 1px solid #0099ff;
+  color: #0099ff;
+}
+.recommend .dash .feedBack .spirit{
+  flex:1 1 auto;
+  text-align:left;  
+}
+
+.recommend .dash .feedBack .spirit label{
+  font-size: 11px;
+  background-color:#0099ff;
+  color:#fff;
+  padding:3rpx;
+  padding-bottom:4rpx;
+}
+
+.recommend .dash .feedBack .float-left image{
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.recommend .dash .distribution {
+  flex: none;
+  display: flex;
+  padding-bottom:15rpx;
+  margin-bottom:15rpx;
+  border-bottom:1px dashed #ccc;
+}
+
+.recommend .dash .distribution .float-left{
+  flex: 2 1 auto;
+}
+
+.recommend .dash .distribution .startingPrice{
+  border-right: 1px solid #ccc;
+  padding-right: 8rpx;
+  margin-right: 8rpx;
+}
+.recommend .dash .distribution .float-right{
+  flex:1 1 auto;
+  margin-left:40rpx;
+  text-align:center;
+}
+
+.recommend .dash .distribution .long{
+  border-right: 1px solid #ccc;
+  padding-right: 8rpx;
+  margin-right: 8rpx;
+}
+
+.recommend .dash .activity{
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.recommend .dash .activity image{
+  width: auto;
+  height: auto;
 }

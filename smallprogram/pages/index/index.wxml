@@ -34,8 +34,11 @@ duration="{{duration}}" >
 
 <block wx:for="{{dashList}}">
   <view class="dash">
-    <image src="{{item.url}}"></image>
-    <view class="fr">
+    <view class="item">
+      <image src="{{item.url}}" class="restaurant "></image>
+    </view>
+    
+    <view class="content">
       <view class="dash-name">{{item.name}}</view>
 
       <view class="feedBack">
@@ -43,13 +46,18 @@ duration="{{duration}}" >
           <block wx:for="{{item.straList}}" wx:for-item="src">
           <image src="{{src}}"></image>
           </block>
-          <span>{{itemm.mark}}</span>
-          <span>月售{{item.count}}单</span>
+          <span class="mark">{{item.mark}}</span>
+          <span class="count">月售{{item.count}}单</span>
         </view>
 
-        <block wx:if="tags.lenght>0">
-          <view class="float-right" wx:for="{{item.tags}}" wx:for-item="t">
-            <label>{{t}}</label>
+        <block wx:if="{{item.hasOnTimeTag}}">
+          <view class="float-right hasOnTimeTag">
+            <label>准时达</label>
+          </view>
+        </block>
+        <block wx:if="{{item.spirit}}">
+          <view class="float-right spirit">
+            <label>蜂鸟专送</label>
           </view>
         </block>
       </view>

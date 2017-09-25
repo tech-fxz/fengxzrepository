@@ -51,18 +51,16 @@ Page({
         name: '学之面', 
         url: '../../images/res1.jpg',
         straList:[
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
           '../../images/space.jpg'
         ],
         mark:4.5,
         count:198,
-        tags: [
-          '准时达',
-          '蜂鸟专送'
-        ],
+        spirit: true,
+        hasOnTimeTag: true,
         startingPrice:15,
         price:2,
         long:2.5,
@@ -76,18 +74,16 @@ Page({
         name: '超级美味',
         url: '../../images/res2.jpg', 
         straList: [
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
           '../../images/space.jpg'
         ],
         mark: 4.5,
         count: 198,
-        tags: [
-          '准时达',
-          '蜂鸟专送'
-        ],
+        spirit: true,
+        hasOnTimeTag: true,
         startingPrice: 15,
         price: 2,
         long: 2.5,
@@ -101,10 +97,10 @@ Page({
         name: '台资味', 
         url: '../../images/res3.jpg', 
         straList: [
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
           '../../images/space.jpg'
         ],
         mark: 4.5,
@@ -122,18 +118,16 @@ Page({
         name: '牛奶豆浆', 
         url: '../../images/res4.jpg',
         straList: [
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
           '../../images/space.jpg'
         ],
         mark: 4.5,
         count: 198,
-        tags: [
-          '准时达',
-          '蜂鸟专送'
-        ],
+        spirit: true,
+        hasOnTimeTag: true,
         startingPrice: 15,
         price: 2,
         long: 2.5,
@@ -147,18 +141,16 @@ Page({
         name: '米饭白菜', 
         url: '../../images/res5.jpg',
         straList: [
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
           '../../images/space.jpg'
         ],
         mark: 4.5,
         count: 198,
-        tags: [
-          '准时达',
-          '蜂鸟专送'
-        ],
+        spirit: true,
+        hasOnTimeTag: true,
         startingPrice: 15,
         price: 2,
         long: 2.5,
@@ -172,18 +164,16 @@ Page({
         name: '辣椒炒土豆丝', 
         url: '../../images/res6.jpg',
         straList: [
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
           '../../images/start.jpg',
           '../../images/space.jpg'
         ],
         mark: 4.5,
         count: 198,
-        tags: [
-          '准时达',
-          '蜂鸟专送'
-        ],
+        spirit: true,
+        hasOnTimeTag: true,
         startingPrice: 15,
         price: 2,
         long: 2.5,
@@ -197,18 +187,16 @@ Page({
         name: '西红柿炒蛋', 
         url: '../../images/res7.jpg',
         straList: [
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
           '../../images/space.jpg'
         ],
         mark: 4.5,
         count: 198,
-        tags: [
-          '准时达',
-          '蜂鸟专送'
-        ],
+        spirit: true,
+        hasOnTimeTag: true,
         startingPrice: 15,
         price: 2,
         long: 2.5,
@@ -222,18 +210,16 @@ Page({
         name: '香煎鸡排',
         url: '../../images/res8.jpg', 
         straList: [
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
-          '../../images/start.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
+          '../../images/star.jpg',
           '../../images/space.jpg'
         ],
         mark: 4.5,
         count: 198,
-        tags:[
-          '准时达',
-          '蜂鸟专送'
-        ],
+        spirit: true,
+        hasOnTimeTag: true,
         startingPrice: 15,
         price: 2,
         long: 2.5,
