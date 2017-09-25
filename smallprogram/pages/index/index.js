@@ -48,94 +48,200 @@ Page({
     ],
     dashList:[
       { 
-        name: '苹果沙拉', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg',
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
+        name: '学之面', 
+        url: '../../images/res1.jpg',
+        straList:[
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/space.jpg'
+        ],
+        mark:4.5,
+        count:198,
+        tags: [
+          '准时达',
+          '蜂鸟专送'
+        ],
+        startingPrice:15,
+        price:2,
+        long:2.5,
+        time:30,
+        activityList: [
+          {icon:'',name:'新用户下单立减10'},
+          {icon:'',name:'满20减2，满30减5，满50减10'}
+        ]
       },
       { 
-        name: '香蕉派',
-       url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg', 
-       desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
+        name: '超级美味',
+        url: '../../images/res2.jpg', 
+        straList: [
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/space.jpg'
+        ],
+        mark: 4.5,
+        count: 198,
+        tags: [
+          '准时达',
+          '蜂鸟专送'
+        ],
+        startingPrice: 15,
+        price: 2,
+        long: 2.5,
+        time: 30,
+        activityList: [
+          { icon: '', name: '新用户下单立减10' },
+          { icon: '', name: '满20减2，满30减5，满50减10' }
+        ]
       },
       { 
-        name: '雪梨糖水', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/08/17/bac465fc177043c9b8377ce1afdfcd07.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
+        name: '台资味', 
+        url: '../../images/res3.jpg', 
+        straList: [
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/space.jpg'
+        ],
+        mark: 4.5,
+        count: 198,
+        startingPrice: 15,
+        price: 2,
+        long: 2.5,
+        time: 30,
+        activityList: [
+          { icon: '', name: '新用户下单立减10' },
+          { icon: '', name: '满20减2，满30减5，满50减10' }
+        ]
       },
       { 
         name: '牛奶豆浆', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
+        url: '../../images/res4.jpg',
+        straList: [
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/space.jpg'
+        ],
+        mark: 4.5,
+        count: 198,
+        tags: [
+          '准时达',
+          '蜂鸟专送'
+        ],
+        startingPrice: 15,
+        price: 2,
+        long: 2.5,
+        time: 30,
+        activityList: [
+          { icon: '', name: '新用户下单立减10' },
+          { icon: '', name: '满20减2，满30减5，满50减10' }
+        ]
         },
       { 
         name: '米饭白菜', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/08/17/bac465fc177043c9b8377ce1afdfcd07.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
+        url: '../../images/res5.jpg',
+        straList: [
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/space.jpg'
+        ],
+        mark: 4.5,
+        count: 198,
+        tags: [
+          '准时达',
+          '蜂鸟专送'
+        ],
+        startingPrice: 15,
+        price: 2,
+        long: 2.5,
+        time: 30,
+        activityList: [
+          { icon: '', name: '新用户下单立减10' },
+          { icon: '', name: '满20减2，满30减5，满50减10' }
+        ]
       },
       { 
         name: '辣椒炒土豆丝', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
+        url: '../../images/res6.jpg',
+        straList: [
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/space.jpg'
+        ],
+        mark: 4.5,
+        count: 198,
+        tags: [
+          '准时达',
+          '蜂鸟专送'
+        ],
+        startingPrice: 15,
+        price: 2,
+        long: 2.5,
+        time: 30,
+        activityList: [
+          { icon: '', name: '新用户下单立减10' },
+          { icon: '', name: '满20减2，满30减5，满50减10' }
+        ]
       },
       { 
         name: '西红柿炒蛋', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/40578233d4864c429c32650a6db4c0b5.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
+        url: '../../images/res7.jpg',
+        straList: [
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/space.jpg'
+        ],
+        mark: 4.5,
+        count: 198,
+        tags: [
+          '准时达',
+          '蜂鸟专送'
+        ],
+        startingPrice: 15,
+        price: 2,
+        long: 2.5,
+        time: 30,
+        activityList: [
+          { icon: '', name: '新用户下单立减10' },
+          { icon: '', name: '满20减2，满30减5，满50减10' }
+        ]
         },
       { 
         name: '香煎鸡排',
-         url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg', 
-         desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
-      },
-      { 
-        name: '黑椒牛扒', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
-      },
-      { 
-        name: '青辣椒炒肉', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/40578233d4864c429c32650a6db4c0b5.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
-      },
-      { 
-        name: '肥牛煲', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/40578233d4864c429c32650a6db4c0b5.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
-      },
-      { 
-        name: '香煎罗非鱼', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
-      },
-      { 
-        name: '红烧排骨', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/40578233d4864c429c32650a6db4c0b5.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
-      },
-      { 
-        name: '咸骨粥', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
-      },
-      { 
-        name: '干锅黄骨鱼',
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/40578233d4864c429c32650a6db4c0b5.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
-      },
-      { 
-        name: '海鲜火锅', 
-        url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
-      },
-      { 
-        name: '猪肚煲', 
-        url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
-      }, 
-      { 
-        name: '蛋糕', 
-        url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg', 
-        desc: '民以食为天！好处：吃了不会挨饿、美丽的食物增加食欲、解馋饱眼福有营养' 
+        url: '../../images/res8.jpg', 
+        straList: [
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/start.jpg',
+          '../../images/space.jpg'
+        ],
+        mark: 4.5,
+        count: 198,
+        tags:[
+          '准时达',
+          '蜂鸟专送'
+        ],
+        startingPrice: 15,
+        price: 2,
+        long: 2.5,
+        time: 30,
+        activityList: [
+          { icon: '', name: '新用户下单立减10' },
+          { icon: '', name: '满20减2，满30减5，满50减10' }
+        ]
       }
     ],
     indicatorDots:false,

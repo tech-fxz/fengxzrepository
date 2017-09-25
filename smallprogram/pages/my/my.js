@@ -33,9 +33,9 @@ Page({
         islogout: false,
         userInfo: userInfo,
         navbar: [
-          { name: '余额', value: '0元'},
-          { name: '红包', value: '0个'},
-          { name: '积分' ,value: '293分'}
+          { name: '余额', value: '0元', css:'balance'},
+          { name: '红包', value: '0个', css: 'redPacket'},
+          { name: '积分', value: '293分', css: 'integral'}
         ], 
       });
       console.log(userInfo);

@@ -37,7 +37,41 @@ duration="{{duration}}" >
     <image src="{{item.url}}"></image>
     <view class="fr">
       <view class="dash-name">{{item.name}}</view>
-      <view class="description">{{item.desc}}</view>
+
+      <view class="feedBack">
+        <view class="float-left">
+          <block wx:for="{{item.straList}}" wx:for-item="src">
+          <image src="{{src}}"></image>
+          </block>
+          <span>{{itemm.mark}}</span>
+          <span>月售{{item.count}}单</span>
+        </view>
+
+        <block wx:if="tags.lenght>0">
+          <view class="float-right" wx:for="{{item.tags}}" wx:for-item="t">
+            <label>{{t}}</label>
+          </view>
+        </block>
+      </view>
+
+      <view class="distribution">
+        <view class="float-left">
+          <span class="startingPrice">￥{{item.startingPrice}}元起送</span>
+          <span class="price">配送费￥{{item.price}}</span>
+        </view>
+
+        <view class="float-right">
+          <span class="long">{{item.long}}km</span>
+          <span class="time">{{item.time}}分钟</span>
+        </view>
+      </view>
+
+      <block wx:for="{{item.activityList}}" wx:for-item="i">
+        <view class="activity">
+          <image class="icon">{{i.icon}}</image>
+          {{i.name}}
+        </view>
+      </block>
     </view>
   </view>
 </block>

@@ -3,6 +3,7 @@ page{
   display: flex;  
   flex-direction: column;  
   height: 100%;  
+  background-color: #efefef;
 }  
 
 .header{
@@ -29,9 +30,10 @@ page{
   margin: 20rpx;
   border-radius: 50%;
 }
+
 .userInfo .info{
   float: left;
-  margin-top:28px;
+  margin-top:38rpx;
 }
 .userInfo .info .userinfo-nickname{
   font-size:18px;
@@ -51,22 +53,90 @@ page{
   position: relative;  
   flex: auto;  
   text-align: center;   
-  height: 5em;
-  line-height: 5em;
-  font-size: .75em;
-  border-right:.2em solid #F7F7F7 ;
-  border-bottom:.2em solid #F7F7F7 ;
+  font-size: 13px;
+  border-right:3rpx solid #e0e0e0 ;
+  border-bottom:3rpx solid #e0e0e0 ;
 }  
 .navbar .item:last-child{
    border-right:0;
 }
-.navbar .item.active{  
-  color: #FFCC00;  
+.navbar .item .value{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 16px;
+  font-weight: bold;
+}
+.navbar .item .name{
+  height: 70rpx;
+  line-height: 60rpx;
+}
 
-}  
-.navbar .item.active:after{  
-  content: "";  
-  display: block;   
-  height: 4rpx;  
-  background: #FFCC00;  
-}  
+.navbar .item .value.balance{
+  color:#FFD212;
+}
+
+.navbar .item .value.redPacket{
+  color:#FF794D;
+}
+
+.navbar .item .value.integral{
+  color:#8BFF13;
+}
+
+.opration{
+  background-color: #ffffff;
+  margin: 30rpx 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.opration view{
+  position: relative;
+  height:80rpx;
+  line-height:80rpx;
+  font-size:14px;
+}
+.opration view image{
+  float: left;
+  width: 50rpx;
+  height: 50rpx;
+  padding: 0 20rpx;
+  margin-top: 10rpx;
+}
+.opration .address .item{
+  margin-left: 80rpx;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.opration view em{
+  position:absolute;
+  top:25rpx;
+  right:30rpx;
+  width:0;
+  height:0;
+  line-height:0;
+  border:15rpx solid transparent;
+}
+
+.opration view em.gray{
+  border-left-color:#aaa;
+}
+
+.opration view em.white{
+  right:38rpx;
+  top:30rpx;
+  border:10rpx solid transparent;
+  border-left-color:#fff;
+}
+
+.logout{
+  background-color:#fff;
+  height:80rpx;
+  line-height:80rpx;
+  margin-top:30rpx;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  text-align:center;
+  color:red;
+  font-size:16px;
+}

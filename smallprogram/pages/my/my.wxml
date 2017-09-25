@@ -15,10 +15,34 @@
 </view>
 
 <view class="navbar">  
-<block wx:for="{{navbar}}">
-  <block wx:if="{{item.value}}">
-  <view>{{item.value}}</view>
-  </block>
-  <view data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" bindtap="navbarTap">{{item.name}}</view>  
-</block>
-</view>  
+  <view wx:for="{{navbar}}" class="item">
+    <block wx:if="{{item.value}}">
+    <view class="value {{item.css}}">
+      {{item.value}}
+    </view>
+    </block>
+    <view class="name">{{item.name}}</view>
+  </view>
+</view>
+
+<view class="opration">
+  <view class="address">
+    <image src="../../images/2.jpg"></image>
+    <view class="content item">
+      收货地址
+      <em class="gray"></em>
+      <em class="white"></em>
+    </view>
+  </view>
+  
+  <view class="serviceContre">
+    <image src="../../images/3.jpg"></image>
+    <view class="item">
+      服务中心
+      <em class="gray"></em>
+      <em class="white"></em>
+    </view>
+  </view>
+</view>
+
+<view class="logout">退出登录</view>
