@@ -37,29 +37,27 @@ page{
 }
 
 swiper{
-  width: 100%;
   background-color: #fff;
   height: 11em;
   box-shadow: 0 0 .1em #ccc
 }
 
 .swiper-navigator{
-  width: 84%;
-  margin: 0 auto;
-  overflow: hidden;
+  flex: none;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
 }
 swiper swiper-item .swiper-navigator navigator {
-  float: left;
-  width: 4em;
-  height: 5em;
-  margin:1em;
   color: #888;
-  font-size: .7em;
-  text-align: center;
+  font-size:12px;
+  text-align:center;
+  margin:20rpx 30rpx;
 }
 swiper swiper-item navigator image{
-  width: 4em;
-  height: 4em;
+  display: block;
+  width: 110rpx;
+  height: 110rpx;
 }
 
 .recommend{
@@ -89,8 +87,9 @@ swiper swiper-item navigator image{
 
 .recommend .dash .content{
   flex: auto;
-  margin-left:20rpx;
-  font-size: 11px;
+  margin-left:15rpx;
+  margin-right: 10rpx;
+  font-size: 10px;
   color: #666;
 }
 
@@ -116,29 +115,23 @@ swiper swiper-item navigator image{
   margin: 0 10rpx;
 }
 
-.recommend .dash .feedBack .hasOnTimeTag {
-  flex:1 1 auto;
-  text-align:right;
-  margin-right:8rpx;
+.recommend .dash .feedBack .float-right label{
+  margin-right: 8rpx;
 }
-
-.recommend .dash .feedBack .hasOnTimeTag label{
-  font-size: 11px;
-  padding:3rpx 10rpx;
+.recommend .dash .feedBack .float-right label:last-child{
+  margin-right: 0;
+}
+.recommend .dash .feedBack .hasOnTimeTag{
+  padding:0 10rpx;
   padding-bottom:4rpx;
   border: 1px solid #0099ff;
   color: #0099ff;
 }
-.recommend .dash .feedBack .spirit{
-  flex:1 1 auto;
-  text-align:left;  
-}
 
-.recommend .dash .feedBack .spirit label{
-  font-size: 11px;
+.recommend .dash .feedBack .spirit{
   background-color:#0099ff;
   color:#fff;
-  padding:3rpx;
+  padding:4rpx;
   padding-bottom:4rpx;
 }
 
@@ -167,7 +160,7 @@ swiper swiper-item navigator image{
 .recommend .dash .distribution .float-right{
   flex:1 1 auto;
   margin-left:40rpx;
-  text-align:center;
+  text-align:right;
 }
 
 .recommend .dash .distribution .long{
@@ -177,10 +170,11 @@ swiper swiper-item navigator image{
 }
 
 .recommend .dash .activity{
-  height: 40rpx;
-  line-height: 40rpx;
+  height: 26rpx;
+  line-height: 26rpx;
+  margin: 20rpx 0;
 }
 .recommend .dash .activity image{
-  width: auto;
-  height: auto;
+  width: 24rpx;
+  height: 24rpx;
 }

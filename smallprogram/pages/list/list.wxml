@@ -1,50 +1,36 @@
-<view class="tip">
-  <icon></icon>
-  您暂时无已吃过的菜式!
-</view>
+<!--pages/test/test.wxml-->
+<view class="orderList">
+<block wx:for="{{orderList}}">
+  <view class="order">
+    <view class="content">
+      <view class="item">
+          <image src="../../images/{{item.url}}" class="restaurant"></image>
+      </view>
+        
+      <view class="detail">
+        <view class="restaurant">
+          <view class="name">
+            {{item.name}}
+          </view>
+          <view class="status">
+            {{item.status}}
+          </view>
+        </view>
 
-<template name="staffname">
-  FirstName:{{firstName}},LastName:{{lastName}}
-</template>
+        <view class="time">{{item.time}}</view>
+        
+        <view class="dash">
+            <view class="name">{{item.dashName}}</view>
+            <view class="price">{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+ 
 
-<template is="staffname" data="{{...staffA}}" />
-<template is="staffname" data="{{...staffB}}" />
-<template is="staffname" data="{{...staffC}}" />
-
-<view id="add1" class="add" bindtap="add" data-key-value="1">{{msg}}</view>
-
-<view id="outer" bindtap="handleTap1">
-  outer-view
-  <view id="middle" class="classname" bindtap="handleTap2">
-    middler-view
-    <view id="inner" class="classname" bindtap="handleTap3">
-      inner-view
+    <view class="btn-area">
+      <button class="again" size="mini">再来一单</button>
+      <button class="evaluate" size="mini">评价得积分</button>
     </view>
   </view>
-</view>
-
-<view id="outer1" bindtap="handleTap4">
-  outer-view1
-  <view id="middle1" class="classname" catchtap="handleTap5">
-    middler-view1
-    <view id="inner1" class="classname" bindtap="handleTap6">
-      inner-view1
-    </view>
-  </view>
-</view>
-
-<view class="title">
-  import
-
-   <import src="../template/item.wxml"/>
-  <template is="item" data="{{text:'forbat'}}"/>
-</view>
-
-<view>
-  incloude
-  <include src="../template/header.wxml" />
-  <view>
-    this is body!
-  </view>
-  <include src="../template/footer.wxml" />
+</block>
 </view>

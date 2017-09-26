@@ -7,43 +7,24 @@ Page({
   data: {
     classsifys:[
       {list:[
-        { 
-          url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg',           name: '美食'
-       },
-        { url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/40578233d4864c429c32650a6db4c0b5.jpg',            name: '甜品饮品' 
-        },
-        { url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg',            name: '商超便利' 
-        },
-        { url: 'http://recipe.nlyeb.com/Upload/Files/2016/08/17/bac465fc177043c9b8377ce1afdfcd07.jpg',          name: '果蔬生鲜' 
-        },
-        { url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg',            name: '新店特惠'
-         },
-        { url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg',           name: '大牌必吃' 
-        },
-        { url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg',            name: '午餐' 
-        },
-        { url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg',           name: '浪漫鲜花' 
-        }
+        { url: 'food6.jpg', name: '美食' },
+        { url: 'c3.jpg', name: '点心' },
+        { url: 'c4.jpg', name: '粥面' },
+        { url: 'c5.jpg', name: '西餐' },
+        { url: 'c6.jpg', name: '湘菜' },
+        { url: 'c7.jpg', name: '饮品' },
+        { url: 'c1.jpg', name: '鲜果' },
+        { url: 'c8.jpg', name: '麦当劳' }
       ]},
       {list:[
-        { url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg',            name: '汉堡薯条' 
-        },
-        { url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg',            name: '包子粥店'
-         },
-        { url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg',           name: '地方菜系'
-         },
-        { url: 'http://recipe.nlyeb.com/Upload/Files/2016/09/02/e221abb755f240bba33df0bc1e941c75.jpg',            name: '披萨' 
-        },
-        { url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg',             name: '西餐' 
-        },
-        { url: 'http://recipe.nlyeb.com/Upload/Files/2016/08/17/bac465fc177043c9b8377ce1afdfcd07.jpg',            name: '海鲜'
-        },
-        {
-          url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg',           name: '西餐'
-        },
-        {
-          url: 'http://recipe.nlyeb.com//Upload/Files/2016/08/13/1932bb32063e4acbbe95e13e1b2ba45f.jpg',           name: '披萨'
-        }
+        { url: 'c9.jpg', name: 'KFC' },
+        { url: 'c10.jpg', name: '快餐' },
+        { url: 'c11.jpg', name: '鲜花' },
+        { url: 'c12.jpg', name: '火锅' },
+        { url: 'c13.jpg', name: '海鲜' },
+        { url: 'c6.jpg', name: '湘菜' },
+        { url: 'c7.jpg', name: '饮品' },
+        { url: 'c2.jpg', name: '蛋糕' }
       ]}
     ],
     dashList:[
@@ -59,15 +40,15 @@ Page({
         ],
         mark:4.5,
         count:198,
-        spirit: true,
+        spirit: false,
         hasOnTimeTag: true,
         startingPrice:15,
         price:2,
         long:2.5,
         time:30,
         activityList: [
-          {icon:'',name:'新用户下单立减10'},
-          {icon:'',name:'满20减2，满30减5，满50减10'}
+          { icon: 'reduce.jpg', name:'满20减2，满30减5，满50减10'},
+          { icon: 'super.jpg', name: '金秋好礼' }
         ]
       },
       { 
@@ -89,8 +70,8 @@ Page({
         long: 2.5,
         time: 30,
         activityList: [
-          { icon: '', name: '新用户下单立减10' },
-          { icon: '', name: '满20减2，满30减5，满50减10' }
+          { icon: 'start.jpg', name: '新用户下单立减10' },
+          { icon: 'reduce.jpg', name: '满20减2，满30减5，满50减10' }
         ]
       },
       { 
@@ -110,8 +91,8 @@ Page({
         long: 2.5,
         time: 30,
         activityList: [
-          { icon: '', name: '新用户下单立减10' },
-          { icon: '', name: '满20减2，满30减5，满50减10' }
+          { icon: 'start.jpg', name: '新用户下单立减10' },
+          { icon: 'reduce.jpg', name: '满20减2，满30减5，满50减10' }
         ]
       },
       { 
@@ -126,15 +107,15 @@ Page({
         ],
         mark: 4.5,
         count: 198,
-        spirit: true,
+        spirit: false,
         hasOnTimeTag: true,
         startingPrice: 15,
         price: 2,
         long: 2.5,
         time: 30,
         activityList: [
-          { icon: '', name: '新用户下单立减10' },
-          { icon: '', name: '满20减2，满30减5，满50减10' }
+          { icon: 'reduce.jpg', name: '满20减2，满30减5，满50减10' },
+          { icon: 'discount.jpg', name: '五折深秋双人套餐，特惠来袭~' }
         ]
         },
       { 
@@ -156,8 +137,8 @@ Page({
         long: 2.5,
         time: 30,
         activityList: [
-          { icon: '', name: '新用户下单立减10' },
-          { icon: '', name: '满20减2，满30减5，满50减10' }
+          { icon: 'reduce.jpg', name: '满20减2，满30减5，满50减10' },
+          { icon: 'super.jpg', name: '金秋好礼' }
         ]
       },
       { 
@@ -167,20 +148,20 @@ Page({
           '../../images/star.jpg',
           '../../images/star.jpg',
           '../../images/star.jpg',
-          '../../images/start.jpg',
+          '../../images/star.jpg',
           '../../images/space.jpg'
         ],
         mark: 4.5,
         count: 198,
-        spirit: true,
-        hasOnTimeTag: true,
+        spirit: false,
+        hasOnTimeTag: false,
         startingPrice: 15,
         price: 2,
         long: 2.5,
         time: 30,
         activityList: [
-          { icon: '', name: '新用户下单立减10' },
-          { icon: '', name: '满20减2，满30减5，满50减10' }
+          { icon: 'reduce.jpg', name: '满20减2，满30减5，满50减10' },
+          { icon: 'discount.jpg', name: '五折深秋双人套餐，特惠来袭~' }
         ]
       },
       { 
@@ -202,8 +183,8 @@ Page({
         long: 2.5,
         time: 30,
         activityList: [
-          { icon: '', name: '新用户下单立减10' },
-          { icon: '', name: '满20减2，满30减5，满50减10' }
+          { icon: 'reduce.jpg', name: '满20减2，满30减5，满50减10' },
+          { icon: 'discount.jpg', name: '五折深秋双人套餐，特惠来袭~' }
         ]
         },
       { 
@@ -225,8 +206,8 @@ Page({
         long: 2.5,
         time: 30,
         activityList: [
-          { icon: '', name: '新用户下单立减10' },
-          { icon: '', name: '满20减2，满30减5，满50减10' }
+          { icon: 'reduce.jpg', name: '满20减2，满30减5，满50减10' },
+          { icon: 'super.jpg', name: '金秋好礼' }
         ]
       }
     ],

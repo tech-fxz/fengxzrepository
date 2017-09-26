@@ -20,7 +20,7 @@ duration="{{duration}}" >
     <view class="swiper-navigator">
       <block wx:for="{{i.list}}" wx:for-item="j">
         <navigator>
-        <image src="{{j.url}}"></image>
+        <image src="../../images/{{j.url}}"></image>
         {{j.name}}
         </navigator>
       </block>
@@ -30,7 +30,7 @@ duration="{{duration}}" >
 </swiper>
 
 <view class="recommend">
-  <view class="title">推荐菜式</view>
+  <view class="title">推荐商家</view>
 
 <block wx:for="{{dashList}}">
   <view class="dash">
@@ -50,16 +50,15 @@ duration="{{duration}}" >
           <span class="count">月售{{item.count}}单</span>
         </view>
 
-        <block wx:if="{{item.hasOnTimeTag}}">
-          <view class="float-right hasOnTimeTag">
-            <label>准时达</label>
-          </view>
-        </block>
-        <block wx:if="{{item.spirit}}">
-          <view class="float-right spirit">
-            <label>蜂鸟专送</label>
-          </view>
-        </block>
+        <view class="float-right">
+          <block wx:if="{{item.hasOnTimeTag}}"> 
+            <label class="hasOnTimeTag">准时达</label>
+          </block>
+
+          <block wx:if="{{item.spirit}}">
+            <label class="spirit">蜂鸟专送</label>
+          </block>
+        </view>
       </view>
 
       <view class="distribution">
@@ -76,7 +75,7 @@ duration="{{duration}}" >
 
       <block wx:for="{{item.activityList}}" wx:for-item="i">
         <view class="activity">
-          <image class="icon">{{i.icon}}</image>
+          <image src="../../images/{{i.icon}}" class="icon"></image>
           {{i.name}}
         </view>
       </block>

@@ -1,50 +1,75 @@
+// pages/test/test.js
 Page({
-  onLoad:function(option){
-    wx.setNavigationBarTitle({
-      title: '订单',
-    })
-    var app=getApp();
-    console.log(app);
-  },
-  data:{
-    staffA: { firstName: 'J', lastName:'C'},
-    staffB: { firstName: 'D', lastName: 'B' },
-    staffC: { firstName: 'E', lastName: 'F' },
-    count: 0,
-    msg:'click',
-    array:[
-      {message:'foo'},
-      {message:'bar'}
-    ],
-    objectArray:[
-      { id: '1', name: "li" },
-      { id: '2', name: "lis" },
-      { id: '3', name: "liss" },
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    orderList:[
+      {
+        url: 'f3.png', 
+        name: '学之面', 
+        status:'订单已完成',
+        time: '2017-09-25 11:30', 
+        dashName: '蒜香排骨',
+        price:'17.5'
+      }
     ]
   },
-  add: function (event) {
-    console.log(event);
-    var count=this.data.count+1;
-    this.setData({
-      msg: 'clicked:'+count
-    });
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+  
   },
-  handleTap1:function(event){
-    console.log('outer');
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
   },
-  handleTap2:function(event){
-    console.log('middle');
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  
   },
-  handleTap3:function(event){
-    console.log('inner');
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
   },
-  handleTap4: function (event) {
-    console.log('outer1');
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
   },
-  handleTap5: function (event) {
-    console.log('middle1');
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
   },
-  handleTap6: function (event) {
-    console.log('inner1');
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
   }
 })
