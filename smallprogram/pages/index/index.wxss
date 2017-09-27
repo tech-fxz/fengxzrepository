@@ -1,45 +1,44 @@
 /* pages/index/index.wxss */
 page{
   background-color: #efefef;
+  font-size: 13px;
 }
 .section{
-  height: 3.8em;
+  height: 120rpx;
   flex: none;
   background-color: #0099ff;
 }
 .search{
-  background: url("http://test.nlyeb.com/yeb/images/yeb/icon_search.png")no-repeat 80%;
-  background-size: 1.3em 1.3em;
   background-color: #fff;
   border: 1px solid #0099ff;
   border-radius: 16px;
-  height: 1.1em;
-  margin:0 1em;
-  padding: .2em;
-  color:#fff;
+  height: 60rpx;
+  margin:0 30rpx;
+  padding: 0 30rpx;
+  color:#777;
 }
 
 .input-placeholder{
   color:#999;
-  font-size:.75em;
-  padding-left:1.5em;
+  font-size: 11px;
+  padding-left:20rpx;
 }
 
 .quick-view{
-  margin: 0 1em;
+  margin: 0 30rpx;
 }
 
 .quick-search{
   display: inline-block;
-  padding:.7em .6em;
+  padding: 15rpx;
   color: #fff;
-  font-size:.6em;
+  font-size:9px;
 }
 
 swiper{
   background-color: #fff;
-  height: 11em;
-  box-shadow: 0 0 .1em #ccc
+  height: 400rpx;
+  box-shadow: 0 0 1px #ccc
 }
 
 .swiper-navigator{
@@ -62,12 +61,12 @@ swiper swiper-item navigator image{
 
 .recommend{
   background-color: #fff;
-  margin-top: .5em;
+  margin-top: 20rpx;
 }
 
 .recommend .title{
-  font-size: .75em;
-  padding:.5em;
+  font-size: 12px;
+  padding:10rpx;
   color: #777;
 }
 
@@ -75,7 +74,7 @@ swiper swiper-item navigator image{
   flex: none;
   display: flex;
   border-top: 1px solid #efefef;
-  padding: .6em .4em;
+  padding: 8rpx 6rpx;
   overflow: hidden;
 }
 

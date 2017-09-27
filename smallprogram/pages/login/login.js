@@ -108,9 +108,14 @@ Page({
   },
   formSubmit:function(){
     var code=this.data.code;
+    var app = getApp();
+    var userInfo = app.globalData.userInfo;
     if(!!code){
       App({
-        islogin:true
+        globalData:{
+          islogin:true,
+          userInfo
+        }
       });
       wx.switchTab({
         url: '../my/my'

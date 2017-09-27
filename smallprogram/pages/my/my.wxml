@@ -26,7 +26,7 @@
 </view>
 
 <view class="opration">
-  <view class="address">
+  <view class="address" hidden="{{islogout}}">
     <image src="../../images/2.jpg"></image>
     <view class="content item">
       收货地址
@@ -45,4 +45,4 @@
   </view>
 </view>
 
-<view class="logout">退出登录</view>
+<view class="logout" bindtap="logoutFn" hidden="{{islogout}}">退出登录</view>

@@ -5,15 +5,7 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
-    navbar: [
-      { name: '我的余额'},
-      { name: '我的红包'},
-      { name: '我的特权'}
-    ], 
-    islogin:false,
-    islogout:true
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
@@ -24,10 +16,11 @@ Page({
     });
 
     let app = getApp();
-    app.islogin=true;
-    if(app.islogin){
-      let userInfo = app.globalData.userInfo;
+    let globalData = app.globalData;
+    if (globalData.islogin){
+      let userInfo = globalData.userInfo;
       userInfo.mobile='159****5705';
+      console.log(userInfo);
       this.setData({
         islogin: true,
         islogout: false,
@@ -36,13 +29,18 @@ Page({
           { name: '余额', value: '0元', css:'balance'},
           { name: '红包', value: '0个', css: 'redPacket'},
           { name: '积分', value: '293分', css: 'integral'}
-        ], 
+        ]
       });
-      console.log(userInfo);
+      console.log(app);
     }else{
       this.setData({
         islogin: false,
-        islogout: true
+        islogout: true,
+        navbar: [
+          { name: '我的余额' },
+          { name: '我的红包' },
+          { name: '我的特权' }
+        ]
       });
     }
   },
@@ -94,5 +92,16 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  logoutFn:function(){
+    this.setData({
+      islogin: false,
+      islogout: true,
+      navbar: [
+        { name: '我的余额' },
+        { name: '我的红包' },
+        { name: '我的特权' }
+      ]
+    });
   }
 })
