@@ -400,40 +400,4 @@
   height: 14px;
   background-color: #343434;
 }
-.register {
-  width: 400px;
-  margin-left: 20px;
-  border: 1px solid #e0e8eb;
-}
-.register > div {
-  margin: 10px;
-}
-.register input {
-  padding: 3px;
-  padding-left: 24px;
-  width: 356px;
-  height: 30px;
-  line-height: 30px;
-  border: 1px solid #009ceb;
-}
-.register .register-form-account input {
-  background: url('../../image/account_bg.png') no-repeat left;
-}
-.register .register-form-password input {
-  background: url("../../image/password_bg.png") no-repeat left;
-}
-.register .register-form-file {
-  text-align: center;
-}
-.register .register-form-file img {
-  width: 180px;
-  height: 180px;
-}
-.register .register-form-submit button {
-  width: 80px;
-  height: 36px;
-  border: 0;
-  background-color: #0092ef;
-  color: #FFFFFF;
-}
-/*# sourceMappingURL=test.min.css.map */
+/*# sourceMappingURL=jingleCat.min.css.map */
