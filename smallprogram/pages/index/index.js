@@ -1,10 +1,13 @@
 // pages/index/index.js
+// var bmap = require('../../libs/bmap-wx/bmap-wx.min.js'); 
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    ak:'NsGGjnnu1aphcN6vfgHKMIfvqfUx2Idi',
     classsifys:[
       {list:[
         { url: 'food6.jpg', name: '美食' },
@@ -221,6 +224,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _this = this;
+    // var BMap = new bmap.BMapWX({
+    //   ak: _this.data.ak
+    // }); 
+    // var fail = function (data) {
+    //   console.log(data);
+    // };
+    // var success = function (data) {
+    //   //返回数据内，已经包含经纬度  
+    //   console.log(data);
+    //   //使用wxMarkerData获取数据  
+    //   wxMarkerData = data.wxMarkerData;
+    //   //把所有数据放在初始化data内  
+    //   _this.setData({
+    //     markers: wxMarkerData,
+    //     latitude: wxMarkerData[0].latitude,
+    //     longitude: wxMarkerData[0].longitude,
+    //     address: wxMarkerData[0].address,
+    //     cityInfo: data.originalData.result.addressComponent
+    //   });
+    // }   
+
+    // // 发起regeocoding检索请求   
+    // BMap.regeocoding({
+    //   fail: fail,
+    //   success: success
+    // });  
+    // wx.getLocation({
+    //   success: function(res) {
+    //     console.log(res);
+    //   },
+    // })
   },
 
   /**

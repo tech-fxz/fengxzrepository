@@ -5,7 +5,8 @@
     "pages/logs/logs",
     "pages/my/my",
     "pages/login/login",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,7 +25,7 @@
       {
         "pagePath": "pages/index/index",
         "iconPath": "images/logo1.png",
-        "selectedIconPath":"images/logo.png",
+        "selectedIconPath": "images/logo.png",
         "text": "外卖"
       },
       {

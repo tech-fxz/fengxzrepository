@@ -1,5 +1,6 @@
 <!--pages/index/index.wxml-->
 <view class="section">
+<navigator url="../map/map">地图</navigator>
   <input type="text" confirm-type="search" placeholder="搜索菜名、搜索餐时"          placeholder-class="search-placeholder" class="search"></input>
   <view class="quick-view">
     <navigator class="quick-search">水果</navigator>
