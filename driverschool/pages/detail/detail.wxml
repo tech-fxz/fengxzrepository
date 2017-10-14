@@ -1,2 +1,40 @@
 <!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view class="pages">
+  <view class="detail-header detail-row justify-content">
+    <view class="detail-header-title">
+      <text>{{name}}</text>
+      <text class="desc">培训.机动车驾驶</text>
+    </view>
+    <image src="{{logo}}" class="detail-header-logo"></image>
+  </view>
+
+  <view class="detail-webchatPublic detail-row">
+    微信公众号
+  </view>
+
+  <view class="detail-schoolInfo detail-row">
+      <view class="detail-schoolInfo-item">
+        <text class="detail-schoolInfo-icon flex-grow-1 iconfont icon-dingwei"></text>
+        <text class="detail-min-width flex-grow-3">{{address}}</text>
+        <navigator class="detail-schoolInfo-icon flex-grow-1 iconfont icon-qianjin-copy" url="../map/map"></navigator>
+      </view>
+      <view class="detail-schoolInfo-item ">
+        <text class="detail-schoolInfo-icon flex-grow-1 iconfont icon-shijian"></text>
+        <text class="flex-grow-3">{{timeText}}</text>
+      </view>
+      <view class="detail-schoolInfo-item ">
+        <text class="detail-schoolInfo-icon flex-grow-1 iconfont icon-dianhua"></text>
+        <text class="flex-grow-3">{{phoneNum}}</text>
+        <view class="detail-schoolInfo-icon flex-grow-1 iconfont icon-qianjin-copy" catchtap="onmakePhoneCall"></view>
+      </view>
+      <view class="detail-schoolInfo-item">
+        <text class="detail-schoolInfo-icon flex-grow-1 iconfont icon-tupian"></text>
+        <text class="flex-grow-3">驾校照片</text>
+      </view>
+       <view class="detail-schoolInfo-image">
+        <block wx:for="{{imageList}}">
+         <image src="{{item}}"></image>
+        </block>
+        </view>
+  </view>
+</view>

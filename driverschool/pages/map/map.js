@@ -1,27 +1,43 @@
-// pages/detail/detail.js
-const defaultPath='../../';
+// pages/map/map.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:'东南驾校桑园训练基地',
-    logo: defaultPath+'images/logo.png',
-    address:'广东省东莞市东城区桑园狮长路51号',
-    timeText:'8:00-21:00',
-    phoneNum:'13580719991',
-    imageList: [
-      defaultPath + 'images/1.jpg',
-      defaultPath + 'images/2.jpg',
-      defaultPath + 'images/3.jpg',
-      defaultPath + 'images/4.jpg',
-      defaultPath + 'images/5.jpg',
-      defaultPath + 'images/6.jpg',
-      defaultPath + 'images/7.jpg',
-      defaultPath + 'images/8.jpg',
-      defaultPath + 'images/9.jpg',
-    ]
+    latitude: 23.099994,
+    longitude: 113.324520,
+    markers: [{
+      iconPath: "/resources/others.png",
+      id: 0,
+      latitude: 23.099994,
+      longitude: 113.324520,
+      width: 50,
+      height: 50
+    }],
+    polyline: [{
+      points: [{
+        longitude: 113.3245211,
+        latitude: 23.10229
+      }, {
+        longitude: 113.324520,
+        latitude: 23.21229
+      }],
+      color: "#FF0000DD",
+      width: 2,
+      dottedLine: true
+    }],
+    controls: [{
+      id: 1,
+      iconPath: '/resources/location.png',
+      position: {
+        left: 0,
+        top: 300-50,
+        width: 50,
+        height: 50
+      },
+      clickable: true
+    }]
   },
 
   /**
@@ -79,14 +95,13 @@ Page({
   onShareAppMessage: function () {
   
   },
-
-  onmakePhoneCall:function(){
-    const phoneNum = this.data.phoneNum;
-    wx.makePhoneCall({
-      phoneNumber: phoneNum,
-      fail: function () {
-        console.log('无法接通')
-      }
-    })
+  regionchange(e) {
+    console.log(e.type)
+  },
+  markertap(e) {
+    console.log(e.markerId)
+  },
+  controltap(e) {
+    console.log(e.controlId)
   }
 })

@@ -10,6 +10,7 @@
 	"libVersion": "1.5.4",
 	"appid": "wxbf5d188b7feee90c",
 	"projectname": "driverSchool",
+	"miniprogramRoot": "./",
 	"condition": {
 		"weapp": {
 			"current": -1,
