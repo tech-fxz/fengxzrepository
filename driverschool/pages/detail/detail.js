@@ -79,14 +79,28 @@ Page({
   onShareAppMessage: function () {
   
   },
-
-  onmakePhoneCall:function(){
+  openMap:function(){
+    wx.openLocation({
+      latitude: 23.0680771882,
+      longitude: 113.8142964982,
+      address: '广东省东莞市东城区桑园狮环路'
+    });
+  },
+  makePhoneCall:function(){
     const phoneNum = this.data.phoneNum;
     wx.makePhoneCall({
       phoneNumber: phoneNum,
       fail: function () {
         console.log('无法接通')
       }
+    })
+  },
+  previewImage: function (event) {
+    const app = getApp();
+    const imgList = this.data.imageList;
+    wx.previewImage({
+      current: '', // 当前显示图片的http链接
+      urls: ['images/1.jpg'] // 需要预览的图片http链接列表
     })
   }
 })

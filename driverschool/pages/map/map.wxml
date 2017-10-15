@@ -1,5 +1,0 @@
-<!--pages/map/map.wxml-->
-<view class="pages map-pages">
-  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location></map>
-</view>
-
