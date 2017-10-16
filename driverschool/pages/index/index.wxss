@@ -1,94 +1,40 @@
-/**index.wxss**/
-.index-row{
-  padding-bottom: 40rpx;
-  border-bottom: 1px dashed #dbdbdb;
-}
-.index-row:last-child{
-  border-bottom-width: 0px;
-}
+/* pages/detail/detail.wxss */
+.pages{
 
-.index-tr{
-  text-align: right;
 }
-
-.flex-grow-3{
-  flex-grow:48
-}
-
-.flex-grow-1{
-  flex-grow: 1
-}
-
 .index-header{
   display: flex;
-  flex-direction: row;
-  justify-content:space-between;
+  justify-content: center;
 }
-.index-header-title{
-  flex-basis:auto;
-  font-size: 21px;
+.index-header-image{
+  width:140rpx;
+  height:120rpx;
+}
+.index-header-name{
+  line-height:128rpx;
+  font-size:24px;
+  letter-spacing:15rpx;
+  margin-left:15rpx;
+  color:#292A86;
   font-weight: bold;
-  letter-spacing: 4rpx;
 }
-.index-header-title .desc{
-  display: block;
-  font-size: 14px;
-  padding: 10rpx 0;
-  font-weight: 400;
-  color: #999;
-}
-.index-header-logo{
-  width: 148rpx;
-  height: 108rpx;
+.index-slogan{
+  text-align: center;
+    color:#0C924D;
+  font-size:14px;
+  font-weight: bold;
+  letter-spacing:5rpx;
 }
 
-.index-introduce {
-  display: flex;
-  flex-direction: row;
-  justify-content:space-between;
-  padding-top: 30rpx;
-  font-size: 14px;
-  color: #777;
-}
-.index-introduce-slogan{
-  height:30rpx;
-  line-height:2.3;
-}
-.index-introduce-navigater{
-  margin: 0;
-  padding: 10rpx 25rpx;
-  border: 1px solid #26A128;
-  color: #26A128;
-  font-size: 11px;
-  border-radius: 5px;
+.index-introduce{
+  font-size:14px;
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+  text-indent:25rpx;
+  line-height:1.5;
+  letter-spacing:3rpx;
 }
 
-.index-schoolInfo{
-  font-size: 14px;
-}
-
-.index-schoolInfo-item{
-  padding: 30rpx 0;
-  display: flex;
-  flex-direction: row;
-  justify-content:space-between;
-}
-
-.index-schoolInfo-icon{
-  color: #dbdbdb;
-  margin-right: 25rpx;
-}
-
-.index-schoolInfo-image{
-  display: flex;
-  flex-direction:row;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-.index-schoolInfo-image image{
-  width: 220rpx;
-  height: 165rpx;
-  margin-right: 10rpx;
-  margin-bottom: 10rpx;
-  flex-basis:auto;
+.index-image{
+  text-align: center
 }

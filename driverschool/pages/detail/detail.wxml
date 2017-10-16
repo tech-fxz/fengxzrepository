@@ -1,5 +1,0 @@
-<!--pages/detail/detail.wxml-->
-<view class="pages">
-  <image src="../../images/1.jpg"></image>
-  <image src="../../images/2.jpg"></image>
-</view>

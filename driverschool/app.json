@@ -2,12 +2,29 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/detail/detail"
+    "pages/contact/contact",
+    "pages/step/step"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/step/step",
+        "text": "我要学车"
+      },
+      {
+        "pagePath": "pages/contact/contact",
+        "text": "我要报名"
+      }
+    ]
   }
 }
