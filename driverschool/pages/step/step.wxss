@@ -1,7 +1,6 @@
 /* pages/step/step.wxss */
 .pages{
-  padding:40rpx;
-  padding-top: 0;
+  padding:0 50rpx;
 }
 .step-header{
   display: flex;
@@ -55,11 +54,11 @@
 }
 
 .step-row-content{
-  padding:20rpx 30rpx;
+  padding:15rpx 30rpx;
   font-size:12px;
   padding-top:40rpx;
   letter-spacing:5rpx;
-  line-height:1.8;
+  line-height:1.5;
 }
 .step-row-content-title{
   font-weight: bold;

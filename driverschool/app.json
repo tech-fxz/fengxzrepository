@@ -2,7 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/contact/contact",
+    "pages/about/about",
     "pages/step/step"
   ],
   "window": {
@@ -12,18 +12,26 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "color": "#777",
+    "selectedColor":"#292A86",
     "list": [
       {
         "pagePath": "pages/index/index",
+        "iconPath":"images/home.png",
+        "selectedIconPath":"images/select-home.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/step/step",
-        "text": "我要学车"
+        "pagePath": "pages/about/about",
+        "iconPath": "images/about.png",
+         "selectedIconPath": "images/select-about.png",
+        "text": "关于我们"
       },
       {
-        "pagePath": "pages/contact/contact",
-        "text": "我要报名"
+        "pagePath": "pages/step/step",
+        "iconPath": "images/driver.png",
+         "selectedIconPath": "images/select-driver.png",
+        "text": "学车须知"
       }
     ]
   }
