@@ -31,7 +31,8 @@
 .icon-dianhua:before { content: "\e6bc"; }
 
 .index-row{
-  padding-bottom: 40rpx;
+  padding:30rpx 0;
+  font-size: 14px;
   border-bottom: 1px dashed #dbdbdb;
 }
 .index-row:last-child{
@@ -43,7 +44,7 @@
 }
 
 .flex-grow-3{
-  flex-grow:48
+  flex-grow:58
 }
 
 .flex-grow-1{
@@ -94,10 +95,21 @@
   border-radius: 5px;
 }
 
-.index-schoolInfo{
-  font-size: 14px;
+.index-propaganda{
+  line-height: 1.5;
+  font-size: 12px;
+  font-weight: bold;
+  color: #777;
 }
 
+.index-news{
+  color:red;
+  font-weight:bold;
+}
+
+.index-schoolInfo{
+  padding-top: 0;
+}
 .index-schoolInfo-item{
   padding: 30rpx 0;
   display: flex;
@@ -107,9 +119,7 @@
 
 .index-schoolInfo-icon{
   color: #dbdbdb;
-  margin-right: 25rpx;
 }
-
 .index-schoolInfo-image{
   display: flex;
   flex-direction:row;
@@ -122,4 +132,10 @@
   margin-right: 10rpx;
   margin-bottom: 10rpx;
   flex-basis:auto;
+}
+.index-schoolInfo-item-middle{
+  margin-left: 20rpx;
+}
+.index-schoolInfo-item-more{
+  color:#292A86;
 }

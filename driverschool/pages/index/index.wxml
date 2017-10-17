@@ -7,25 +7,37 @@
     </view>
     <image src="{{logo}}" class="index-header-logo"></image>
   </view>
+   <view class="index-propaganda index-row">
+      精良的师资队伍，宽阔的训练场地，先进的教学设备，全新的教练车辆，优质的服务体系，优美的学习环境
+    </view>
+  <view class="index-news index-row">
+     <text class="iconfont icon-qianjin-copy"></text>
+     <text class="">现开设广东省内快班，2个月拿证</text>
+  </view>
 
   <view class="index-schoolInfo index-row">
       <view class="index-schoolInfo-item" catchtap="openMap">
         <text class="index-schoolInfo-icon flex-grow-1 iconfont icon-dingwei"></text>
-        <text class="index-min-width flex-grow-3">{{address}}</text>
+        <span class="index-schoolInfo-item-middle index-min-width flex-grow-3">
+          {{address}}         
+        </span>
         <text class="index-schoolInfo-icon flex-grow-1 iconfont icon-qianjin-copy"></text>
       </view>
       <view class="index-schoolInfo-item ">
         <text class="index-schoolInfo-icon flex-grow-1 iconfont icon-shijian"></text>
-        <text class="flex-grow-3">{{timeText}}</text>
+        <text class="index-schoolInfo-item-middle flex-grow-3">{{timeText}}</text>
       </view>
       <view class="index-schoolInfo-item" catchtap="makePhoneCall">
         <text class="index-schoolInfo-icon flex-grow-1 iconfont icon-dianhua"></text>
-        <text class="flex-grow-3">{{phoneNum}}</text>
+        <text class="index-schoolInfo-item-middle flex-grow-3">{{phoneNum}}</text>
         <view class="index-schoolInfo-icon flex-grow-1 iconfont icon-qianjin-copy"></view>
       </view>
       <view class="index-schoolInfo-item">
         <text class="index-schoolInfo-icon flex-grow-1 iconfont icon-tupian"></text>
-        <text class="flex-grow-3">驾校照片</text>
+        <text class="index-schoolInfo-item-middle flex-grow-3">驾校照片</text>
+        <text class="index-schoolInfo-item-more flex-grow-1" catchlongtap='moreImg'>
+          更多
+        </text>
       </view>
        <view class="index-schoolInfo-image">
         <block wx:for="{{imageList}}">
