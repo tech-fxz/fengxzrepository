@@ -98,6 +98,7 @@ Page({
     })
   },
   moreImg:function(){
+    console.log('a');
     var list = this.data.imageList;
     list=list.concat([
       'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMtePWeK2XnApVXrYogLRmGs2nib53OzJ1ibicfAvesphu5wrHEoM5TfibfFMg/0?wx_fmt=jpeg',
@@ -110,5 +111,8 @@ Page({
     this.setData({
       imageList:list
     })
+  },
+  goWeChatPublic:function(){
+  
   }
 })

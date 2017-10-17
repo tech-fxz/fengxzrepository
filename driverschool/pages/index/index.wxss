@@ -1,11 +1,11 @@
 /**index.wxss**/
 @font-face {
   font-family: 'iconfont';  /* project id 441434 */
-  src: url('//at.alicdn.com/t/font_441434_8hc0mx1h3373c8fr.eot');
-  src: url('//at.alicdn.com/t/font_441434_8hc0mx1h3373c8fr.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_441434_8hc0mx1h3373c8fr.woff') format('woff'),
-  url('//at.alicdn.com/t/font_441434_8hc0mx1h3373c8fr.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_441434_8hc0mx1h3373c8fr.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_441434_z19qxn5pdum78pvi.eot');
+  src: url('//at.alicdn.com/t/font_441434_z19qxn5pdum78pvi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_441434_z19qxn5pdum78pvi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_441434_z19qxn5pdum78pvi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_441434_z19qxn5pdum78pvi.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -22,13 +22,13 @@
 
 .icon-qianjin-copy:before { content: "\e603"; }
 
-.icon-zhuye:before { content: "\e604"; }
-
 .icon-tupian:before { content: "\e61e"; }
 
 .icon-dingwei:before { content: "\e7a1"; }
 
 .icon-dianhua:before { content: "\e6bc"; }
+
+.icon-laba:before { content: "\e671"; }
 
 .index-row{
   padding:30rpx 0;
@@ -99,12 +99,35 @@
   line-height: 1.5;
   font-size: 12px;
   font-weight: bold;
+}
+.index-propaganda view{
+  margin-left: 45rpx;
   color: #777;
 }
 
-.index-news{
+.index-news {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #777;
+}
+.index-news .icon-red{
+  margin-right:25rpx;
   color:red;
-  font-weight:bold;
+  line-height:2.3;
+  font-size:12px;
+}
+.index-news-middle{
+  font-size: 12px;
+  line-height: 2.3;
+  font-weight: bold;
+}
+.index-news button{
+  padding:0 10rpx;
+  font-size:12px;
+  color: #0C924D;
+  border: 1px solid #0C924D;
+  background-color: #fff;
 }
 
 .index-schoolInfo{
@@ -115,6 +138,7 @@
   display: flex;
   flex-direction: row;
   justify-content:space-between;
+  font-size: 13px;
 }
 
 .index-schoolInfo-icon{
