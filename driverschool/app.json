@@ -13,24 +13,24 @@
   },
   "tabBar": {
     "color": "#777",
-    "selectedColor":"#292A86",
+    "selectedColor": "#292A86",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath":"images/home.png",
-        "selectedIconPath":"images/select-home.png",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/select-home.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/about/about",
         "iconPath": "images/about.png",
-         "selectedIconPath": "images/select-about.png",
+        "selectedIconPath": "images/select-about.png",
         "text": "关于我们"
       },
       {
         "pagePath": "pages/step/step",
         "iconPath": "images/driver.png",
-         "selectedIconPath": "images/select-driver.png",
+        "selectedIconPath": "images/select-driver.png",
         "text": "学车须知"
       }
     ]

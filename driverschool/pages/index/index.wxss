@@ -1,11 +1,11 @@
 /**index.wxss**/
 @font-face {
   font-family: 'iconfont';  /* project id 441434 */
-  src: url('//at.alicdn.com/t/font_441434_z19qxn5pdum78pvi.eot');
-  src: url('//at.alicdn.com/t/font_441434_z19qxn5pdum78pvi.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_441434_z19qxn5pdum78pvi.woff') format('woff'),
-  url('//at.alicdn.com/t/font_441434_z19qxn5pdum78pvi.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_441434_z19qxn5pdum78pvi.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_441434_i18qcylx979zfr.eot');
+  src: url('//at.alicdn.com/t/font_441434_i18qcylx979zfr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_441434_i18qcylx979zfr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_441434_i18qcylx979zfr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_441434_i18qcylx979zfr.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -22,6 +22,8 @@
 
 .icon-qianjin-copy:before { content: "\e603"; }
 
+.icon-jiaruwomen:before { content: "\e618"; }
+
 .icon-tupian:before { content: "\e61e"; }
 
 .icon-dingwei:before { content: "\e7a1"; }
@@ -29,6 +31,7 @@
 .icon-dianhua:before { content: "\e6bc"; }
 
 .icon-laba:before { content: "\e671"; }
+
 
 .index-row{
   padding:30rpx 0;
@@ -43,12 +46,18 @@
   text-align: right;
 }
 
-.flex-grow-3{
+.flex-grow-58{
   flex-grow:58
 }
 
 .flex-grow-1{
   flex-grow: 1
+}
+.flex-grow-3{
+  flex-grow: 3
+}
+.flex-grow-50{
+  flex: 50px;
 }
 
 .index-header{
@@ -96,13 +105,20 @@
 }
 
 .index-propaganda{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+
   line-height: 1.5;
   font-size: 12px;
   font-weight: bold;
 }
-.index-propaganda view{
-  margin-left: 45rpx;
+.index-propaganda-text{
   color: #777;
+}
+.index-propaganda-special{
+  margin-right: 25rpx;
+  color: red;
 }
 
 .index-news {
@@ -112,10 +128,10 @@
   color: #777;
 }
 .index-news .icon-red{
-  margin-right:25rpx;
+  margin-right:20rpx;
   color:red;
   line-height:2.3;
-  font-size:12px;
+  margin-top:10rpx;
 }
 .index-news-middle{
   font-size: 12px;
@@ -128,6 +144,26 @@
   color: #0C924D;
   border: 1px solid #0C924D;
   background-color: #fff;
+  line-height: 2;
+  margin: 0;
+}
+.index-news-helper{
+  display: none;
+}
+.index-news-follow{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.index-news-follow .icon-qianjin-copy{
+  font-size: 12px;
+}
+.index-news-special{
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 10rpx;
+  font-style:oblique;
 }
 
 .index-schoolInfo{
@@ -141,8 +177,9 @@
   font-size: 13px;
 }
 
-.index-schoolInfo-icon{
+.index-schoolInfo-item .index-schoolInfo-icon{
   color: #dbdbdb;
+  font-size: 13px;
 }
 .index-schoolInfo-image{
   display: flex;

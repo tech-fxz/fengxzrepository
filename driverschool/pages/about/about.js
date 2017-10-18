@@ -1,4 +1,4 @@
-// pages/detail/detail.js
+// pages/about/about.js
 const defaultPath='../../';
 Page({
 

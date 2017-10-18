@@ -1,4 +1,4 @@
-<!--pages/detail/detail.wxml-->
+<!--pages/about/about.wxml-->
 <view class="pages">
   <view class="index-header">
     <image src="https://mmbiz.qpic.cn/mmbiz_png/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteJv8tSmIQD8T3cxBjGWf6qRPAhTq7BZK46yRPC0PFuZrYWFtgVxGhjQ/0?wx_fmt=png" class="index-header-image"></image>

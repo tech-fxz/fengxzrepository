@@ -1,4 +1,4 @@
-/* pages/detail/detail.wxss */
+/* pages/about/about.wxss */
 .pages{
 
 }
@@ -39,6 +39,6 @@
 }
 
 .index-image image{
-  width: 450rpx;
-  height:450rpx;
+  width: 650rpx;
+  height:350rpx;
 }

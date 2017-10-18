@@ -112,7 +112,11 @@ Page({
       imageList:list
     })
   },
-  goWeChatPublic:function(){
-  
+  followMath:function(){
+    wx.showModal({
+      title: '微信小贴士',
+      content: '已关注的请从公众号列表进入，\n未关注的按如下步骤进行关注：\n1、打开微信点击右上角“+”\n2、选择添加朋友\n3、选择公众号\n4、输入东南驾校桑园训练基地\n5、添加并关注',
+      showCancel:false
+    })
   }
 })
