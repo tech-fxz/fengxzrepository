@@ -1,5 +1,6 @@
 //index.js
 const defaultPath = '../../';
+let count=0;
 Page({
 
   /**
@@ -77,6 +78,7 @@ Page({
     wx.openLocation({
       latitude: 23.0680771882,
       longitude: 113.8142964982,
+      scale:-30,
       address: '广东省东莞市东城区桑园狮环路'
     });
   },
@@ -98,24 +100,26 @@ Page({
     })
   },
   moreImg:function(){
-    console.log('a');
-    var list = this.data.imageList;
-    list=list.concat([
-      'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMtePWeK2XnApVXrYogLRmGs2nib53OzJ1ibicfAvesphu5wrHEoM5TfibfFMg/0?wx_fmt=jpeg',
-      'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteTnqRweJN0pjJ1rfRYh142801BQdm1851WS5P0OZmnmFmDeonQ6pfLQ/0?wx_fmt=jpeg',
-      'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteicU2SQr8v7E5x1JcPC5YX13dH9P5JfGKs0ia2ZEKuK4YRbop6BHGCAbA/0?wx_fmt=jpeg',
-      'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMtekCwSPU6GEticMUdeEahCIgJeWwqHSbvdL0EhlC55MYOguJum90P743g/0?wx_fmt=jpeg',
-      'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteTMRPAsHsx2U5ZltF2pf9xWAqzffpWsMTgpGiaMGJt2cciaJGRKtIP7rg/0?wx_fmt=jpeg',
-      'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMte6e5U62Y7PvUCb1o3xleg4yK0nXWN1cRZtl6eMQkNick49w1os0UaBQw/0?wx_fmt=jpeg'
-    ]);
-    this.setData({
-      imageList:list
-    })
+    if(count==0){
+      var list = this.data.imageList;
+      list = list.concat([
+        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMtePWeK2XnApVXrYogLRmGs2nib53OzJ1ibicfAvesphu5wrHEoM5TfibfFMg/0?wx_fmt=jpeg',
+        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteTnqRweJN0pjJ1rfRYh142801BQdm1851WS5P0OZmnmFmDeonQ6pfLQ/0?wx_fmt=jpeg',
+        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteicU2SQr8v7E5x1JcPC5YX13dH9P5JfGKs0ia2ZEKuK4YRbop6BHGCAbA/0?wx_fmt=jpeg',
+        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMtekCwSPU6GEticMUdeEahCIgJeWwqHSbvdL0EhlC55MYOguJum90P743g/0?wx_fmt=jpeg',
+        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteTMRPAsHsx2U5ZltF2pf9xWAqzffpWsMTgpGiaMGJt2cciaJGRKtIP7rg/0?wx_fmt=jpeg',
+        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMte6e5U62Y7PvUCb1o3xleg4yK0nXWN1cRZtl6eMQkNick49w1os0UaBQw/0?wx_fmt=jpeg'
+      ]);
+      this.setData({
+        imageList: list
+      });
+      count=1;
+    }
   },
   followMath:function(){
     wx.showModal({
       title: '微信小贴士',
-      content: '已关注的请从公众号列表进入，\n未关注的按如下步骤进行关注：\n1、打开微信点击右上角“+”\n2、选择添加朋友\n3、选择公众号\n4、输入东南驾校桑园训练基地\n5、添加并关注',
+      content: '已关注的请从公众号列表进入，\n未关注的按如下步骤进行关注：\n1、打开微信点击右上角“+”\n2、选择添加朋友\n3、选择公众号\n4、输入“东南驾校桑园训练基地”\n5、添加并关注',
       showCancel:false
     })
   }
