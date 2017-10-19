@@ -1,7 +1,7 @@
 <!--pages/step/step.wxml-->
 <view class="pages">
   <view class="step-header">
-    <image src="https://mmbiz.qpic.cn/mmbiz_png/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteJv8tSmIQD8T3cxBjGWf6qRPAhTq7BZK46yRPC0PFuZrYWFtgVxGhjQ/0?wx_fmt=png" class="step-header-image"></image>
+    <image src="{{logo}}" class="step-header-image"></image>
     <text class="step-header-name">东南驾校</text>
   </view>
 

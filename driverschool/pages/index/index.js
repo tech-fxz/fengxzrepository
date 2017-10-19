@@ -8,14 +8,15 @@ Page({
    */
   data: {
     name: '东南驾校桑园训练基地',
-    logo: 'https://mmbiz.qpic.cn/mmbiz_png/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteJv8tSmIQD8T3cxBjGWf6qRPAhTq7BZK46yRPC0PFuZrYWFtgVxGhjQ/0?wx_fmt=png',
+    logo: 'https://mmbiz.qpic.cn/mmbiz_png/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44x8Ao0yjKVrC1PI5ZoFVObKMrpeicoC3UdRJkutkSHhsR873GpWjfM7Zw/0?wx_fmt=png',
     address: '东莞市东城区桑园狮环路(科技园路对面入200米)',
     timeText: '8:00-21:00',
     phoneNum: '13580719991',
     imageList: [
-'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteqAHpP1cbd8urAjgYCbmia6GJ3BncCdjur8lL4kRytsfDUQKibwiaN6P3A/0?wx_fmt=jpeg',
-      'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteuLKQrKCZ7jglAf1iaNqG4G8pjgNkkq0PsVE6Lyg0oBySamAYt8tiaic7g/0?wx_fmt=jpeg',
-      'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMte0TcmhgewmPHqibcspzVHag1iaJhSqOvmWNHTXJoVDTD1xQQ0mIvwF87w/0?wx_fmt=jpeg'
+'https://mmbiz.qpic.cn/mmbiz_jpg/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44xjp85fzWByxQMIINNGGGqttovib7ZTgYyUMq5X59MBc2M5SRRPQfMplw/0?wx_fmt=jpeg',
+      
+'https://mmbiz.qpic.cn/mmbiz_jpg/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44xpZsgPWjibP3s9U5T2bibBgGAmQdIm9n0siaO8ZmM2q5N3RAiaWZ41X2LXg/0?wx_fmt=jpeg',
+      'https://mmbiz.qpic.cn/mmbiz_jpg/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44xXficVZDuGENq922DN05uLdD5lFu7HrQezs03vxLDwstdVGDxSia89bjQ/0?wx_fmt=jpeg'
     ]
   },
 
@@ -103,12 +104,14 @@ Page({
     if(count==0){
       var list = this.data.imageList;
       list = list.concat([
-        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMtePWeK2XnApVXrYogLRmGs2nib53OzJ1ibicfAvesphu5wrHEoM5TfibfFMg/0?wx_fmt=jpeg',
-        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteTnqRweJN0pjJ1rfRYh142801BQdm1851WS5P0OZmnmFmDeonQ6pfLQ/0?wx_fmt=jpeg',
-        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteicU2SQr8v7E5x1JcPC5YX13dH9P5JfGKs0ia2ZEKuK4YRbop6BHGCAbA/0?wx_fmt=jpeg',
-        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMtekCwSPU6GEticMUdeEahCIgJeWwqHSbvdL0EhlC55MYOguJum90P743g/0?wx_fmt=jpeg',
-        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMteTMRPAsHsx2U5ZltF2pf9xWAqzffpWsMTgpGiaMGJt2cciaJGRKtIP7rg/0?wx_fmt=jpeg',
-        'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic53tMEDftZxecVRqaJDkvMte6e5U62Y7PvUCb1o3xleg4yK0nXWN1cRZtl6eMQkNick49w1os0UaBQw/0?wx_fmt=jpeg'
+      
+        'https://mmbiz.qpic.cn/mmbiz_jpg/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44xxq6XRxGfGzU6kPbZkzwiamThCUEQNCDT6N3zHanWQ9auzptBrwia9mQQ/0?wx_fmt=jpeg',
+              'https://mmbiz.qpic.cn/mmbiz_jpg/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44xncSfq98bs7cpkKnh7XU3W5kicwiarRVHc5BzGI1sIrCia5deEibWNLXf8g/0?wx_fmt=jpeg',
+        'https://mmbiz.qpic.cn/mmbiz_jpg/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44xBiaHibUDXkdbmMveN8CtKuHwbYeXvgLvZVhbH2TKf8mbaNDMqIfiabOqA/0?wx_fmt=jpeg',
+        'https://mmbiz.qpic.cn/mmbiz_jpg/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44xvbpLVlPIG9Bj5eoPDxtzKX4j4hYb4tbtZAvWaAJ6qBtXiaybKa6Yr7A/0?wx_fmt=jpeg',
+        'https://mmbiz.qpic.cn/mmbiz_jpg/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44xjczcZOrHBHF4ZY29SNnvEoa9mQepMOoMPPWibib6sKHKhMCxhBdy3Zgw/0?wx_fmt=jpeg',
+        'https://mmbiz.qpic.cn/mmbiz_jpg/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44xjC79fpFIa8fG3mbVGsZpTmkTsex7xIRmcibj2YQfXRjYicDT0XhbhHwg/0?wx_fmt=jpeg'
+        
       ]);
       this.setData({
         imageList: list

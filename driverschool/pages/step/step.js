@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    logo:'https://mmbiz.qpic.cn/mmbiz_png/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44x8Ao0yjKVrC1PI5ZoFVObKMrpeicoC3UdRJkutkSHhsR873GpWjfM7Zw/0?wx_fmt=png'
   },
 
   /**

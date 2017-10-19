@@ -41,4 +41,5 @@
 .index-image image{
   width: 650rpx;
   height:350rpx;
+  margin-top: 30rpx
 }

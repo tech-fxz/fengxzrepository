@@ -5,7 +5,9 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: { img:'https://mmbiz.qpic.cn/mmbiz_jpg/MQ1w0ABHic50ym5JYmsqf0q4LNtxwtUbpHc02r12mxFKAbKEaDAeYxcNuIeRFleeuCIz7zQVIbyvbghyIkeJGAw/0?wx_fmt=jpeg'
+  data: {
+    logo:'https://mmbiz.qpic.cn/mmbiz_png/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44x8Ao0yjKVrC1PI5ZoFVObKMrpeicoC3UdRJkutkSHhsR873GpWjfM7Zw/0?wx_fmt=png',
+    img:'https://mmbiz.qpic.cn/mmbiz_jpg/Zo9MJ96lSvRubRa3iaAB0efTV5ictzv44x0R8RMuSbic0x4Eat5O7ecp5awWEbsOZpEmzFMs5s5TfTOHoeGvhObGQ/0?wx_fmt=jpeg'
   },
 
   /**
