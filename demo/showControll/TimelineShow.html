@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script src="../../lib/jquery-1.11.3/jquery.min.js"></script>
+    <script src="../../lib/juicer/juicer-0.6.5.min.js"></script>
+</head>
+<body>
+<div>
+    <div class="show-container">
+
+    </div>
+    <div class="timeLine"></div>
+
+    <script>
+        (function () {
+            debugger;
+            var dataSource = {};
+            dataSource.list = [{
+                start: 0,//单位s
+                end: 20,
+                len: 20,
+                order: 1,
+                type: 1,//1:视频,2：图片集，3：文字
+                hasAudio: true,//type不等于1时，才生效
+                source: 'resource/flower.mp4'//type=1：视频播放地址，type=2：图片数组，type=3：普通文字
+            }, {
+                start: 21,//单位s
+                end: 30,
+                len: 10,
+                order: 2,
+                type: 2,//1:视频,2：图片集，3：文字
+                hasAudio: true,//type不等于1时生效
+                AudioUrl: 'resource/baMusic.aac',//hasAudio为true时生效
+                source: [//type=1：视频播放地址，type=2：图片数组，type=3：普通文字
+                    'resource/1.jpg',
+                    'resource/2.jpg',
+                    'resource/3.jpg',
+                    'resource/4.jpg',
+                    'resource/5.jpg'
+                ]
+            }, {
+                start: 31,//单位s
+                end: 40,
+                len: 10,
+                order: 3,
+                type: 3,//1:视频,2：图片集，3：文字
+                hasAudio: false,//type不等于1时，才生效
+                source: '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试'//type=1：视频播放地址，type=2：图片数组，type=3：普通文字
+            }];
+            var list = dataSource.list;
+
+            var playVideo = function (entity) {
+                setTimeout(function () {
+                    var type = entity.type;
+                    console.log(type);
+                    var html;
+                    html = '<video src="resource/flower.mp4" autoplay="autoplay" loop="loop" width="80%"></video>';
+                    $('.show-container').html(html);
+                }, 1000 * entity.start);
+            };
+
+            var playPhoto = function (entity) {
+                setTimeout(function () {
+                    var type = entity.type;
+                    console.log(type);
+                    var template = '<div>';
+                    template += ' <ul>';
+
+                    template += '     <li>';
+                    template += '         <img src="resource/1.jpg">';
+                    template += '     </li>';
+
+                    template += ' </ul>';
+                    template += '</div>';
+                    var html = juicer(template, entity.source);
+                    $('.show-container').html(html);
+                }, 1000 * entity.start);
+
+
+            };
+
+            var playText = function (entity) {
+                setTimeout(function () {
+                    var type = entity.type;
+                    console.log(type);
+                    var html = '<span>';
+                    html += entity.source;
+                    html += '</span>';
+                    $('.show-container').html(html);
+                }, 1000 * entity.start);
+            };
+            for (var i = 0; i < list.length; i++) {
+                var entity = list[i];
+                switch (entity.type) {
+                    case 1:
+                        playVideo(entity);
+                        break;
+                    case 2:
+                        playPhoto(entity);
+                        break;
+                    case 3:
+                        playText(entity);
+                        break;
+                }
+            }
+        })();
+    </script>
+</div>
+</body>
+</html>
