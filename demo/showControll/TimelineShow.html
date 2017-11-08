@@ -12,11 +12,9 @@
         @-webkit-keyframes fadeInRight {
             0% {
                 opacity: 0;
-                -webkit-transform: translateX(20px);
             }
             100% {
                 opacity: 1;
-                -webkit-transform: translateX(0);
             }
         }
 
@@ -28,17 +26,44 @@
 
             100% {
                 opacity: 0;
-                -webkit-transform: translateX(20px);
+                -webkit-transform: translateX(-20px);
             }
         }
 
         @-webkit-keyframes show {
             0% {
-                -webkit-transform: translateX(0);
+                opacity: 0;
             }
 
             100% {
-                -webkit-transform: translateX(1400px);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes hide {
+            0% {
+                opacity: 1;
+                -webkit-transform: translateX(0);
+            }
+
+            /*25%{*/
+                /*opacity:1;*/
+                /*-webkit-transform: translate(-100px,-300px);*/
+            /*}*/
+
+            /*50%{*/
+                /*opacity:1;*/
+                /*-webkit-transform: translate(-200px,-400px);*/
+            /*}*/
+
+            /*75%{*/
+                /*opacity:1;*/
+                /*-webkit-transform: translate(-200px,-400px);*/
+            /*}*/
+
+            100% {
+                opacity: 0;
+                -webkit-transform: translate(-20px);
             }
         }
 
@@ -47,17 +72,33 @@
             height: 100%;
         }
 
+        .image-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
         .show-container .image-container img {
-            display: none;
+            position: absolute;
+        }
+
+        .show-container .image-container img:first-child {
+            display: block;
         }
 
         .img-show {
-            display: block !important;
             -webkit-animation-name: show;
             -webkit-animation-timing-function: ease-in-out;
-            -webkit-animation-duration: 4s;
+            -webkit-animation-duration: 3s;
             -webkit-animation-direction: alternate;
-            animation-delay: 6s;
+        }
+
+        .img-hide {
+            -webkit-animation-name: hide;
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-duration: 3s;
+            -webkit-animation-direction: alternate;
+            -webkit-animation-delay: 4s;
         }
 
         .unit-show {
@@ -71,6 +112,7 @@
         }
 
         .item {
+            overflow: hidden;
             animation-duration: 2s;
             animation-timing-function: ease-in-out;
             animation-direction: alternate;
@@ -97,15 +139,23 @@
             dataSource.list = [{
                 start: 0,//单位s
                 end: 20,
-                len: 10,
+                len: 20,
                 order: 1,
                 type: 1,//1:视频,2：图片集，3：文字
                 hasAudio: true,//type不等于1时，才生效
-                source: 'resource/flower.mp4'//type=1：视频播放地址，type=2：图片数组，type=3：普通文字
+                source: 'resource/2.mp4',//type=1：视频播放地址，type=2：图片数组，type=3：普通文字
+                fn: function (data) {
+                    var html;
+                    html = '<div class="item unit-show">';
+                    html += '<video src=' + data.source + ' autoplay= autoplay loop=loop width=100% height=100%></video>';
+                    html += '</div>';
+
+                    $('.show-container').html(html);
+                }
             }, {
-                start: 21,//单位s
-                end: 30,
-                len: 10,
+                start: 30,//单位s
+                end: 55,
+                len: 55,
                 order: 2,
                 type: 2,//1:视频,2：图片集，3：文字
                 hasAudio: true,//type不等于1时生效
@@ -116,101 +166,87 @@
                     'resource/3.jpg',
                     'resource/4.jpg',
                     'resource/5.jpg'
-                ]
+                ],
+                fn: function (data) {
+                    var template = '<div class="item unit-show image-container">';
+                    template += '{@each _ as item ,index}';
+                    template += '    <img src="$${item}" class="{@if index==4}img-hide{@/if}"  width="100%" height="100%">';
+                    template += '{@/each}';
+                    template += '<audio autoplay="autoplay" loop="loop" src=' + data.AudioUrl + '></audio>';
+                    template += '</div>';
+                    var html = juicer(template, data.source);
+                    $('.show-container').html(html);
+
+                    var list = data.source;
+                    var count = list.length - 1;
+                    var interval = setInterval(function () {
+                        $('.image-container').removeClass('unit-show');
+                        var $img = $('.image-container img');
+                        if ($img.length === 0) {
+                            clearInterval(interval);
+                        }
+
+                        $($img[count]).hide();
+                        if (count === 0) {
+                            count = list.length - 1;
+                            $($img[count]).show();
+                            $($img[count]).addClass('img-show');
+                            $($img[count]).addClass('img-hide');
+                        } else {
+                            $($img[count]).prev().show();
+                            $($img[count]).prev().addClass('img-show');
+                            $($img[count]).prev().addClass('img-hide');
+                            count--;
+                        }
+
+                    }, 1000 * 6)
+                }
             }, {
-                start: 31,//单位s
-                end: 40,
+                start: 56,//单位s
+                end: 66,
                 len: 10,
                 order: 3,
                 type: 3,//1:视频,2：图片集，3：文字
                 hasAudio: false,//type不等于1时，才生效
-                source: '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试'//type=1：视频播放地址，type=2：图片数组，type=3：普通文字
-            }];
-            var list = dataSource.list;
-
-            var playVideo = function (parameter) {
-                var entity = parameter.data;
-                var isNeedFadeOut = parameter.isNeedFadeOut;
-                setTimeout(function () {
-                    var html;
-                    html = '<div class="item unit-show"><video src="resource/2.mp4" autoplay="autoplay" loop="loop" width="100%" height="100%"></video></div>';
-                    $('.show-container').html(html);
-                }, 1000 * entity.start);
-                if (isNeedFadeOut) {
-                    setTimeout(function () {
-                        $('.unit-show').addClass('unit-hide');
-                    }, 1000 * (entity.end - 1));
-                }
-            };
-
-            var playPhoto = function (parameter) {
-                var entity = parameter.data;
-                var isNeedFadeOut = parameter.isNeedFadeOut;
-                setTimeout(function () {
-                    var template = '<div class="item unit-show image-container">';
-                    template += '{@each _ as item ,index}';
-                    template += '    <img src="$${item}" width="100%" height="100%">';
-                    template += '{@/each}';
-                    template += '<audio autoplay="autoplay" loop="loop" class="{@if index==0}img-show{@/if}" src=' + entity.AudioUrl + '></audio>';
-                    template += '</div>';
-                    var html = juicer(template, entity.source);
-                    $('.show-container').html(html);
-
-                    var count = 0;
-                    var interval = setInterval(function () {
-                        $('img').siblings().removeClass('img-show');
-                        $($('img')[count]).addClass('img-show');
-                        if (count === entity.source.length) {
-                            count = 0;
-                        }
-                        count++;
-                    }, 1000 * 5)
-                }, 1000 * entity.start);
-//                if (isNeedFadeOut) {
-//                    setTimeout(function () {
-//                        $('.unit-show').addClass('unit-hide');
-//                    }, 1000 * (entity.end - 1));
-//                }
-            };
-
-            var playText = function (parameter) {
-                var entity = parameter.data;
-                var isNeedFadeOut = parameter.isNeedFadeOut;
-                setTimeout(function () {
+                source: '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试',//type=1：视频播放地址，type=2：图片数组，type=3：普通文字
+                fn: function (data) {
                     var html = '<div class="item unit-show">';
-                    html += entity.source;
+                    html += data.source;
                     html += '</div>';
                     $('.show-container').html(html);
-                }, 1000 * entity.start);
+                }
+            }];
+
+            var _setTimeOutFn = function (argP) {
+                var data = argP.data;
+                var isNeedFadeOut = argP.isNeedFadeOut;
+                setTimeout(function () {
+                    data.fn(data);
+                }, 1000 * data.start);
+
                 if (isNeedFadeOut) {
                     setTimeout(function () {
                         $('.unit-show').addClass('unit-hide');
-                    }, 1000 * (entity.end - 2));
+                    }, 1000 * (data.end - 2));
                 }
-
             };
-            for (var i = 0; i < list.length; i++) {
-                var entity = list[i];
-                var isNeedFadeOut = true;
-                if (i === (list.length - 1)) {
-                    isNeedFadeOut = false;
+
+            var initFn = function () {
+                var list = dataSource.list;
+                for (var i = 0; i < list.length; i++) {
+                    var entity = list[i];
+                    var isNeedFadeOut = true;
+                    if (i === (list.length - 1)) {
+                        isNeedFadeOut = false;
+                    }
+                    var param = {};
+                    param.data = entity;
+                    param.isNeedFadeOut = isNeedFadeOut;
+                    _setTimeOutFn(param);
                 }
-                var parameter = {
-                    data: entity,
-                    isNeedFadeOut: isNeedFadeOut
-                };
-                switch (entity.type) {
-                    case 1:
-                        playVideo(parameter);
-                        break;
-                    case 2:
-                        playPhoto(parameter);
-                        break;
-                    case 3:
-                        playText(parameter);
-                        break;
-                }
-            }
+            };
+
+            initFn();
         })();
     </script>
 </div>
