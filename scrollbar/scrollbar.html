@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动条测试</title>
+
+    <script src="http://ee-res.l.cn/js/jquery.js"></script>
+
+    <style>
+        body, div, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .content {
+            position: relative;
+            width: 100px;
+            overflow: hidden;
+        }
+
+        .nav {
+            height: 200px;
+            width: 118px;
+            overflow: auto;
+        }
+
+        .scrollbar {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 4px;
+        }
+
+        .track {
+            background-color: #efebeb;
+            width: 2px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .thumb {
+            position: absolute;
+            top: 0;
+            width: 4px;
+            height: 100px;
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div id="nav" class="nav">
+        <ul>
+            <li>第一栏内容</li>
+            <li>第二栏内容</li>
+            <li>第三栏内容</li>
+            <li>第四栏内容</li>
+            <li>第五栏内容</li>
+            <li>第六栏内容</li>
+            <li>第七栏内容</li>
+            <li>第八栏内容</li>
+            <li>第九栏内容</li>
+            <li>第十栏内容</li>
+            <li>第十一栏内容</li>
+            <li>第十二栏内容</li>
+            <li>第十三栏内容</li>
+            <li>第十四栏内容</li>
+            <li>第十五栏内容</li>
+            <li>第十六栏内容</li>
+            <li>第十七栏内容</li>
+            <li>第十八栏内容</li>
+            <li>第十五栏内容</li>
+            <li>第十六栏内容</li>
+        </ul>
+    </div>
+    <div class="scrollbar">
+        <div class="track"></div>
+        <div class="thumb"></div>
+    </div>
+</div>
+
+<script>
+    var scale;
+    var afterY;
+    $(document).ready(function () {
+        var thumbHeight;
+        var scrollHeight = $('.nav')[0].scrollHeight;
+        var parentHeight = $('.content').height() || 1;
+        scale = parentHeight / scrollHeight;
+        thumbHeight = parentHeight * scale;
+        $('.thumb').height(thumbHeight);
+
+        console.log(scrollHeight);
+    });
+    $('.nav').on('scroll', function (event) {
+        var target = event.target;
+        var scrollTop = target.scrollTop;
+        var top = scrollTop * scale;
+        $('.thumb').css('top', top + 'px');
+    });
+    $('.thumb').on('mousedown', function (event) {
+        afterY = event.clientY;
+    });
+    $('.content').on('mousemove', function (event) {
+        if (afterY) {
+            var beforeY = event.clientY;
+            var move = beforeY - afterY;
+            var top = move * scale;
+            document.getElementById('nav').scrollTo(event.clientX, beforeY);
+            $('.thumb').css('top', top + 'px');
+        }
+    });
+    $('body').on('mouseup', function (event) {
+        if(afterY){
+            afterY = null;
+        }
+    })
+</script>
+</body>
+</html>
