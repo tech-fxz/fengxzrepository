@@ -3,6 +3,7 @@
   "node": true,
   "browser": true,
   "devel": true,
+  "esversion": 6,
   "esnext": true,
   "bitwise": true,
   "camelcase": false,

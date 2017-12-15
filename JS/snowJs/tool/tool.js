@@ -105,35 +105,31 @@ _s.serialize = function (form) {
 };
 
 _s.getBrowser = function () {
-    var appName = navigator.appName;
-    var appVersion = navigator.appVersion;
-    var name = '';
-
-    if (appName === 'Netscape') {
-        if (appVersion.indexOf('Chrome') > -1) {
-            name = 'Chrome';
-        } else if (appVersion.indexOf('Safari') > -1) {
-            name = 'Safari';
-        } else {
-            name = 'otherBrowser';
+    var browser;
+    var browserInfo=window.navigator.userAgent;
+    if(browserInfo.indexOf('Trident')>-1){
+        if (browserInfo.indexOf('Mozilla/5.0') >-1) {
+            browser = 'IE11';
+        } else{
+            if (browserInfo.indexOf('Trident/10.0') > -1) {
+                browser = 'IE10';
+            } else if (browserInfo.indexOf('Trident/9.0') > -1) {
+                browser = 'IE9';
+            } else if (browserInfo.indexOf('Trident/8.0') > -1) {
+                browser = 'IE8';
+            } else if (browserInfo.indexOf('Trident/7.0') > -1) {
+                browser = 'IE7';
+            }else{
+                browser='IE0';//更低版本的IE浏览器
+            }
         }
-    } else if (appName === 'Microsoft Internet Explorer') {
-        if (appVersion.indexOf('MSIE') < 0) {
-            name = 'IE11';
-        } else if (appVersion.indexOf('MSIE 10.0') > -1) {
-            name = 'IE10';
-        } else if (appVersion.indexOf('MSIE 9.0') > -1) {
-            name = 'IE9';
-        } else if (appVersion.indexOf('MSIE 8.0') > -1) {
-            name = 'IE8';
-        } else if (appVersion.indexOf('MSIE 7.0') > -1) {
-            name = 'IE7'
-        } else if (appVersion.indexOf('MSIE 6.0') > -1) {
-            name = 'IE6';
-        }
+    }else if(browserInfo.indexOf('Chrome')>-1){
+        browser='Chrome';
+    }else if(browserInfo.indexOf('Firefox')>-1){
+        browser='Firefox';
     }
 
-    return name;
+    return browser;
 };
 
 _s.isArray = function (arg) {

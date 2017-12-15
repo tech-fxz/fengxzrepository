@@ -1,10 +1,18 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
+<!--[if IE 8 ]><html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en">
+<!--<![endif]-->
 <head>
     <meta charset="UTF-8">
     <title>滚动条测试</title>
 
+<link rel="stylesheet" href="../lib/jquery-mCustomScrollbar/jquery.mCustomScrollbar.css">
+
     <script src="http://ee-res.l.cn/js/jquery.js"></script>
+    <script src="../lib/jquery-mCustomScrollbar/jquery.mCustomScrollbar.js"></script>
 
     <style>
         body, div, ul, li {
@@ -13,16 +21,26 @@
             list-style: none;
         }
 
-        .content {
-            position: relative;
-            width: 100px;
-            overflow: hidden;
-        }
+        /*.content {*/
+            /*position: relative;*/
+            /*width: 100px;*/
+            /*overflow: hidden;*/
+        /*}*/
 
         .nav {
             height: 200px;
             width: 118px;
             overflow: auto;
+        }
+
+        ._mCS_1 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+            /* 1st scrollbar dragger style... */
+        }
+        ._mCS_2 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+            /* 2nd scrollbar dragger style... */
+        }
+        ._mCS_3 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+            /* 3rd scrollbar dragger style... */
         }
 
         .scrollbar {
@@ -75,48 +93,47 @@
             <li>第十六栏内容</li>
         </ul>
     </div>
-    <div class="scrollbar">
-        <div class="track"></div>
-        <div class="thumb"></div>
-    </div>
 </div>
 
 <script>
-    var scale;
-    var afterY;
-    $(document).ready(function () {
-        var thumbHeight;
-        var scrollHeight = $('.nav')[0].scrollHeight;
-        var parentHeight = $('.content').height() || 1;
-        scale = parentHeight / scrollHeight;
-        thumbHeight = parentHeight * scale;
-        $('.thumb').height(thumbHeight);
-
-        console.log(scrollHeight);
+    $("#nav").mCustomScrollbar({
+        theme:"dark-3"
     });
-    $('.nav').on('scroll', function (event) {
-        var target = event.target;
-        var scrollTop = target.scrollTop;
-        var top = scrollTop * scale;
-        $('.thumb').css('top', top + 'px');
-    });
-    $('.thumb').on('mousedown', function (event) {
-        afterY = event.clientY;
-    });
-    $('.content').on('mousemove', function (event) {
-        if (afterY) {
-            var beforeY = event.clientY;
-            var move = beforeY - afterY;
-            var top = move * scale;
-            document.getElementById('nav').scrollTo(event.clientX, beforeY);
-            $('.thumb').css('top', top + 'px');
-        }
-    });
-    $('body').on('mouseup', function (event) {
-        if(afterY){
-            afterY = null;
-        }
-    })
+//    var scale;
+//    var afterY;
+//    $(document).ready(function () {
+//        var thumbHeight;
+//        var scrollHeight = $('.nav')[0].scrollHeight;
+//        var parentHeight = $('.content').height() || 1;
+//        scale = parentHeight / scrollHeight;
+//        thumbHeight = parentHeight * scale;
+//        $('.thumb').height(thumbHeight);
+//
+//        console.log(scrollHeight);
+//    });
+//    $('.nav').on('scroll', function (event) {
+//        var target = event.target;
+//        var scrollTop = target.scrollTop;
+//        var top = scrollTop * scale;
+//        $('.thumb').css('top', top + 'px');
+//    });
+//    $('.thumb').on('mousedown', function (event) {
+//        afterY = event.clientY;
+//    });
+//    $('.content').on('mousemove', function (event) {
+//        if (afterY) {
+//            var beforeY = event.clientY;
+//            var move = beforeY - afterY;
+//            var top = move * scale;
+//            document.getElementById('nav').scrollTo(event.clientX, beforeY);
+//            $('.thumb').css('top', top + 'px');
+//        }
+//    });
+//    $('body').on('mouseup', function (event) {
+//        if(afterY){
+//            afterY = null;
+//        }
+//    });
 </script>
 </body>
 </html>
